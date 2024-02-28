@@ -1,0 +1,95 @@
+<testsuites id="" name="" tests="9" failures="3" skipped="0" errors="0" time="10.701366">
+<testsuite name="example.spec.js" timestamp="2024-02-28T21:20:39.682Z" hostname="chromium" tests="2" failures="0" skipped="0" time="2.265" errors="0">
+<testcase name="has title" classname="example.spec.js" time="1.069">
+</testcase>
+<testcase name="get started link" classname="example.spec.js" time="1.196">
+</testcase>
+</testsuite>
+<testsuite name="test-1.spec.ts" timestamp="2024-02-28T21:20:39.682Z" hostname="chromium" tests="1" failures="1" skipped="0" time="5" errors="0">
+<testcase name="test" classname="test-1.spec.ts" time="5">
+<failure message="test-1.spec.ts:3:5 test" type="FAILURE">
+<![CDATA[  [chromium] › test-1.spec.ts:3:5 › test ───────────────────────────────────────────────────────────
+
+    Test timeout of 5000ms exceeded.
+
+    Error: locator.click: Test timeout of 5000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: 'Facebook - Inicia sesión o' })
+
+
+       5 |   await page.getByLabel('Buscar', { exact: true }).click();
+       6 |   await page.getByLabel('Buscar', { exact: true }).fill('facebook');
+    >  7 |   await page.getByRole('link', { name: 'Facebook - Inicia sesión o' }).click();
+         |                                                                        ^
+       8 |   await page.goto('https://www.google.com/search?q=facebook&sca_esv=6917f8fced87079d&source=hp&ei=n5jfZeHYHNzU1sQP-eeaiAE&iflsig=ANes7DEAAAAAZd-mrzKX8qiwKuMe2NiKd4ze3WsO1sP5&ved=0ahUKEwihpN308M6EAxVcqpUCHfmzBhEQ4dUDCA0&uact=5&oq=facebook&gs_lp=Egdnd3Mtd2l6IghmYWNlYm9vazIUEC4YgAQYsQMYgwEYyQMYxwEY0QMyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATIOEAAYgAQYigUYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBiKBRiSAzILEAAYgAQYsQMYgwFI1RdQ8g5YkhZwAXgAkAEAmAFRoAHrBKoBATi4AQPIAQD4AQGYAgmgAo8FqAIKwgIQEAAYAxiPARjlAhjqAhiMA8ICEBAuGAMYjwEY5QIY6gIYjAPCAhEQLhiABBixAxiDARjHARjRA8ICCBAAGIAEGLEDwgIOEC4YgAQYsQMYxwEY0QPCAgUQABiABMICDhAuGIAEGIoFGLEDGIMBwgILEC4YgAQYsQMYgwGYAwaSBwE5&sclient=gws-wiz');
+       9 |   await page.getByRole('combobox', { name: 'Buscar' }).click({
+      10 |     clickCount: 3
+
+        at /Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests/test-1.spec.ts:7:72
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="example.spec.js" timestamp="2024-02-28T21:20:39.682Z" hostname="firefox" tests="2" failures="0" skipped="0" time="3.364" errors="0">
+<testcase name="has title" classname="example.spec.js" time="1.952">
+</testcase>
+<testcase name="get started link" classname="example.spec.js" time="1.412">
+</testcase>
+</testsuite>
+<testsuite name="test-1.spec.ts" timestamp="2024-02-28T21:20:39.682Z" hostname="firefox" tests="1" failures="1" skipped="0" time="5.001" errors="0">
+<testcase name="test" classname="test-1.spec.ts" time="5.001">
+<failure message="test-1.spec.ts:3:5 test" type="FAILURE">
+<![CDATA[  [firefox] › test-1.spec.ts:3:5 › test ────────────────────────────────────────────────────────────
+
+    Test timeout of 5000ms exceeded.
+
+    Error: locator.click: Test timeout of 5000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: 'Facebook - Inicia sesión o' })
+
+
+       5 |   await page.getByLabel('Buscar', { exact: true }).click();
+       6 |   await page.getByLabel('Buscar', { exact: true }).fill('facebook');
+    >  7 |   await page.getByRole('link', { name: 'Facebook - Inicia sesión o' }).click();
+         |                                                                        ^
+       8 |   await page.goto('https://www.google.com/search?q=facebook&sca_esv=6917f8fced87079d&source=hp&ei=n5jfZeHYHNzU1sQP-eeaiAE&iflsig=ANes7DEAAAAAZd-mrzKX8qiwKuMe2NiKd4ze3WsO1sP5&ved=0ahUKEwihpN308M6EAxVcqpUCHfmzBhEQ4dUDCA0&uact=5&oq=facebook&gs_lp=Egdnd3Mtd2l6IghmYWNlYm9vazIUEC4YgAQYsQMYgwEYyQMYxwEY0QMyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATIOEAAYgAQYigUYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBiKBRiSAzILEAAYgAQYsQMYgwFI1RdQ8g5YkhZwAXgAkAEAmAFRoAHrBKoBATi4AQPIAQD4AQGYAgmgAo8FqAIKwgIQEAAYAxiPARjlAhjqAhiMA8ICEBAuGAMYjwEY5QIY6gIYjAPCAhEQLhiABBixAxiDARjHARjRA8ICCBAAGIAEGLEDwgIOEC4YgAQYsQMYxwEY0QPCAgUQABiABMICDhAuGIAEGIoFGLEDGIMBwgILEC4YgAQYsQMYgwGYAwaSBwE5&sclient=gws-wiz');
+       9 |   await page.getByRole('combobox', { name: 'Buscar' }).click({
+      10 |     clickCount: 3
+
+        at /Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests/test-1.spec.ts:7:72
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="example.spec.js" timestamp="2024-02-28T21:20:39.682Z" hostname="webkit" tests="2" failures="0" skipped="0" time="2.023" errors="0">
+<testcase name="has title" classname="example.spec.js" time="1.204">
+</testcase>
+<testcase name="get started link" classname="example.spec.js" time="0.819">
+</testcase>
+</testsuite>
+<testsuite name="test-1.spec.ts" timestamp="2024-02-28T21:20:39.682Z" hostname="webkit" tests="1" failures="1" skipped="0" time="5" errors="0">
+<testcase name="test" classname="test-1.spec.ts" time="5">
+<failure message="test-1.spec.ts:3:5 test" type="FAILURE">
+<![CDATA[  [webkit] › test-1.spec.ts:3:5 › test ─────────────────────────────────────────────────────────────
+
+    Test timeout of 5000ms exceeded.
+
+    Error: locator.click: Test timeout of 5000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: 'Facebook - Inicia sesión o' })
+
+
+       5 |   await page.getByLabel('Buscar', { exact: true }).click();
+       6 |   await page.getByLabel('Buscar', { exact: true }).fill('facebook');
+    >  7 |   await page.getByRole('link', { name: 'Facebook - Inicia sesión o' }).click();
+         |                                                                        ^
+       8 |   await page.goto('https://www.google.com/search?q=facebook&sca_esv=6917f8fced87079d&source=hp&ei=n5jfZeHYHNzU1sQP-eeaiAE&iflsig=ANes7DEAAAAAZd-mrzKX8qiwKuMe2NiKd4ze3WsO1sP5&ved=0ahUKEwihpN308M6EAxVcqpUCHfmzBhEQ4dUDCA0&uact=5&oq=facebook&gs_lp=Egdnd3Mtd2l6IghmYWNlYm9vazIUEC4YgAQYsQMYgwEYyQMYxwEY0QMyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATIOEAAYgAQYigUYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBiKBRiSAzILEAAYgAQYsQMYgwFI1RdQ8g5YkhZwAXgAkAEAmAFRoAHrBKoBATi4AQPIAQD4AQGYAgmgAo8FqAIKwgIQEAAYAxiPARjlAhjqAhiMA8ICEBAuGAMYjwEY5QIY6gIYjAPCAhEQLhiABBixAxiDARjHARjRA8ICCBAAGIAEGLEDwgIOEC4YgAQYsQMYxwEY0QPCAgUQABiABMICDhAuGIAEGIoFGLEDGIMBwgILEC4YgAQYsQMYgwGYAwaSBwE5&sclient=gws-wiz');
+       9 |   await page.getByRole('combobox', { name: 'Buscar' }).click({
+      10 |     clickCount: 3
+
+        at /Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests/test-1.spec.ts:7:72
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

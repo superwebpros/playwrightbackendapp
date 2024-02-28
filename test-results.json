@@ -1,0 +1,444 @@
+{
+  "config": {
+    "configFile": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/playwright.config.js",
+    "rootDir": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.42.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "example.spec.js",
+      "file": "example.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "has title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 1061,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-28T20:59:40.549Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dd9b2edffe9b7501040c-fe3fbe2603922999b144",
+          "file": "example.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "get started link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 1275,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-28T20:59:40.538Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dd9b2edffe9b7501040c-18206e4c4b88f5cba6b3",
+          "file": "example.spec.js",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "has title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 1854,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-28T20:59:40.539Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dd9b2edffe9b7501040c-d4c717b31af4a9f2966c",
+          "file": "example.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "get started link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 1366,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-28T20:59:42.648Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dd9b2edffe9b7501040c-bd27acb1ede64c49a8c2",
+          "file": "example.spec.js",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "has title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 1014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-28T20:59:44.801Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dd9b2edffe9b7501040c-81956d889397891855b6",
+          "file": "example.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "get started link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 805,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-28T20:59:46.368Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dd9b2edffe9b7501040c-79dcc7ee73f3a5ca9814",
+          "file": "example.spec.js",
+          "line": 11,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "test-1.spec.ts",
+      "file": "test-1.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "test",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "timedOut",
+                  "duration": 30001,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests/test-1.spec.ts",
+                        "column": 72,
+                        "line": 7
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n  \u001b[2m- waiting for getByRole('link', { name: 'Facebook - Inicia sesión o' })\u001b[22m\n\n\n   5 |   await page.getByLabel('Buscar', { exact: true }).click();\n   6 |   await page.getByLabel('Buscar', { exact: true }).fill('facebook');\n>  7 |   await page.getByRole('link', { name: 'Facebook - Inicia sesión o' }).click();\n     |                                                                        ^\n   8 |   await page.goto('https://www.google.com/search?q=facebook&sca_esv=6917f8fced87079d&source=hp&ei=n5jfZeHYHNzU1sQP-eeaiAE&iflsig=ANes7DEAAAAAZd-mrzKX8qiwKuMe2NiKd4ze3WsO1sP5&ved=0ahUKEwihpN308M6EAxVcqpUCHfmzBhEQ4dUDCA0&uact=5&oq=facebook&gs_lp=Egdnd3Mtd2l6IghmYWNlYm9vazIUEC4YgAQYsQMYgwEYyQMYxwEY0QMyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATIOEAAYgAQYigUYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBiKBRiSAzILEAAYgAQYsQMYgwFI1RdQ8g5YkhZwAXgAkAEAmAFRoAHrBKoBATi4AQPIAQD4AQGYAgmgAo8FqAIKwgIQEAAYAxiPARjlAhjqAhiMA8ICEBAuGAMYjwEY5QIY6gIYjAPCAhEQLhiABBixAxiDARjHARjRA8ICCBAAGIAEGLEDwgIOEC4YgAQYsQMYxwEY0QPCAgUQABiABMICDhAuGIAEGIoFGLEDGIMBwgILEC4YgAQYsQMYgwGYAwaSBwE5&sclient=gws-wiz');\n   9 |   await page.getByRole('combobox', { name: 'Buscar' }).click({\n  10 |     clickCount: 3\n\n    at /Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests/test-1.spec.ts:7:72"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-28T20:59:40.537Z",
+                  "attachments": []
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "492d4a3e7e76c4aacf4a-34ab2a399aed0b8eb826",
+          "file": "test-1.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "test",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "timedOut",
+                  "duration": 30001,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests/test-1.spec.ts",
+                        "column": 72,
+                        "line": 7
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n  \u001b[2m- waiting for getByRole('link', { name: 'Facebook - Inicia sesión o' })\u001b[22m\n\n\n   5 |   await page.getByLabel('Buscar', { exact: true }).click();\n   6 |   await page.getByLabel('Buscar', { exact: true }).fill('facebook');\n>  7 |   await page.getByRole('link', { name: 'Facebook - Inicia sesión o' }).click();\n     |                                                                        ^\n   8 |   await page.goto('https://www.google.com/search?q=facebook&sca_esv=6917f8fced87079d&source=hp&ei=n5jfZeHYHNzU1sQP-eeaiAE&iflsig=ANes7DEAAAAAZd-mrzKX8qiwKuMe2NiKd4ze3WsO1sP5&ved=0ahUKEwihpN308M6EAxVcqpUCHfmzBhEQ4dUDCA0&uact=5&oq=facebook&gs_lp=Egdnd3Mtd2l6IghmYWNlYm9vazIUEC4YgAQYsQMYgwEYyQMYxwEY0QMyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATIOEAAYgAQYigUYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBiKBRiSAzILEAAYgAQYsQMYgwFI1RdQ8g5YkhZwAXgAkAEAmAFRoAHrBKoBATi4AQPIAQD4AQGYAgmgAo8FqAIKwgIQEAAYAxiPARjlAhjqAhiMA8ICEBAuGAMYjwEY5QIY6gIYjAPCAhEQLhiABBixAxiDARjHARjRA8ICCBAAGIAEGLEDwgIOEC4YgAQYsQMYxwEY0QPCAgUQABiABMICDhAuGIAEGIoFGLEDGIMBwgILEC4YgAQYsQMYgwGYAwaSBwE5&sclient=gws-wiz');\n   9 |   await page.getByRole('combobox', { name: 'Buscar' }).click({\n  10 |     clickCount: 3\n\n    at /Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests/test-1.spec.ts:7:72"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-28T20:59:42.752Z",
+                  "attachments": []
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "492d4a3e7e76c4aacf4a-37e2b8f79a25e4d7e6d2",
+          "file": "test-1.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "test",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "timedOut",
+                  "duration": 30001,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests/test-1.spec.ts",
+                        "column": 72,
+                        "line": 7
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n  \u001b[2m- waiting for getByRole('link', { name: 'Facebook - Inicia sesión o' })\u001b[22m\n\n\n   5 |   await page.getByLabel('Buscar', { exact: true }).click();\n   6 |   await page.getByLabel('Buscar', { exact: true }).fill('facebook');\n>  7 |   await page.getByRole('link', { name: 'Facebook - Inicia sesión o' }).click();\n     |                                                                        ^\n   8 |   await page.goto('https://www.google.com/search?q=facebook&sca_esv=6917f8fced87079d&source=hp&ei=n5jfZeHYHNzU1sQP-eeaiAE&iflsig=ANes7DEAAAAAZd-mrzKX8qiwKuMe2NiKd4ze3WsO1sP5&ved=0ahUKEwihpN308M6EAxVcqpUCHfmzBhEQ4dUDCA0&uact=5&oq=facebook&gs_lp=Egdnd3Mtd2l6IghmYWNlYm9vazIUEC4YgAQYsQMYgwEYyQMYxwEY0QMyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATIOEAAYgAQYigUYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBiKBRiSAzILEAAYgAQYsQMYgwFI1RdQ8g5YkhZwAXgAkAEAmAFRoAHrBKoBATi4AQPIAQD4AQGYAgmgAo8FqAIKwgIQEAAYAxiPARjlAhjqAhiMA8ICEBAuGAMYjwEY5QIY6gIYjAPCAhEQLhiABBixAxiDARjHARjRA8ICCBAAGIAEGLEDwgIOEC4YgAQYsQMYxwEY0QPCAgUQABiABMICDhAuGIAEGIoFGLEDGIMBwgILEC4YgAQYsQMYgwGYAwaSBwE5&sclient=gws-wiz');\n   9 |   await page.getByRole('combobox', { name: 'Buscar' }).click({\n  10 |     clickCount: 3\n\n    at /Users/leandrosavat/Documents/GitHub/SuperWebPros/PlaywrightTestApp/PlaywrightBackendApp/tests/test-1.spec.ts:7:72"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-02-28T20:59:46.110Z",
+                  "attachments": []
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "492d4a3e7e76c4aacf4a-a6b7cc54cad2784c8b6e",
+          "file": "test-1.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2024-02-28T20:59:40.312Z",
+    "duration": 35848.334,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}
