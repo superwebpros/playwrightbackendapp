@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 const app = express();
 const { spawn } = require("child_process");
 
-app.get("/api", (req, res) => {
+app.get("/api", async(req, res) => {
   const child = spawn("npx", ["playwright", "test"], {
     stdio: ["inherit", "pipe", "pipe"],
   });
@@ -25,7 +25,7 @@ app.get("/api", (req, res) => {
         res.json(result.suites);
         console.log("Test done!");
       } catch (e) {
-        res.status(500).json({ error: `Error parsing output to JSON: ${e}` });
+        res.status(500).json({ error: `Error parsing output to JSON: ${e}, output: ${output}` });
         console.error("Failed to parse test results:", output);
       }
     // } else {
