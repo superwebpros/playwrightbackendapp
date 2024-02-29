@@ -18,6 +18,6 @@ app.get("/api", (req, res) => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.listen(process.env.PORT || 3000, () => console.log("Server running"));
+app.listen( 3000, () => console.log("Server running"));
 
 module.exports = app;
