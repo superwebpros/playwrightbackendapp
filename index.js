@@ -10,7 +10,7 @@ app.get("/api", (req, res) => {
       res.json(result.suites);
       console.log('Test done!')
     } catch (e) {
-      res.status(500).json({ error: "Error parsing stdout to JSON" });
+      res.status(500).json({ error: `Error parsing stdout to JSON: ${e}` });
       console.log('Test failed!')
     }
   });
