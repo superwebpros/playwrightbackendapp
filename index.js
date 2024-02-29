@@ -2,28 +2,39 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const app = express();
 const { exec } = require("child_process");
-const runTests = require("./formatTest/test");
 
-app.get("/api", (req, res) => {
+app.get("/run", (req, res) => {
   exec("npx playwright test", (error, stdout, stderr) => {
     try {
       const result = JSON.parse(stdout);
       res.json(result.suites);
-      console.log('Test done!')
+      console.log("Test done!");
     } catch (e) {
-      res.status(500).json({ error: `Error parsing stdout to JSON: ${e}, stdout: ${stdout}` });
-      console.log('Test failed!')
+      res.status(500).json({
+        error: `Error parsing stdout to JSON: ${e}, stdout: ${stdout}`,
+      });
+      console.log("Test failed!");
     }
   });
 });
 
-app.get("/run", async (req, res) => {
+app.get("/run/:id", async (req, res) => {
+  const params = req.params.id;
+  console.log(params);
+  const allTestList = require("./allTestList");
+  if (!allTestList[params])
+    return res.json({ testName: `${params}`, status: "not found" });
   try {
-    await runTests();
-    res.json("Tests completados con éxito");
+    await allTestList[params]();
+    res.json({ testName: `${params}`, status: "successfully completed" });
   } catch (error) {
-    res.status(500).send("Error al ejecutar los tests: " + error.message);
+    console.log(error);
+    res.json({ projectName: `Error in ${params}`, error: `${error}` });
   }
+});
+
+app.get("/", (req, res) => {
+  res.send("Welcome to TestSuite!");
 });
 
 app.use(express.json());

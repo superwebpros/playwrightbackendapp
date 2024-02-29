@@ -7,7 +7,7 @@ const runTests = async () => {
 
   // Ejecutar las pruebas
   await page.goto("https://www.google.com/");
-  await page.goto("https://savat.ar/");
+  await page.goto("https://savat.arr/");
 
   // Cerrar el navegador
   await browser.close();
