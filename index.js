@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 const app = express();
 const { spawn } = require("child_process");
 
-app.get("/api", async(req, res) => {
+app.get("/api", (req, res) => {
   const child = spawn("npx", ["playwright", "test"], {
     stdio: ["inherit", "pipe", "pipe"],
   });
@@ -18,20 +18,22 @@ app.get("/api", async(req, res) => {
     console.error(`Error from child process: ${data}`);
   });
 
-  child.on("exit", (code, signal) => {
-    // if (code === 0) {
-      try {
+  child.on("exit", async (code, signal) => {
+    // try {
+        const output = await new Promise((resolve, reject) => {
+          let data = "";
+          child.stdout.on("data", (chunk) => (data += chunk.toString()));
+          child.on("error", reject);
+          child.on("close", () => resolve(data));
+        });
+    
         const result = JSON.parse(output);
         res.json(result.suites);
         console.log("Test done!");
-      } catch (e) {
-        res.status(500).json({ error: `Error parsing output to JSON: ${e}, output: ${output}` });
-        console.error("Failed to parse test results:", output);
-      }
-    // } else {
-    //   res.status(500).json({ error: `Playwright test failed with code ${code}` });
-    //   console.error("Playwright test failed:", output);
-    // }
+    //   } catch (error) {
+    //     res.status(500).json({ error: `Error: ${error}, output: ${output}` });
+    //     console.error("Failed to parse test results:", output);
+    //   }
   });
 });
 
