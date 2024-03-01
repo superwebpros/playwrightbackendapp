@@ -1,5 +1,5 @@
 // @ts-check
-const { defineConfig, devices } = require('@playwright/test');
+const { defineConfig, devices } = require("@playwright/test");
 
 /**
  * Read environment variables from file.
@@ -11,32 +11,32 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: 'json',
+  reporter: "json",
   use: {
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
   },
   timeout: 5 * 1000,
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'],headless: true },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"], headless: true },
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'],headless: true },
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"], headless: true },
     },
 
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'],headless: true },
+      name: "webkit",
+      use: { ...devices["Desktop Safari"], headless: true },
     },
 
     /* Test against mobile viewports. */
@@ -67,4 +67,3 @@ module.exports = defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-

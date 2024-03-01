@@ -20,16 +20,15 @@ app.get("/run", (req, res) => {
 
 app.get("/run/:id", async (req, res) => {
   const params = req.params.id;
-  console.log(params);
-  const allTestList = require("./allTestList");
+  const allTestList = require("./tests/AllTestList/allTestList");
   if (!allTestList[params])
-    return res.json({ testName: `${params}`, status: "not found" });
+    return res.json({ testName: params, status: "not found" });
   try {
     await allTestList[params]();
-    res.json({ testName: `${params}`, status: "successfully completed" });
+    res.json({ testName: params, status: "successfully completed" });
   } catch (error) {
     console.log(error);
-    res.json({ projectName: `Error in ${params}`, error: `${error}` });
+    res.json({ testName: params, status: error, error: `${error.message}` });
   }
 });
 
