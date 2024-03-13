@@ -5,8 +5,8 @@ on:
   pull_request:
     branches: [main, master]
   # schedule:
-    # - cron: '0 0 * * *' # Ejecutar a medianoche (00:00) todos los días
-    # - cron: "*/15 * * * *" # Ejecutar cada 5 minutos
+  # - cron: '0 0 * * *' # Ejecutar a medianoche (00:00) todos los días
+  # - cron: "*/15 * * * *" # Ejecutar cada 5 minutos
 jobs:
   test:
     timeout-minutes: 60
