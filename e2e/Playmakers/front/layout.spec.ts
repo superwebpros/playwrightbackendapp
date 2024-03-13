@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import url from "./url";
+import url from "../config/frontUrl";
 
 test("layout", async ({ page }) => {
   await page.goto(url);
