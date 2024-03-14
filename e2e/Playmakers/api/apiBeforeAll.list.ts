@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import url from "../config/strapiUrl";
 import { chromium } from "playwright";
-import homeQueries from "./homeQueries.spec.ts";
+import homeQueries from "./spec/homeQueries.spec.ts";
 
 test.beforeAll("strapiStatus", async () => {
   const browser = await chromium.launch();
