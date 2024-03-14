@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import url from "../config/strapiUrl";
 import { chromium } from "playwright";
+import home from "./home.spec.ts";
 
 test.beforeAll("strapiStatus", async () => {
   const browser = await chromium.launch();
@@ -12,11 +13,12 @@ test.beforeAll("strapiStatus", async () => {
   await expect(page.getByText("The server is running")).toBeVisible();
 });
 
+test.describe(home);
 test.describe("Strapi GET queries", () => {
-  test("homes", async ({ request }) => {
-    const response = await request.get(url + "/api/homes");
-    await expect(response).toBeOK();
-  });
+  // test("homes", async ({ request }) => {
+  //   const response = await request.get(url + "/api/homes");
+  //   await expect(response).toBeOK();
+  // });
 
   test("posts", async ({ request }) => {
     const response = await request.get(url + "/api/article-posts");
