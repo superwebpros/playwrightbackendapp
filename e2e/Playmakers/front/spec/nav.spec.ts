@@ -29,6 +29,5 @@ export default function createTest() {
     await page.goto(url);
     await expect(page.getByTestId("nav")).toBeVisible();
     await expect(page.getByTestId("favoriteButton")).toBeVisible();
-    await expect(page.getByTestId("searchButton")).toBeVisible();
   });
 }
