@@ -1,11 +1,5 @@
 import { test, expect } from "@playwright/test";
-import url from "../config/frontUrl";
-
-// test("homeRequest", async ({ page }) => {
-//   const response = await page.request.get(url);
-//   // console.log(response.status());
-//   await expect(response).toBeOK();
-// });
+import url from "../../config/frontUrl";
 
 export default function createTest() {
   test("home", async ({ page }) => {
