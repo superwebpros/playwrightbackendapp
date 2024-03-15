@@ -25,14 +25,16 @@ test.beforeAll("strapiStatus", async () => {
   await expect(page.getByText("The server is running")).toBeVisible();
 });
 
-test.describe('Strapi',blogsQueries);
-test.describe('Strapi',brandsQueries);
-test.describe('Strapi',eventsQueries);
-test.describe('Strapi',homeQueries);
-test.describe('Strapi',layoutsQueries);
-test.describe('Strapi',pagesQueries);
-test.describe('Strapi',postsQueries);
-test.describe('Strapi',raceResultsQueries);
-test.describe('Strapi',resourcesQueries);
-test.describe('Strapi',shopQueries);
-test.describe('Strapi',usersQueries);
+test.describe("strapi", () => {
+  test.describe("blogs", blogsQueries);
+  test.describe("brands", brandsQueries);
+  test.describe("events", eventsQueries);
+  test.describe("homes", homeQueries);
+  test.describe("queries", layoutsQueries);
+  test.describe("pages", pagesQueries);
+  test.describe("posts", postsQueries);
+  test.describe("race results", raceResultsQueries);
+  test.describe("resources", resourcesQueries);
+  test.describe("shop", shopQueries);
+  test.describe("users", usersQueries);
+});
