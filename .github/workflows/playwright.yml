@@ -1,9 +1,9 @@
 name: Playwright Tests
 on:
   push:
-    branches: [main, master]
+    branches: [main, develop]
   pull_request:
-    branches: [main, master]
+    branches: [main, develop]
   # schedule:
   # - cron: '0 0 * * *' # Ejecutar a medianoche (00:00) todos los días
   # - cron: "*/15 * * * *" # Ejecutar cada 5 minutos

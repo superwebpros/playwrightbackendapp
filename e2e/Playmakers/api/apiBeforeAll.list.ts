@@ -1,7 +1,19 @@
 import { test, expect } from "@playwright/test";
 import url from "../config/strapiUrl";
 import { chromium } from "playwright";
-import homeQueries from "./spec/homeQueries.spec.ts";
+import {
+  blogsQueries,
+  brandsQueries,
+  eventsQueries,
+  homeQueries,
+  layoutsQueries,
+  pagesQueries,
+  postsQueries,
+  raceResultsQueries,
+  resourcesQueries,
+  shopQueries,
+  usersQueries,
+} from "./spec";
 
 test.beforeAll("strapiStatus", async () => {
   const browser = await chromium.launch();
@@ -13,58 +25,14 @@ test.beforeAll("strapiStatus", async () => {
   await expect(page.getByText("The server is running")).toBeVisible();
 });
 
-test.describe(homeQueries);
-
-test.describe("Strapi GET queries", () => {
-  test("posts", async ({ request }) => {
-    const response = await request.get(url + "/api/article-posts");
-    // const bodyJson = await response.json();
-    // console.log(bodyJson);
-    await expect(response).toBeOK();
-  });
-
-  test("pages", async ({ request }) => {
-    const response = await request.get(url + "/api/pages");
-    await expect(response).toBeOK();
-  });
-
-  test("blogs", async ({ request }) => {
-    const response = await request.get(url + "/api/blogs");
-    await expect(response).toBeOK();
-  });
-
-  test("brands", async ({ request }) => {
-    const response = await request.get(url + "/api/brands");
-    await expect(response).toBeOK();
-  });
-
-  test("events", async ({ request }) => {
-    const response = await request.get(url + "/api/events");
-    await expect(response).toBeOK();
-  });
-
-  test("layouts", async ({ request }) => {
-    const response = await request.get(url + "/api/layouts");
-    await expect(response).toBeOK();
-  });
-
-  test("race-results", async ({ request }) => {
-    const response = await request.get(url + "/api/race-results");
-    await expect(response).toBeOK();
-  });
-
-  test("resources", async ({ request }) => {
-    const response = await request.get(url + "/api/resources");
-    await expect(response).toBeOK();
-  });
-
-  test("users", async ({ request }) => {
-    const response = await request.get(url + "/api/users");
-    await expect(response).not.toBeOK();
-  });
-
-  test("shop", async ({ request }) => {
-    const response = await request.get(url + "/api/shop");
-    await expect(response).toBeOK();
-  });
-});
+test.describe('Strapi',blogsQueries);
+test.describe('Strapi',brandsQueries);
+test.describe('Strapi',eventsQueries);
+test.describe('Strapi',homeQueries);
+test.describe('Strapi',layoutsQueries);
+test.describe('Strapi',pagesQueries);
+test.describe('Strapi',postsQueries);
+test.describe('Strapi',raceResultsQueries);
+test.describe('Strapi',resourcesQueries);
+test.describe('Strapi',shopQueries);
+test.describe('Strapi',usersQueries);
