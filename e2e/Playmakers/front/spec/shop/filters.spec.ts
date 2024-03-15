@@ -9,3 +9,4 @@ export default function createTest() {
     await expect(page.getByTestId("shopContainer")).toBeVisible();
   });
 }
+console.log('hola')
