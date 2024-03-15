@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import url from "../config/frontUrl.ts";
 import { chromium } from "playwright";
-import { home, layout, nav } from "./spec";
+import { home, layout, nav ,shop} from "./spec";
 
 test.beforeAll("homeRequest", async () => {
   const browser = await chromium.launch();
@@ -11,6 +11,7 @@ test.beforeAll("homeRequest", async () => {
   await expect(response).toBeOK();
 });
 
-test.describe('Layout',layout);
-test.describe('Home',home);
-test.describe('Nav',nav);
+test.describe("layout", layout);
+test.describe("home", home);
+test.describe("nav", nav);
+test.describe("shop", shop);

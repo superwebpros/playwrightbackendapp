@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import url from "../../config/frontUrl";
 
 export default function createTest() {
-  test("navLinks", async ({ page }) => {
+  test("links Work", async ({ page }) => {
     await page.goto(url);
     await expect(page.getByTestId("nav")).toBeVisible();
     await expect(page.getByTestId("nav-links")).toBeVisible();
@@ -19,13 +19,13 @@ export default function createTest() {
     }
   });
 
-  test("haveLogo", async ({ page }) => {
+  test("has logo", async ({ page }) => {
     await page.goto(url);
     await expect(page.getByTestId("nav")).toBeVisible();
     await expect(page.getByTestId("logo-link")).toBeVisible();
   });
   
-  test("searchAndAccountButtons", async ({ page }) => {
+  test("search and account buttons visible", async ({ page }) => {
     await page.goto(url);
     await expect(page.getByTestId("nav")).toBeVisible();
     await expect(page.getByTestId("favoriteButton")).toBeVisible();
