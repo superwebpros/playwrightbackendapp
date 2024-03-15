@@ -1,7 +1,15 @@
 import { test, expect } from "@playwright/test";
 import url from "../config/frontUrl.ts";
 import { chromium } from "playwright";
-import { home, layout, nav, shop, filters, clearRefinements } from "./spec";
+import {
+  home,
+  layout,
+  nav,
+  shopLayout,
+  shopSearchBox,
+  filters,
+  clearRefinements,
+} from "./spec";
 
 test.beforeAll("homeRequest", async () => {
   const browser = await chromium.launch();
@@ -14,6 +22,10 @@ test.beforeAll("homeRequest", async () => {
 test.describe("layout", layout);
 test.describe("home", home);
 test.describe("nav", nav);
-test.describe("shop", shop);
-test.describe("filters", filters);
-test.describe("clearRefinements", clearRefinements);
+// Shop
+test.describe("shop", () => {
+  test.describe("layout", shopLayout);
+  test.describe("searchBox", shopSearchBox);
+  test.describe("filters", filters);
+  test.describe("clearRefinements", clearRefinements);
+});
