@@ -13,7 +13,7 @@ import {
   resourcesQueries,
   shopQueries,
   usersQueries,
-} from "./Tests";
+} from "./spec";
 
 test.beforeAll("strapiStatus", async () => {
   const browser = await chromium.launch();
@@ -25,14 +25,16 @@ test.beforeAll("strapiStatus", async () => {
   await expect(page.getByText("The server is running")).toBeVisible();
 });
 
-test.describe(blogsQueries);
-test.describe(brandsQueries);
-test.describe(eventsQueries);
-test.describe(homeQueries);
-test.describe(layoutsQueries);
-test.describe(pagesQueries);
-test.describe(postsQueries);
-test.describe(raceResultsQueries);
-test.describe(resourcesQueries);
-test.describe(shopQueries);
-test.describe(usersQueries);
+test.describe("strapi", () => {
+  test.describe("blogs", blogsQueries);
+  test.describe("brands", brandsQueries);
+  test.describe("events", eventsQueries);
+  test.describe("homes", homeQueries);
+  test.describe("queries", layoutsQueries);
+  test.describe("pages", pagesQueries);
+  test.describe("posts", postsQueries);
+  test.describe("race results", raceResultsQueries);
+  test.describe("resources", resourcesQueries);
+  test.describe("shop", shopQueries);
+  test.describe("users", usersQueries);
+});

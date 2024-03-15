@@ -20,8 +20,10 @@ module.exports = defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
-  // testMatch: ['beforeAndTestList.list.ts'],
-  testMatch: [/.*\.list\.ts/],
+
+  testMatch: [/.*\.list\.ts/], // for run all test in list files 
+  // testMatch: [/.*\.spec\.ts/], // for run all tests
+  // testMatch: [/.nav\.spec\.ts/], // for run specific test
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "list",
