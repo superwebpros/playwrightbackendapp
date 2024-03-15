@@ -9,6 +9,7 @@ import {
   shopSearchBox,
   filters,
   clearRefinements,
+  tags,
 } from "./spec";
 
 test.beforeAll("homeRequest", async () => {
@@ -19,13 +20,18 @@ test.beforeAll("homeRequest", async () => {
   await expect(response).toBeOK();
 });
 
-test.describe("layout", layout);
-test.describe("home", home);
-test.describe("nav", nav);
+// Basics
+test.describe("Basics", () => {
+  test.describe("layout", layout);
+  test.describe("home", home);
+  test.describe("nav", nav);
+});
+
 // Shop
 test.describe("shop", () => {
   test.describe("layout", shopLayout);
   test.describe("searchBox", shopSearchBox);
   test.describe("filters", filters);
   test.describe("clearRefinements", clearRefinements);
+  test.describe("tags", tags);
 });
