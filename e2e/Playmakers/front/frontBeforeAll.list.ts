@@ -10,6 +10,7 @@ import {
   filters,
   clearRefinements,
   tags,
+  hitFiltering,
 } from "./spec";
 
 test.beforeAll("homeRequest", async () => {
@@ -34,4 +35,5 @@ test.describe("shop", () => {
   test.describe("filters", filters);
   test.describe("clearRefinements", clearRefinements);
   test.describe("tags", tags);
+  test.describe("hitFiltering", hitFiltering); // needs to be finished
 });
