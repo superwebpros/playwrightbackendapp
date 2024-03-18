@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import url from "../config/frontUrl.ts";
-import { chromium } from "playwright";
+
 import {
   home,
   layout,
@@ -13,12 +13,14 @@ import {
   hitFiltering,
 } from "./spec";
 
-test.beforeAll("homeRequest", async () => {
-  const browser = await chromium.launch();
-  const context = await browser.newContext();
-  const page = await context.newPage();
+test.beforeAll("homeRequest", async ({browser}) => {
+  const page = await browser.newPage();
   const response = await page.request.get(url);
   await expect(response).toBeOK();
+});
+
+test.afterAll(async ({browser}) => {
+  await browser.close(); 
 });
 
 // Basics
