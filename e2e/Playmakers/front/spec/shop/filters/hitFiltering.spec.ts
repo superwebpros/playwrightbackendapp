@@ -2,20 +2,35 @@ import { test, expect } from "@playwright/test";
 import url from "../../../../config/frontUrl";
 
 export default function createTest() {
-  test("loaded", async ({ page }) => {
+  test("gender filtering", async ({ page }) => {
     await page.goto(url + "/collections/all");
     await expect(page.getByTestId("container-filters")).toBeVisible();
     await expect(page.getByRole("button", { name: "Gender" })).toBeVisible();
+
+    // Test men hit filtering
     await page.getByRole("button", { name: "Gender" }).click();
     await page.getByRole("button", { name: "Men", exact: true }).click();
-    const links = await page
+    await page.waitForTimeout(2000);
+    let links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
       .locator(".ais-InfiniteHits-list")
       .getByRole("link")
       .allTextContents();
-      console.log(links);
-    const linksNames = links.filter((link) => link.includes("Women's"));
+    let linksNames = links.filter((link) => link.includes("Women's"));
+    await expect(linksNames.length).toBe(0);
+
+    // Test women hit filtering
+    await page.getByRole("button", { name: "Men", exact: true }).click();
+    await page.getByRole("button", { name: "Women", exact: true }).click();
+    await page.waitForTimeout(2000);
+    links = await page
+      .getByTestId("infiniteHits")
+      .locator(".ais-InfiniteHits")
+      .locator(".ais-InfiniteHits-list")
+      .getByRole("link")
+      .allTextContents();
+    linksNames = links.filter((link) => link.includes("Men's"));
     await expect(linksNames.length).toBe(0);
   });
 }
