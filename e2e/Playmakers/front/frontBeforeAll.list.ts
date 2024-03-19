@@ -15,6 +15,7 @@ import {
   filterSticky,
   flavorInAccessories,
   brands,
+  priceRange,
 } from "./spec";
 
 test.beforeAll("homeRequest", async ({ browser }) => {
@@ -43,4 +44,5 @@ test.describe("shop", () => {
   test.describe("filter sticky", filterSticky);
   test.describe("flavor", flavorInAccessories);
   test.describe("brands", brands);
+  test.describe("priceRange", priceRange);
 });
