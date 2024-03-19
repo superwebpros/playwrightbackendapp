@@ -16,6 +16,9 @@ import {
   flavorInAccessories,
   brands,
   priceRange,
+  status,
+  navigate,
+  urlCorrelation,
 } from "./spec";
 
 test.beforeAll("homeRequest", async ({ browser }) => {
@@ -36,13 +39,22 @@ test.describe("Basics", () => {
 test.describe("shop", () => {
   test.describe("layout", shopLayout);
   test.describe("searchBox", shopSearchBox);
-  test.describe("filters", filters);
-  test.describe("clearRefinements", clearRefinements);
-  test.describe("tags", tags);
-  test.describe("gender filtering", genderFiltering);
-  test.describe("productType filtering", productTypeFiltering);
-  test.describe("filter sticky", filterSticky);
-  test.describe("flavor", flavorInAccessories);
-  test.describe("brands", brands);
-  test.describe("priceRange", priceRange);
+  test.describe("filters", () => {
+    test.describe("filters", filters);
+    test.describe("gender filtering", genderFiltering);
+    test.describe("productType filtering", productTypeFiltering);
+    test.describe("priceRange", priceRange);
+    test.describe("brands", brands);
+    test.describe("filter sticky", filterSticky);
+    test.describe("flavor", flavorInAccessories);
+  });
+  test.describe("refinementsComponent", () => {
+    test.describe("clearRefinements", clearRefinements);
+    test.describe("tags", tags);
+  });
+  test.describe("breadCrumbs", () => {
+    test.describe("status", status);
+    test.describe("navigate", navigate);
+    test.describe("urlCorrelation", urlCorrelation);
+  });
 });
