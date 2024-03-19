@@ -25,7 +25,7 @@ export default function createTest() {
     await page.goBack();
     await page.waitForLoadState();
     //test apparel
-    await page.getByRole("button", { name: "Product Type" }).click();
+    await page.getByTestId('container-filters').getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
     await page.waitForTimeout(2000);
     await page.getByRole("button", { name: "Apparel" }).click();
