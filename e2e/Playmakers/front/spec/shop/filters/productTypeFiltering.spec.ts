@@ -11,18 +11,35 @@ export default function createTest() {
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
     await page.waitForTimeout(2000);
-
     let links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
       .locator(".ais-InfiniteHits-list")
       .getByRole("link")
-      .allTextContents();
+      .allInnerTexts();
     let linksNames = links.filter((link) => link !== "");
-    console.log(linksNames[0]);
-    await page.getByRole("link", { name: linksNames[0] }).click();
+    await page.getByRole("link", { name: `${linksNames[0]}` }).click();
     await page.waitForLoadState();
     await expect(page).toHaveURL(/\/products\//);
-    await expect(page.getByRole('link', { name: '〉Footwear' })).toBeVisible();
+    await expect(page.getByRole("link", { name: "〉Footwear" })).toBeVisible();
+    await page.goBack();
+    await page.waitForLoadState();
+    //test apparel
+    await page.getByRole("button", { name: "Product Type" }).click();
+    await page.getByRole("button", { name: "Footwear" }).click();
+    await page.waitForTimeout(2000);
+    await page.getByRole("button", { name: "Apparel" }).click();
+    await page.waitForTimeout(2000);
+    links = await page
+      .getByTestId("infiniteHits")
+      .locator(".ais-InfiniteHits")
+      .locator(".ais-InfiniteHits-list")
+      .getByRole("link")
+      .allInnerTexts();
+    linksNames = links.filter((link) => link !== "");
+    await page.getByRole("link", { name: `${linksNames[0]}` }).click();
+    await page.waitForLoadState();
+    await expect(page).toHaveURL(/\/products\//);
+    await expect(page.getByRole("link", { name: "〉Apparel" })).toBeVisible();
   });
 }
