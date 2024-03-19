@@ -10,7 +10,8 @@ import {
   filters,
   clearRefinements,
   tags,
-  hitFiltering,
+  genderFiltering,
+  productTypeFiltering,
 } from "./spec";
 
 test.beforeAll("homeRequest", async ({browser}) => {
@@ -37,5 +38,6 @@ test.describe("shop", () => {
   test.describe("filters", filters);
   test.describe("clearRefinements", clearRefinements);
   test.describe("tags", tags);
-  test.describe("hitFiltering", hitFiltering); // needs to be finished
+  test.describe("gender filtering", genderFiltering);
+  test.describe("productType filtering", productTypeFiltering); // need to be finished
 });
