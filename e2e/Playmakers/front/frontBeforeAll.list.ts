@@ -12,16 +12,15 @@ import {
   tags,
   genderFiltering,
   productTypeFiltering,
+  filterSticky,
+  flavorInAccessories,
 } from "./spec";
 
-test.beforeAll("homeRequest", async ({browser}) => {
+test.beforeAll("homeRequest", async ({ browser }) => {
   const page = await browser.newPage();
   const response = await page.request.get(url);
   await expect(response).toBeOK();
-});
-
-test.afterAll(async ({browser}) => {
-  await browser.close(); 
+  await page.close();
 });
 
 // Basics
@@ -39,5 +38,7 @@ test.describe("shop", () => {
   test.describe("clearRefinements", clearRefinements);
   test.describe("tags", tags);
   test.describe("gender filtering", genderFiltering);
-  test.describe("productType filtering", productTypeFiltering); // need to be finished
+  test.describe("productType filtering", productTypeFiltering);
+  test.describe("filter sticky", filterSticky);
+  test.describe("flavor", flavorInAccessories);
 });
