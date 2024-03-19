@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import url from "../../../../config/frontUrl";
 
 export default function createTest() {
-  test("productType filtering", async ({ page }) => {
+  test("footware and apparel filtering", async ({ page }) => {
     await page.goto(url + "/collections/all");
     await expect(page.getByTestId("container-filters")).toBeVisible();
     await expect(
