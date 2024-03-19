@@ -18,7 +18,7 @@ export default function createTest() {
       .getByRole("link")
       .allInnerTexts();
     let linksNames = links.filter((link) => link !== "");
-    await page.getByRole("link", { name: `${linksNames[0]}` }).click();
+    await page.getByRole("link", { name: `${linksNames[0]}` }).first().click();
     await page.waitForLoadState();
     await expect(page).toHaveURL(/\/products\//);
     await expect(page.getByRole("link", { name: "〉Footwear" })).toBeVisible();
@@ -37,7 +37,7 @@ export default function createTest() {
       .getByRole("link")
       .allInnerTexts();
     linksNames = links.filter((link) => link !== "");
-    await page.getByRole("link", { name: `${linksNames[0]}` }).click();
+    await page.getByRole("link", { name: `${linksNames[0]}` }).first().click();
     await page.waitForLoadState();
     await expect(page).toHaveURL(/\/products\//);
     await expect(page.getByRole("link", { name: "〉Apparel" })).toBeVisible();
