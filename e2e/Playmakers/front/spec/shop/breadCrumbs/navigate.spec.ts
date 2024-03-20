@@ -16,7 +16,6 @@ export default function createTest() {
   test("go to product and navigate from breadcrumbs ", async ({ page }) => {
     await page.goto(url + "/collections/all");
     await page.waitForLoadState();
-    await page.waitForTimeout(2000);
     await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
