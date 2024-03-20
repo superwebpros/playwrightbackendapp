@@ -4,6 +4,7 @@ import url from "../../../../config/frontUrl";
 export default function createTest() {
   test("selected filter, refresh and is visible", async ({ page }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
     await page.reload();
@@ -16,9 +17,11 @@ export default function createTest() {
     page,
   }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
     await page.waitForTimeout(2000);
+    await page.waitForSelector('.ais-InfiniteHits-list');
     let links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
@@ -26,7 +29,7 @@ export default function createTest() {
       .getByRole("link")
       .allInnerTexts();
     let linksNames = links.filter((link) => link !== "");
-    await page.getByRole("link", { name: `${linksNames[0]}` }).click();
+    await page.getByRole("link", { name: `${linksNames[0]}` }).first().click();
     await page.waitForLoadState();
     await page.goBack();
     await page.waitForLoadState();

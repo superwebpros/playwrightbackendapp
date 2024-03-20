@@ -39,6 +39,7 @@ export default function createTest() {
 
   test("regular filtering", async ({ page }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
     await page.getByRole("button", { name: "Price Range" }).click();
     await page
       .getByTestId("container-filters")
@@ -74,6 +75,7 @@ export default function createTest() {
 
   test("price range filtering", async ({ page }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
     await page.getByRole("button", { name: "Price Range" }).click();
     await page
       .getByTestId("container-filters")

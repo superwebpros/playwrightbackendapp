@@ -13,6 +13,7 @@ export default function createTest() {
 
   test("disappears when clic on it", async ({ page }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
     await page.getByRole("button", { name: "Gender" }).click();
     await page.getByRole("button", { name: "Women" }).click();
     await expect(
@@ -26,6 +27,7 @@ export default function createTest() {
 
   test("disappears when filters is deselected", async ({ page }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
     await page.getByRole("button", { name: "Gender" }).click();
     await page.getByRole("button", { name: "Women" }).click();
     await expect(

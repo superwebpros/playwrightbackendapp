@@ -4,6 +4,7 @@ import url from "../../config/frontUrl";
 export default function createTest() {
   test("links Work", async ({ page }) => {
     await page.goto(url);
+    await page.waitForLoadState();
     await expect(page.getByTestId("nav")).toBeVisible();
     await expect(page.getByTestId("nav-links")).toBeVisible();
     const links = await page.getByTestId("nav-links").allInnerTexts();

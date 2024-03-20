@@ -6,6 +6,7 @@ export default function createTest() {
     page,
   }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Accessories" }).click();
     await expect(page.getByRole("button", { name: "Flavor" })).toBeVisible();

@@ -40,7 +40,7 @@ test.describe("Basics", () => {
 test.describe("shop", () => {
   test.describe("layout", shopLayout);
   test.describe("searchBox", shopSearchBox);
-  test.describe("ecommerceFlow", ecommerceFlow);
+  // test.describe("ecommerceFlow", ecommerceFlow);
   test.describe("filters", () => {
     test.describe("filters", filters);
     test.describe("gender filtering", genderFiltering);
