@@ -21,6 +21,7 @@ export default function createTest() {
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
     await page.waitForTimeout(2000);
+    await page.waitForSelector('.ais-InfiniteHits-list');
     let links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
