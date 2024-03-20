@@ -14,9 +14,9 @@ export default function createTest() {
     if (inputField === null) {
       throw new Error("Input field not found within the search box.");
     }
-    await inputField.fill("example value");
-    await page.waitForURL(`**/collections/all?q=example%20value`);
+    await inputField.fill("SWP test value");
+    await page.waitForURL(`**/collections/all?q=SWP%20test%20value`);
     const currentURL = page.url();
-    expect(currentURL).toContain("?q=example%20value");
+    expect(currentURL).toContain("?q=SWP%20test%20value");
   });
 }
