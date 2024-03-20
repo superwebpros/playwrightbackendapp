@@ -26,7 +26,7 @@ export default function createTest() {
       .getByRole("link")
       .allInnerTexts();
     let linksNames = links.filter((link) => link !== "");
-    await page.getByRole("link", { name: `${linksNames[0]}` }).click();
+    await page.getByRole("link", { name: `${linksNames[0]}` }).first().click();
     await page.waitForLoadState();
     await page.goBack();
     await page.waitForLoadState();
