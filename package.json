@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "prepare": "husky",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "lint":"prettier --check ."
   },
   "keywords": [],
   "author": "",

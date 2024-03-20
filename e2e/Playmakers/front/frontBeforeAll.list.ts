@@ -1,12 +1,13 @@
 import { test, expect } from "@playwright/test";
 import url from "../config/frontUrl.ts";
-// test 2 de git hook 
+// test 2 de git hook
 import {
   home,
   layout,
   nav,
   shopLayout,
   shopSearchBox,
+  
   filters,
   clearRefinements,
   tags,
