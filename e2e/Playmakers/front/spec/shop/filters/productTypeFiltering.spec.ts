@@ -4,6 +4,7 @@ import url from "../../../../config/frontUrl";
 export default function createTest() {
   test("footware and apparel filtering", async ({ page }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
     await expect(page.getByTestId("container-filters")).toBeVisible();
     await expect(
       page.getByRole("button", { name: "Product Type" })
