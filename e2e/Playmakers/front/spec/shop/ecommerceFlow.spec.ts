@@ -6,6 +6,7 @@ let currentURL; // Declare currentURL as a global variable
 export default function createTest() {
   test("load product page", async ({ page }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState(); // agregue esto como algo fundamental ya que los test fallan aveces por no esperar a que cargue la pagina
     const links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")

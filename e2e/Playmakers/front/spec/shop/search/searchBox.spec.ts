@@ -4,6 +4,7 @@ import url from "../../../../config/frontUrl";
 export default function createTest() {
   test("searches", async ({ page }) => {
     await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
     const searchBox = await page.waitForSelector(
       '[data-testid="shopSearchBox"]'
     );

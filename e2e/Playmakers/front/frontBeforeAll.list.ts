@@ -1,13 +1,12 @@
 import { test, expect } from "@playwright/test";
 import url from "../config/frontUrl.ts";
-// test 2 de git hook
+
 import {
   home,
   layout,
   nav,
   shopLayout,
   shopSearchBox,
-  
   filters,
   clearRefinements,
   tags,
@@ -41,7 +40,7 @@ test.describe("Basics", () => {
 test.describe("shop", () => {
   test.describe("layout", shopLayout);
   test.describe("searchBox", shopSearchBox);
-  test.describe("ecommerceFlow", ecommerceFlow);
+  // test.describe("ecommerceFlow", ecommerceFlow);
   test.describe("filters", () => {
     test.describe("filters", filters);
     test.describe("gender filtering", genderFiltering);

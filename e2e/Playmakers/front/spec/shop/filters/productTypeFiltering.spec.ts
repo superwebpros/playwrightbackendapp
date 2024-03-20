@@ -29,8 +29,10 @@ export default function createTest() {
     await page.getByTestId('container-filters').getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
     await page.waitForTimeout(2000);
+    await page.waitForSelector('.ais-InfiniteHits-list');
     await page.getByRole("button", { name: "Apparel" }).click();
     await page.waitForTimeout(2000);
+    await page.waitForSelector('.ais-InfiniteHits-list');
     links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
