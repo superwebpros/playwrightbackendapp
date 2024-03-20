@@ -31,6 +31,7 @@ export default function createTest() {
     //test apparel
     await page.getByTestId('container-filters').getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
+    await page.waitForTimeout(1000);
     await page.getByRole("button", { name: "Apparel" }).click();
     await page.waitForTimeout(3000);
 
@@ -42,7 +43,6 @@ export default function createTest() {
       .getByRole("link")
       .allInnerTexts();
     linksNames = links.filter((link) => link !== "");
-    console.log(linksNames[0]);
     await page.getByRole("link", { name: `${linksNames[0]}` }).first().click();
     await page.waitForLoadState('networkidle');
     await expect(page).toHaveURL(/\/products\//);
