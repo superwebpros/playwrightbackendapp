@@ -8,6 +8,7 @@ export default function createTest() {
     await page.getByRole("link", { name: "〉Women" }).click();
     await page.waitForLoadState();
     await expect(page.url()).toBe(url + "/collections/women");
+    await page.waitForSelector('data-testid=shopBreadcrumbs');
     await page.getByRole("link", { name: "〉Collections" }).click();
     await page.waitForLoadState();
     await expect(page.url()).toBe(url + "/collections/all");
@@ -24,6 +25,7 @@ export default function createTest() {
       .first()
       .click();
     await page.waitForLoadState();
+    await page.waitForSelector("form");
     await expect(
       page.locator("form").filter({ hasText: "Add to Cart" }).locator("svg")
     ).toBeVisible();
