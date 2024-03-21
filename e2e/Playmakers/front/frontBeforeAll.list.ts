@@ -4,7 +4,9 @@ import url from "../config/frontUrl.ts";
 import {
   home,
   layout,
-  nav,
+  navStatus,
+  hasLogo,
+  linksWork,
   shopLayout,
   shopSearchBox,
   filters,
@@ -33,7 +35,11 @@ test.beforeAll("homeRequest", async ({ browser }) => {
 test.describe("Basics", () => {
   test.describe("layout", layout);
   test.describe("home", home);
-  test.describe("nav", nav);
+  test.describe("nav", () => {
+    test.describe("nav status", navStatus);
+    test.describe("has logo", hasLogo);
+    test.describe("links work", linksWork);
+  });
 });
 
 // Shop
