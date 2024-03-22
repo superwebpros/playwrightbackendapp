@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import url from "../../../../config/frontUrl";
 
 export default function createTest() {
-  test("gender was filtered", async ({ page }) => {
+  test("women gender was filtered", async ({ page }) => {
     await page.goto(url + "/collections/all");
     await page.waitForLoadState();
     await expect(page.getByTestId("container-filters")).toBeVisible();
@@ -25,6 +25,7 @@ export default function createTest() {
     await page.getByRole("button", { name: "Men", exact: true }).click();
     await page.getByRole("button", { name: "Women", exact: true }).click();
     await page.waitForTimeout(2000);
+    await page.waitForSelector(".ais-InfiniteHits-list");
     links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
