@@ -1,25 +1,19 @@
 {
-  "name": "playwrightbackendapp",
+  "name": "testsuite",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "/src/index.ts",
   "scripts": {
-    "dev": "nodemon index.js",
-    "prepare": "husky",
-    "test": "npx playwright test"
+    "dev": "turbo dev",
+    "mts": "cd apps && cd playmakers && npm run dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@playwright/test": "^1.42.1",
-    "@types/node": "^20.11.22"
-  },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.18.2",
-    "husky": "^9.0.11",
-    "nodemon": "^3.1.0",
-    "playwright": "^1.42.1"
-  }
+    "turbo": "^1.13.0"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
 }
