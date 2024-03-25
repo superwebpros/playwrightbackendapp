@@ -1,28 +1,6 @@
 import { test, expect } from "@playwright/test";
 import url from "../config/frontUrl.ts";
-
-import {
-  home,
-  layout,
-  navStatus,
-  hasLogo,
-  linksWork,
-  shopLayout,
-  shopSearchBox,
-  filters,
-  clearRefinements,
-  tags,
-  genderFiltering,
-  productTypeFiltering,
-  filterSticky,
-  flavorInAccessories,
-  brands,
-  priceRange,
-  status,
-  navigate,
-  urlCorrelation,
-  ecommerceFlow,
-} from "./spec/index.ts";
+import * as t from "./spec";
 
 export default (function () {
   test.beforeAll("homeRequest", async ({ browser }) => {
@@ -34,37 +12,37 @@ export default (function () {
 
   // Basics
   test.describe("Basics", () => {
-    test.describe("layout", layout);
-    test.describe("home", home);
+    test.describe("layout", t.layout);
+    test.describe("home", t.home);
     test.describe("nav", () => {
-      test.describe("nav status", navStatus);
-      test.describe("has logo", hasLogo);
-      test.describe("links work", linksWork);
+      test.describe("nav status", t.navStatus);
+      test.describe("has logo", t.hasLogo);
+      test.describe("links work", t.linksWork);
     });
   });
 
   // Shop
   test.describe("shop", () => {
-    test.describe("layout", shopLayout);
-    test.describe("searchBox", shopSearchBox);
+    test.describe("layout", t.shopLayout);
+    test.describe("searchBox", t.shopSearchBox);
     // test.describe("ecommerceFlow", ecommerceFlow);
     test.describe("filters", () => {
-      test.describe("filters", filters);
-      test.describe("gender filtering", genderFiltering);
-      test.describe("productType filtering", productTypeFiltering);
-      test.describe("priceRange", priceRange);
-      test.describe("brands", brands);
-      test.describe("filter sticky", filterSticky);
-      test.describe("flavor", flavorInAccessories);
+      test.describe("filters", t.filters);
+      test.describe("gender filtering", t.genderFiltering);
+      test.describe("productType filtering", t.productTypeFiltering);
+      test.describe("priceRange", t.priceRange);
+      test.describe("brands", t.brands);
+      test.describe("filter sticky", t.filterSticky);
+      test.describe("flavor", t.flavorInAccessories);
     });
     test.describe("refinementsComponent", () => {
-      test.describe("clearRefinements", clearRefinements);
-      test.describe("tags", tags);
+      test.describe("clearRefinements", t.clearRefinements);
+      test.describe("tags", t.tags);
     });
     test.describe("breadCrumbs", () => {
-      test.describe("status", status);
-      test.describe("navigate", navigate);
-      test.describe("urlCorrelation", urlCorrelation);
+      test.describe("status", t.status);
+      test.describe("navigate", t.navigate);
+      test.describe("urlCorrelation", t.urlCorrelation);
     });
   });
 })();
