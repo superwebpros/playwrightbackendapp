@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import url from "../config/frontUrl.ts";
+import url from "../config/frontUrl";
 import * as t from "./spec";
 
 export default function createTest() {
