@@ -21,7 +21,7 @@ jobs:
         with:
           version: 8  # Optional: specify a pnpm version
       - name: Install dependencies
-        run: pnpm ci
+        run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
