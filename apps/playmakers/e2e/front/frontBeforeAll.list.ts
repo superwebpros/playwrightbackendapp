@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import url from "../config/frontUrl.ts";
 import * as t from "./spec";
 
-export default (function () {
+export default function createTest() {
   test.beforeAll("homeRequest", async ({ browser }) => {
     const page = await browser.newPage();
     const response = await page.request.get(url);
@@ -45,4 +45,5 @@ export default (function () {
       test.describe("urlCorrelation", t.urlCorrelation);
     });
   });
-})();
+};
+createTest();
