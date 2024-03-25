@@ -1,0 +1,1 @@
+export { default as shopSearchBox } from "./searchBox.spec";
