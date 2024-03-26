@@ -39,7 +39,7 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../config/frontUrl"));
 const t = __importStar(require("./spec"));
 function createTest() {
-    test_1.test.beforeAll("homeRequest", ({ browser }) => __awaiter(this, void 0, void 0, function* () {
+    test_1.test.beforeAll("homeRequest", (_a) => __awaiter(this, [_a], void 0, function* ({ browser }) {
         const page = yield browser.newPage();
         const response = yield page.request.get(frontUrl_1.default);
         yield (0, test_1.expect)(response).toBeOK();

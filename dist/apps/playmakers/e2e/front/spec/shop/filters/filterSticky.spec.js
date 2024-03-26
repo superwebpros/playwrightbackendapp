@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
-    (0, test_1.test)("selected filter, refresh and is visible", ({ page }) => __awaiter(this, void 0, void 0, function* () {
+    (0, test_1.test)("selected filter, refresh and is visible", (_a) => __awaiter(this, [_a], void 0, function* ({ page }) {
         yield page.goto(frontUrl_1.default + "/collections/all");
         yield page.waitForLoadState();
         yield page.getByRole("button", { name: "Product Type" }).click();
@@ -24,7 +24,7 @@ function createTest() {
         yield page.waitForLoadState();
         yield (0, test_1.expect)(page.getByTestId("container-filters").getByText("Footwear ✗")).toBeVisible();
     }));
-    (0, test_1.test)("selected filter, go to product, go back and is visible", ({ page, }) => __awaiter(this, void 0, void 0, function* () {
+    (0, test_1.test)("selected filter, go to product, go back and is visible", (_b) => __awaiter(this, [_b], void 0, function* ({ page, }) {
         yield page.goto(frontUrl_1.default + "/collections/all");
         yield page.waitForLoadState();
         yield page.getByRole("button", { name: "Product Type" }).click();

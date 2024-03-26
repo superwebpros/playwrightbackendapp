@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
-    (0, test_1.test)("sale filtering", ({ page }) => __awaiter(this, void 0, void 0, function* () {
+    (0, test_1.test)("sale filtering", (_a) => __awaiter(this, [_a], void 0, function* ({ page }) {
         yield page.goto(frontUrl_1.default + "/collections/all");
         yield page.getByRole("button", { name: "Price Range" }).click();
         yield page
@@ -48,7 +48,7 @@ function createTest() {
         saleTagsCount = yield page.getByTestId("saleTag").count();
         yield (0, test_1.expect)(linksNames.length).not.toBe(saleTagsCount);
     }));
-    (0, test_1.test)("regular filtering", ({ page }) => __awaiter(this, void 0, void 0, function* () {
+    (0, test_1.test)("regular filtering", (_b) => __awaiter(this, [_b], void 0, function* ({ page }) {
         yield page.goto(frontUrl_1.default + "/collections/all");
         yield page.waitForLoadState();
         yield page.getByRole("button", { name: "Price Range" }).click();
@@ -82,7 +82,7 @@ function createTest() {
         saleTagsCount = yield page.getByTestId("saleTag").count();
         yield (0, test_1.expect)(saleTagsCount).not.toBe(0);
     }));
-    (0, test_1.test)("price range filtering", ({ page }) => __awaiter(this, void 0, void 0, function* () {
+    (0, test_1.test)("price range filtering", (_c) => __awaiter(this, [_c], void 0, function* ({ page }) {
         yield page.goto(frontUrl_1.default + "/collections/all");
         yield page.waitForLoadState();
         yield page.getByRole("button", { name: "Price Range" }).click();

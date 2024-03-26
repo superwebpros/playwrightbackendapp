@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 const strapiUrl_1 = __importDefault(require("../../config/strapiUrl"));
 function createTest() {
-    (0, test_1.test)("GET", ({ request }) => __awaiter(this, void 0, void 0, function* () {
+    (0, test_1.test)("GET", (_a) => __awaiter(this, [_a], void 0, function* ({ request }) {
         const response = yield request.get(strapiUrl_1.default + "/api/pages");
         yield (0, test_1.expect)(response).toBeOK();
     }));
