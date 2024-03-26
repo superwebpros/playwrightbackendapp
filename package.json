@@ -1,6 +1,6 @@
 {
   "name": "@superwebpros/testsuite",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "main": "dist/src",
   "scripts": {
@@ -24,5 +24,10 @@
     "@playwright/test": "^1.42.1",
     "typescript": "^5.4.3",
     "@types/node": "^20.11.30"
+  },
+  "peerDependencies":{
+    "playwright": "^1.12.0",
+    "@playwright/test": "^1.42.1",
+    "dotenv": "^16.4.5"
   }
 }
