@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import url from "../../../config/frontUrl";
 
-let currentURL; // Declare currentURL as a global variable
+let currentURL:string; // Declare currentURL as a global variable
 
 export default function createTest() {
   test("load product page", async ({ page }) => {
