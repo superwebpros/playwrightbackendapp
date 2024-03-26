@@ -1,6 +1,6 @@
 {
   "name": "@superwebpros/testsuite",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "dist/src",
   "scripts": {
@@ -9,14 +9,17 @@
     "swp": "cd apps/superwebpros && npm run dev",
     "prepare": "husky",
     "test": "npx playwright test",
-    "tsc": "tsc --build"
+    "tsc": "tsc --build",
+    "postinstall": "node createE2EFolder.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "husky": "^9.0.11",
-    "turbo": "^1.13.0"
+    "turbo": "^1.13.0",
+    "playwright": "^1.12.0",
+    "@playwright/test": "^1.42.1"
   },
   "workspaces": [
     "apps/*"
