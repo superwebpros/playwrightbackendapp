@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
-    (0, test_1.test)("search and account buttons visible", (_a) => __awaiter(this, [_a], void 0, function* ({ page }) {
+    (0, test_1.test)("search and account buttons visible", ({ page }) => __awaiter(this, void 0, void 0, function* () {
         yield page.goto(frontUrl_1.default);
         yield (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
         yield (0, test_1.expect)(page.getByTestId("favoriteButton")).toBeVisible();

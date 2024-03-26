@@ -1,6 +1,6 @@
 {
   "name": "@superwebpros/testsuite",
-  "version": "1.0.12",
+  "version": "1.0.16",
   "description": "",
   "main": "dist/src",
   "scripts": {
@@ -9,8 +9,7 @@
     "swp": "cd apps/superwebpros && npm run dev",
     "prepare": "husky",
     "test": "npx playwright test",
-    "tsc": "tsc --build",
-    "postinstall": "node createE2EFolder.js"
+    "tsc": "tsc --build"
   },
   "keywords": [],
   "author": "",

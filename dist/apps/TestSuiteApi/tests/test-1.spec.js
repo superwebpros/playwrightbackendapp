@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
-(0, test_1.test)('test', (_a) => __awaiter(void 0, [_a], void 0, function* ({ page }) {
+(0, test_1.test)('test', ({ page }) => __awaiter(void 0, void 0, void 0, function* () {
     yield page.goto('https://www.google.com/');
     yield page.getByLabel('Buscar', { exact: true }).click();
     yield page.getByLabel('Buscar', { exact: true }).fill('facebook');

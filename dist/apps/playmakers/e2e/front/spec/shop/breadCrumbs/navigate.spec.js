@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
-    (0, test_1.test)("navigate", (_a) => __awaiter(this, [_a], void 0, function* ({ page }) {
+    (0, test_1.test)("navigate", ({ page }) => __awaiter(this, void 0, void 0, function* () {
         yield page.goto(frontUrl_1.default + "/collections/women/apparel");
         yield page.waitForLoadState();
         yield page.getByRole("link", { name: "〉Women" }).click();
@@ -26,7 +26,7 @@ function createTest() {
         yield page.waitForLoadState();
         yield (0, test_1.expect)(page.url()).toBe(frontUrl_1.default + "/collections/all");
     }));
-    (0, test_1.test)("go to product and navigate from breadcrumbs ", (_b) => __awaiter(this, [_b], void 0, function* ({ page }) {
+    (0, test_1.test)("go to product and navigate from breadcrumbs ", ({ page }) => __awaiter(this, void 0, void 0, function* () {
         yield page.goto(frontUrl_1.default + "/collections/all");
         yield page.waitForLoadState();
         yield page
