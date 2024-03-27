@@ -9,7 +9,8 @@
     "swp": "cd apps/superwebpros && npm run dev",
     "prepare": "husky",
     "test": "npx playwright test",
-    "tsc": "rm -rf ./dist && tsc --build"
+    "tsc": "rm -rf ./dist && tsc --build",
+    "tscall": "turbo tsc"
   },
   "keywords": [],
   "author": "leandrosavat",
