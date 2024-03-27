@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 function createTest() {
-    (0, test_1.test)("home", ({ page }) => __awaiter(this, void 0, void 0, function* () {
+    (0, test_1.test)("home", (_a) => __awaiter(this, [_a], void 0, function* ({ page }) {
         yield page.goto("https://www.superwebpros.com/");
         yield page.getByRole("link", { name: "Bonuses Included" }).click();
         yield (0, test_1.expect)(page.getByText("Pro-fessional WP Theme Bundle")).toBeVisible();
