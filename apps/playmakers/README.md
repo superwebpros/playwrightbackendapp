@@ -1,8 +1,8 @@
-# @superwebpros/testsuite
+# @superwebpros/ts-playmakers
 
 #### Description
 
-This is a library for automated testing designed to facilitate the writing and execution of tests using Playwright and Jest.
+This project contains the Playwright tests for the Playmakers project. It is a client project that is part of the TestSuite library, which is a collection of Playwright tests for all client projects.
 
 ## Project Documentation: TestSuite
 
@@ -10,11 +10,9 @@ TestSuite is an npm library designed to be executed from VS Code, allowing the g
 
 ### Technologies Used
 
-- **Mono-repo with TurboRepo:** The project is developed in a mono-repo architecture using TurboRepo ([TurboRepo](https://turbo.build/repo)). It is written in TypeScript and compiled to JavaScript in the `dist` folder, enhancing its compatibility for installation in other projects.
+- **TypeScript:** The project is written in TypeScript to facilitate the use of types and improve code quality.
 
 - **PNPM Library Manager:** TestSuite is compatible with the PNPM library manager for dependency management.
-
-- **Husky:** Husky is used to run tests before pushing to the remote repository, ensuring code integrity.
 
 - **Version Publishing with NPM:** New versions of the library must be published with `npm publish` after logging in with the `superwebpros` account.
 
@@ -36,12 +34,7 @@ The following scripts are recommended to be used from the root of the project to
 
 ```json
 "scripts": {
-  "dev": "turbo dev",
-  "pm": "cd apps/playmakers && npm run dev",
-  "swp": "cd apps/superwebpros && npm run dev",
-  "prepare": "husky",
-  "test": "npx playwright test",
-  "tsc": "tsc --build"
+  "dev": "npx playwright test"
 }
 ```
 
