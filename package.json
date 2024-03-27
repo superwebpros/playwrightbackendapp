@@ -1,7 +1,7 @@
 {
   "name": "@superwebpros/testsuite",
-  "version": "1.0.24",
-  "description": "",
+  "version": "1.0.25",
+  "description": "TestSuite, a test suite for all SuperWebPros projects",
   "main": "dist/src",
   "scripts": {
     "dev": "turbo dev",
