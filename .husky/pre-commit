@@ -1,1 +1,2 @@
-turbo tsc
+npx turbo tsc
+npm run tsc
