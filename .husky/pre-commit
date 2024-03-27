@@ -1,1 +1,1 @@
-tsc --build
+rm -rf ./dist
