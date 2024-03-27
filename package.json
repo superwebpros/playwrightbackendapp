@@ -8,8 +8,7 @@
     "pm": "cd apps/playmakers && npm run dev",
     "swp": "cd apps/superwebpros && npm run dev",
     "prepare": "husky",
-    "test": "npx playwright test",
-    "tsc": "tsc --build"
+    "test": "npx playwright test"
   },
   "keywords": [],
   "author": "leandrosavat",
