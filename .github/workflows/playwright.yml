@@ -7,7 +7,7 @@ on:
   schedule:
   # - cron: '0 0 * * *' # Ejecutar a medianoche (00:00) todos los días
   # - cron: "*/5 * * * *" # Ejecutar cada 5 minutos
-  - cron: "13 14 * * *" # Ejecutar a una hora especifica 
+  - cron: "18 16 * * *" # Ejecutar a una hora especifica 
 jobs:
   test:
     timeout-minutes: 60
