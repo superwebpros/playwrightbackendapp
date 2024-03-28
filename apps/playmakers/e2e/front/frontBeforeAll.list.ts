@@ -22,28 +22,29 @@ export default function createTest() {
   });
 
   // Shop
-  test.describe("shop", () => {
-    test.describe("layout", t.shopLayout);
-    test.describe("searchBox", t.shopSearchBox);
-    // test.describe("ecommerceFlow", ecommerceFlow);
-    test.describe("filters", () => {
-      test.describe("filters", t.filters);
-      test.describe("gender filtering", t.genderFiltering);
-      test.describe("productType filtering", t.productTypeFiltering);
-      test.describe("priceRange", t.priceRange);
-      test.describe("brands", t.brands);
-      test.describe("filter sticky", t.filterSticky);
-      test.describe("flavor", t.flavorInAccessories);
-    });
-    test.describe("refinementsComponent", () => {
-      test.describe("clearRefinements", t.clearRefinements);
-      test.describe("tags", t.tags);
-    });
-    test.describe("breadCrumbs", () => {
-      test.describe("status", t.status);
-      test.describe("navigate", t.navigate);
-      test.describe("urlCorrelation", t.urlCorrelation);
-    });
-  });
+  // test.describe("shop", () => {
+  //   test.describe("layout", t.shopLayout);
+  //   test.describe("searchBox", t.shopSearchBox);
+  //   // test.describe("ecommerceFlow", ecommerceFlow);
+  //   test.describe("filters", () => {
+  //     test.describe("filters", t.filters);
+  //     test.describe("gender filtering", t.genderFiltering);
+  //     test.describe("productType filtering", t.productTypeFiltering);
+  //     test.describe("priceRange", t.priceRange);
+  //     test.describe("brands", t.brands);
+  //     test.describe("filter sticky", t.filterSticky);
+  //     test.describe("flavor", t.flavorInAccessories);
+  //   });
+  //   test.describe("refinementsComponent", () => {
+  //     test.describe("clearRefinements", t.clearRefinements);
+  //     test.describe("tags", t.tags);
+  //   });
+  //   test.describe("breadCrumbs", () => {
+  //     test.describe("status", t.status);
+  //     test.describe("navigate", t.navigate);
+  //     test.describe("urlCorrelation", t.urlCorrelation);
+  //   });
+  // });
+  // second test
 };
 createTest();

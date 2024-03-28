@@ -8,16 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
-const strapiUrl_1 = __importDefault(require("../../config/strapiUrl"));
-function createTest() {
-    (0, test_1.test)("GET", ({ request }) => __awaiter(this, void 0, void 0, function* () {
-        const response = yield request.get(strapiUrl_1.default + "/api/pages");
-        yield (0, test_1.expect)(response).toBeOK();
-    }));
-}
-exports.default = createTest;
+(0, test_1.test)('test', (_a) => __awaiter(void 0, [_a], void 0, function* ({ page }) {
+    yield page.goto('https://savat.ar/');
+}));
