@@ -23,6 +23,7 @@ export default function createTest() {
 
     // Test women hit filtering
     await page.getByRole("button", { name: "Men", exact: true }).click();
+    await page.waitForTimeout(1000);
     await page.getByRole("button", { name: "Women", exact: true }).click();
     await page.waitForTimeout(2000);
     await page.waitForSelector(".ais-InfiniteHits-list");
@@ -33,6 +34,7 @@ export default function createTest() {
       .getByRole("link")
       .allTextContents();
     linksNames = links.filter((link) => link.includes("Men's"));
+    console.log("linksNames", linksNames);
     await expect(linksNames.length).toBe(0);
   });
 }
