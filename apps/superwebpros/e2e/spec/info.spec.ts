@@ -18,6 +18,6 @@ export default function createTest() {
     // console.log(content);
 
     const buffer = await page.screenshot();
-    // fs.writeFileSync("imagen.png", buffer);
+    fs.writeFileSync("imagen.png", buffer);
   });
 }
