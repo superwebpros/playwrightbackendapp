@@ -1,6 +1,6 @@
 {
   "name": "@superwebpros/testsuite",
-  "version": "1.0.25",
+  "version": "1.0.28",
   "description": "TestSuite, a test suite for all SuperWebPros projects",
   "main": "dist/src",
   "scripts": {
@@ -9,8 +9,9 @@
     "swp": "cd apps/superwebpros && npm run dev",
     "prepare": "husky",
     "test": "npx playwright test",
-    "tsc": "rm -rf ./dist && tsc --build",
-    "tscall": "turbo tsc"
+    "tsc": "rm -rf ./dist && tsc --build && turbo tsc",
+    "tscall": "turbo tsc",
+    "publishpm": "turbo publishpm"
   },
   "keywords": [],
   "author": "leandrosavat",

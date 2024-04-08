@@ -6,6 +6,9 @@
     },
     "tsc": {
       "cache": false
+    },
+    "publishpm": {
+      "cache": false
     }
   }
 }

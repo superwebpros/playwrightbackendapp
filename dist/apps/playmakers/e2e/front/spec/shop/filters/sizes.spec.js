@@ -15,38 +15,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
-    (0, test_1.test)("women gender was filtered", (_a) => __awaiter(this, [_a], void 0, function* ({ page }) {
+    (0, test_1.test)("filtering only with selected brand", (_a) => __awaiter(this, [_a], void 0, function* ({ page }) {
         yield page.goto(frontUrl_1.default + "/collections/all");
         yield page.waitForLoadState();
-        yield (0, test_1.expect)(page.getByTestId("container-filters")).toBeVisible();
-        yield (0, test_1.expect)(page.getByRole("button", { name: "Gender" })).toBeVisible();
-        // Test men hit filtering
-        yield page.getByRole("button", { name: "Gender" }).click();
-        yield page.getByRole("button", { name: "Men", exact: true }).click();
+        yield page.getByRole("button", { name: "Brand" }).click();
+        yield page.getByRole("button", { name: "ASICS" }).click();
         yield page.waitForTimeout(2000);
         let links = yield page
             .getByTestId("infiniteHits")
             .locator(".ais-InfiniteHits")
             .locator(".ais-InfiniteHits-list")
             .getByRole("link")
-            .allTextContents();
-        let linksNames = links.filter((link) => link.includes("Women's"));
-        yield (0, test_1.expect)(linksNames.length).toBe(0);
-        // Test women hit filtering
-        yield page.getByRole("button", { name: "Men", exact: true }).click();
-        yield page.waitForTimeout(1000);
-        yield page.getByRole("button", { name: "Women", exact: true }).click();
-        yield page.waitForTimeout(2000);
-        yield page.waitForSelector(".ais-InfiniteHits-list");
-        links = yield page
-            .getByTestId("infiniteHits")
-            .locator(".ais-InfiniteHits")
-            .locator(".ais-InfiniteHits-list")
-            .getByRole("link")
-            .allTextContents();
-        linksNames = links.filter((link) => link.includes("Men's"));
-        console.log("linksNames", linksNames);
-        yield (0, test_1.expect)(linksNames.length).toBe(0);
+            .allInnerTexts();
+        // console.log(links);
+        let linksNames = links.filter((link) => link !== "" && link.includes("ASICS"));
+        const linksCount = links.filter((link) => link !== "" && !link.includes("+"));
+        yield (0, test_1.expect)(linksCount.length).toBe(linksNames.length);
     }));
 }
 exports.default = createTest;
