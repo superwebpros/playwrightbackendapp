@@ -22,15 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -39,12 +30,12 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../config/frontUrl"));
 const t = __importStar(require("./spec"));
 function createTest() {
-    test_1.test.beforeAll("homeRequest", (_a) => __awaiter(this, [_a], void 0, function* ({ browser }) {
-        const page = yield browser.newPage();
-        const response = yield page.request.get(frontUrl_1.default);
-        yield (0, test_1.expect)(response).toBeOK();
-        yield page.close();
-    }));
+    test_1.test.beforeAll("homeRequest", async ({ browser }) => {
+        const page = await browser.newPage();
+        const response = await page.request.get(frontUrl_1.default);
+        await (0, test_1.expect)(response).toBeOK();
+        await page.close();
+    });
     // Basics
     test_1.test.describe("Basics", () => {
         test_1.test.describe("layout", t.layout);
