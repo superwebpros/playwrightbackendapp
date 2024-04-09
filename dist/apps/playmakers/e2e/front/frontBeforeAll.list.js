@@ -38,19 +38,19 @@ function createTest() {
     });
     // Basics
     test_1.test.describe("Basics", () => {
-        test_1.test.describe("layout", t.layout);
+        test_1.test.describe("layout", t.layoutStatus);
         test_1.test.describe("home", t.home);
         test_1.test.describe("nav", () => {
             test_1.test.describe("nav status", t.navStatus);
             test_1.test.describe("has logo", t.hasLogo);
             test_1.test.describe("links work", t.linksWork);
+            test_1.test.describe("icon hovers", t.iconHovers);
         });
     });
     // Shop
     test_1.test.describe("shop", () => {
         test_1.test.describe("layout", t.shopLayout);
         test_1.test.describe("searchBox", t.shopSearchBox);
-        // test.describe("ecommerceFlow", ecommerceFlow);
         test_1.test.describe("filters", () => {
             test_1.test.describe("filters", t.filters);
             test_1.test.describe("gender filtering", t.genderFiltering);
@@ -72,7 +72,12 @@ function createTest() {
     });
     // Product Page
     test_1.test.describe("productPage", () => {
-        test_1.test.describe("layout", t.zoomOnImage);
+        test_1.test.describe("Images on ProductPage", t.selectionImages);
+        test_1.test.describe("Carousel", t.uniqueProductsOnCarousel);
+    });
+    // Details
+    test_1.test.describe("footer", () => {
+        test_1.test.describe("Title", t.comeWithText);
     });
 }
 exports.default = createTest;

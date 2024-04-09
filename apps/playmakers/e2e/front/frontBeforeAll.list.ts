@@ -12,12 +12,14 @@ export default function createTest() {
 
   // Basics
   test.describe("Basics", () => {
-    test.describe("layout", t.layout);
+    test.describe("layout", t.layoutStatus);
     test.describe("home", t.home);
     test.describe("nav", () => {
       test.describe("nav status", t.navStatus);
       test.describe("has logo", t.hasLogo);
       test.describe("links work", t.linksWork);
+      test.describe("icon hovers", t.iconHovers);
+
     });
   });
 
@@ -25,7 +27,6 @@ export default function createTest() {
   test.describe("shop", () => {
     test.describe("layout", t.shopLayout);
     test.describe("searchBox", t.shopSearchBox);
-    // test.describe("ecommerceFlow", ecommerceFlow);
     test.describe("filters", () => {
       test.describe("filters", t.filters);
       test.describe("gender filtering", t.genderFiltering);
@@ -48,7 +49,13 @@ export default function createTest() {
 
   // Product Page
   test.describe("productPage", () => {
-    test.describe("layout", t.zoomOnImage);
+    test.describe("Images on ProductPage", t.selectionImages);
+    test.describe("Carousel", t.uniqueProductsOnCarousel);
+  });
+
+  // Details
+  test.describe("footer", () => {
+    test.describe("Title", t.comeWithText);
   });
 }
 createTest();

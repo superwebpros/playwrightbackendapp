@@ -1,0 +1,1 @@
+export { default as comeWithText } from "./comeWithText.spec";
