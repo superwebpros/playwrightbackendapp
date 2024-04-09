@@ -24,3 +24,4 @@ var layout_spec_1 = require("./layout.spec");
 Object.defineProperty(exports, "layout", { enumerable: true, get: function () { return __importDefault(layout_spec_1).default; } });
 __exportStar(require("./shop"), exports);
 __exportStar(require("./nav"), exports);
+__exportStar(require("./productPage"), exports);

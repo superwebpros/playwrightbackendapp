@@ -45,5 +45,10 @@ export default function createTest() {
       test.describe("urlCorrelation", t.urlCorrelation);
     });
   });
+
+  // Product Page
+  test.describe("productPage", () => {
+    test.describe("layout", t.zoomOnImage);
+  });
 }
 createTest();

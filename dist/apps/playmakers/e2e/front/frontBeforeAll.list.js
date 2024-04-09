@@ -70,6 +70,10 @@ function createTest() {
             test_1.test.describe("urlCorrelation", t.urlCorrelation);
         });
     });
+    // Product Page
+    test_1.test.describe("productPage", () => {
+        test_1.test.describe("layout", t.zoomOnImage);
+    });
 }
 exports.default = createTest;
 createTest();
