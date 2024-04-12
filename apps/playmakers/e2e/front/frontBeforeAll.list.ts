@@ -27,6 +27,7 @@ export default function createTest() {
   test.describe("shop", () => {
     test.describe("layout", t.shopLayout);
     test.describe("searchBox", t.shopSearchBox);
+    // filters
     test.describe("filters", () => {
       test.describe("filters", t.filters);
       test.describe("gender filtering", t.genderFiltering);
@@ -35,11 +36,13 @@ export default function createTest() {
       test.describe("brands", t.brands);
       test.describe("filter sticky", t.filterSticky);
       test.describe("flavor", t.flavorInAccessories);
+      test.describe("colors", t.colors);
     });
     test.describe("refinementsComponent", () => {
       test.describe("clearRefinements", t.clearRefinements);
       test.describe("tags", t.tags);
     });
+    // BreadCrumbs
     test.describe("breadCrumbs", () => {
       test.describe("status", t.status);
       test.describe("navigate", t.navigate);

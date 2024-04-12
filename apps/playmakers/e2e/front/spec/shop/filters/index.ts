@@ -7,4 +7,5 @@ export { default as filterSticky } from "./filterSticky.spec";
 export { default as flavorInAccessories } from "./flavorInAccessories.spec";
 export { default as brands } from "./brands.spec";
 export { default as priceRange } from "./priceRange.spec";
+export { default as colors } from "./colors.spec";
 // export { default as sizes } from "./sizes.spec";
