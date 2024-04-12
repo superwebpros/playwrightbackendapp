@@ -51,6 +51,7 @@ function createTest() {
     test_1.test.describe("shop", () => {
         test_1.test.describe("layout", t.shopLayout);
         test_1.test.describe("searchBox", t.shopSearchBox);
+        // filters
         test_1.test.describe("filters", () => {
             test_1.test.describe("filters", t.filters);
             test_1.test.describe("gender filtering", t.genderFiltering);
@@ -59,11 +60,13 @@ function createTest() {
             test_1.test.describe("brands", t.brands);
             test_1.test.describe("filter sticky", t.filterSticky);
             test_1.test.describe("flavor", t.flavorInAccessories);
+            test_1.test.describe("colors", t.colors);
         });
         test_1.test.describe("refinementsComponent", () => {
             test_1.test.describe("clearRefinements", t.clearRefinements);
             test_1.test.describe("tags", t.tags);
         });
+        // BreadCrumbs
         test_1.test.describe("breadCrumbs", () => {
             test_1.test.describe("status", t.status);
             test_1.test.describe("navigate", t.navigate);

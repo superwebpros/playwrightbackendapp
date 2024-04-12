@@ -12,14 +12,16 @@ export default function createTest() {
 
   // Basics
   test.describe("Basics", () => {
-    test.describe("layout", t.layoutStatus);
+    test.describe("layout", () => {
+      test.describe("status", t.layoutStatus);
+      test.describe("footer", t.footerLinks);
+    });
     test.describe("home", t.home);
     test.describe("nav", () => {
       test.describe("nav status", t.navStatus);
       test.describe("has logo", t.hasLogo);
       test.describe("links work", t.linksWork);
       test.describe("icon hovers", t.iconHovers);
-
     });
   });
 
