@@ -19,5 +19,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.layoutStatus = void 0;
 __exportStar(require("./prefooter"), exports);
+__exportStar(require("./footer"), exports);
 var layoutStatus_spec_1 = require("./layoutStatus.spec");
 Object.defineProperty(exports, "layoutStatus", { enumerable: true, get: function () { return __importDefault(layoutStatus_spec_1).default; } });

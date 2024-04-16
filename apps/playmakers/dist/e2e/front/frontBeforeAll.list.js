@@ -38,7 +38,10 @@ function createTest() {
     });
     // Basics
     test_1.test.describe("Basics", () => {
-        test_1.test.describe("layout", t.layoutStatus);
+        test_1.test.describe("layout", () => {
+            test_1.test.describe("status", t.layoutStatus);
+            test_1.test.describe("footer", t.footerLinks);
+        });
         test_1.test.describe("home", t.home);
         test_1.test.describe("nav", () => {
             test_1.test.describe("nav status", t.navStatus);

@@ -39,6 +39,7 @@ export default function createTest() {
       test.describe("filter sticky", t.filterSticky);
       test.describe("flavor", t.flavorInAccessories);
       test.describe("colors", t.colors);
+
     });
     test.describe("refinementsComponent", () => {
       test.describe("clearRefinements", t.clearRefinements);
