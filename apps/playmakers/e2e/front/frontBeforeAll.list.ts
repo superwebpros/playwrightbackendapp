@@ -39,7 +39,7 @@ export default function createTest() {
       test.describe("filter sticky", t.filterSticky);
       test.describe("flavor", t.flavorInAccessories);
       test.describe("colors", t.colors);
-
+      test.describe("searchers", t.searchers);
     });
     test.describe("refinementsComponent", () => {
       test.describe("clearRefinements", t.clearRefinements);
@@ -57,7 +57,7 @@ export default function createTest() {
   test.describe("productPage", () => {
     test.describe("Images on ProductPage", t.selectionImages);
     test.describe("Carousel", t.uniqueProductsOnCarousel);
-    test.describe("brand logo", t.brandLogoLink);
+    test.describe("Brand logo", t.brandLogoLink);
   });
 
   // Details

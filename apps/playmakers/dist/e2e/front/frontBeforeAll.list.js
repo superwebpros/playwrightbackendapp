@@ -80,6 +80,7 @@ function createTest() {
     test_1.test.describe("productPage", () => {
         test_1.test.describe("Images on ProductPage", t.selectionImages);
         test_1.test.describe("Carousel", t.uniqueProductsOnCarousel);
+        test_1.test.describe("brand logo", t.brandLogoLink);
     });
     // Details
     test_1.test.describe("footer", () => {
