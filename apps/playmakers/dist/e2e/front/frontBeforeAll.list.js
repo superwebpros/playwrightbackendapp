@@ -65,6 +65,7 @@ function createTest() {
             test_1.test.describe("flavor", t.flavorInAccessories);
             test_1.test.describe("colors", t.colors);
             test_1.test.describe("searchers", t.searchers);
+            test_1.test.describe("sizes", t.sizesSplit);
         });
         test_1.test.describe("refinementsComponent", () => {
             test_1.test.describe("clearRefinements", t.clearRefinements);
