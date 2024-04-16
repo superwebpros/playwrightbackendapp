@@ -40,6 +40,7 @@ export default function createTest() {
       test.describe("flavor", t.flavorInAccessories);
       test.describe("colors", t.colors);
       test.describe("searchers", t.searchers);
+      test.describe("sizes", t.sizesSplit);
     });
     test.describe("refinementsComponent", () => {
       test.describe("clearRefinements", t.clearRefinements);

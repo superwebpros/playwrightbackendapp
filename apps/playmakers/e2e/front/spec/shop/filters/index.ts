@@ -9,3 +9,4 @@ export { default as brands } from "./brands.spec";
 export { default as priceRange } from "./priceRange.spec";
 export { default as colors } from "./colors.spec";
 export { default as searchers } from "./searchers.spec";
+export { default as sizesSplit } from "./sizesSplit.spec";

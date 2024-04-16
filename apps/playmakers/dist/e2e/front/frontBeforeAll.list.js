@@ -64,6 +64,7 @@ function createTest() {
             test_1.test.describe("filter sticky", t.filterSticky);
             test_1.test.describe("flavor", t.flavorInAccessories);
             test_1.test.describe("colors", t.colors);
+            test_1.test.describe("searchers", t.searchers);
         });
         test_1.test.describe("refinementsComponent", () => {
             test_1.test.describe("clearRefinements", t.clearRefinements);
@@ -80,7 +81,7 @@ function createTest() {
     test_1.test.describe("productPage", () => {
         test_1.test.describe("Images on ProductPage", t.selectionImages);
         test_1.test.describe("Carousel", t.uniqueProductsOnCarousel);
-        test_1.test.describe("brand logo", t.brandLogoLink);
+        test_1.test.describe("Brand logo", t.brandLogoLink);
     });
     // Details
     test_1.test.describe("footer", () => {
