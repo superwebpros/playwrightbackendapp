@@ -24,4 +24,3 @@ var priceRange_spec_1 = require("./priceRange.spec");
 Object.defineProperty(exports, "priceRange", { enumerable: true, get: function () { return __importDefault(priceRange_spec_1).default; } });
 var colors_spec_1 = require("./colors.spec");
 Object.defineProperty(exports, "colors", { enumerable: true, get: function () { return __importDefault(colors_spec_1).default; } });
-// export { default as sizes } from "./sizes.spec";

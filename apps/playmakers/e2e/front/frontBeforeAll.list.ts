@@ -57,6 +57,7 @@ export default function createTest() {
   test.describe("productPage", () => {
     test.describe("Images on ProductPage", t.selectionImages);
     test.describe("Carousel", t.uniqueProductsOnCarousel);
+    test.describe("brand logo", t.brandLogoLink);
   });
 
   // Details
