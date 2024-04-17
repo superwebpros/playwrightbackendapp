@@ -12,12 +12,16 @@ export default function createTest() {
 
   // Basics
   test.describe("Basics", () => {
-    test.describe("layout", t.layout);
+    test.describe("layout", () => {
+      test.describe("status", t.layoutStatus);
+      test.describe("footer", t.footerLinks);
+    });
     test.describe("home", t.home);
     test.describe("nav", () => {
       test.describe("nav status", t.navStatus);
       test.describe("has logo", t.hasLogo);
       test.describe("links work", t.linksWork);
+      test.describe("icon hovers", t.iconHovers);
     });
   });
 
@@ -25,7 +29,7 @@ export default function createTest() {
   test.describe("shop", () => {
     test.describe("layout", t.shopLayout);
     test.describe("searchBox", t.shopSearchBox);
-    // test.describe("ecommerceFlow", ecommerceFlow);
+    // filters
     test.describe("filters", () => {
       test.describe("filters", t.filters);
       test.describe("gender filtering", t.genderFiltering);
@@ -34,16 +38,32 @@ export default function createTest() {
       test.describe("brands", t.brands);
       test.describe("filter sticky", t.filterSticky);
       test.describe("flavor", t.flavorInAccessories);
+      test.describe("colors", t.colors);
+      test.describe("searchers", t.searchers);
+      test.describe("sizes", t.sizesSplit);
     });
     test.describe("refinementsComponent", () => {
       test.describe("clearRefinements", t.clearRefinements);
       test.describe("tags", t.tags);
     });
+    // BreadCrumbs
     test.describe("breadCrumbs", () => {
       test.describe("status", t.status);
       test.describe("navigate", t.navigate);
       test.describe("urlCorrelation", t.urlCorrelation);
     });
+  });
+
+  // Product Page
+  test.describe("productPage", () => {
+    test.describe("Images on ProductPage", t.selectionImages);
+    test.describe("Carousel", t.uniqueProductsOnCarousel);
+    test.describe("Brand logo", t.brandLogoLink);
+  });
+
+  // Details
+  test.describe("footer", () => {
+    test.describe("Title", t.comeWithText);
   });
 }
 createTest();

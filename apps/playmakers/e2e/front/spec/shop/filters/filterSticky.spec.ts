@@ -37,4 +37,21 @@ export default function createTest() {
       page.getByTestId("container-filters").getByText("Footwear ✗")
     ).toBeVisible();
   });
+  test("filters are not sticking across product pages", async ({ page }) => {
+    await page.goto(url + "/collections/all");
+    await page.waitForLoadState();
+    await page.getByRole("button", { name: "Product Type" }).click();
+    await page.getByRole("button", { name: "Footwear" }).click();
+    await expect(page.getByTestId('container-filters').getByText('Footwear ✗')).toBeVisible();
+    await page.getByRole('button', { name: 'Brand' }).click();
+    await expect(page.getByRole('button', { name: 'ASICS' })).toBeVisible();
+    await page.getByRole('button', { name: 'ASICS' }).click();
+    await page.waitForTimeout(5000)
+    await page.getByRole('link', { name: 'Shop' }).hover();
+    await expect(page.getByRole('link', { name: 'Apparel' }).nth(1)).toBeVisible();
+    await page.getByRole('link', { name: 'Apparel' }).nth(1).click();
+    await page.waitForLoadState();
+    await page.waitForTimeout(5000)
+    await expect(page.getByTestId('clearRefinements')).not.toBeVisible();
+  });
 }

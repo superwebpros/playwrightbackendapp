@@ -17,10 +17,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.layout = exports.home = void 0;
+exports.home = void 0;
 var home_spec_1 = require("./home.spec");
 Object.defineProperty(exports, "home", { enumerable: true, get: function () { return __importDefault(home_spec_1).default; } });
-var layout_spec_1 = require("./layout.spec");
-Object.defineProperty(exports, "layout", { enumerable: true, get: function () { return __importDefault(layout_spec_1).default; } });
 __exportStar(require("./shop"), exports);
 __exportStar(require("./nav"), exports);
+__exportStar(require("./productPage"), exports);
+__exportStar(require("./layout"), exports);
