@@ -4,12 +4,12 @@ import url from "../../../../config/frontUrl";
 export default function createTest() {
   test("sale filtering", async ({ page }) => {
     await page.goto(url + "/collections/all");
-    await page.getByRole("button", { name: "Price Range" }).click();
     await page
-      .getByTestId("container-filters")
-      .getByTestId("saleFilter")
-      .click();
+    .getByTestId("container-filters")
+    .getByText('On Sale')
+    .click();
     await page.waitForTimeout(2000);
+
     let links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
@@ -23,7 +23,7 @@ export default function createTest() {
     // take the filter and test if the product are not filtered
     await page
       .getByTestId("container-filters")
-      .getByTestId("saleFilter")
+      .getByText('On Sale')
       .click();
     await page.waitForTimeout(2000);
     links = await page
@@ -43,7 +43,7 @@ export default function createTest() {
     await page.getByRole("button", { name: "Price Range" }).click();
     await page
       .getByTestId("container-filters")
-      .getByTestId("regularFilter")
+      .getByText('Regular Price')
       .click();
     await page.waitForTimeout(2000);
     let links = await page

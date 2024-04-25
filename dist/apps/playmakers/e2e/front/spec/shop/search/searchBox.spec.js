@@ -18,9 +18,9 @@ function createTest() {
             throw new Error("Input field not found within the search box.");
         }
         await inputField.fill("SWP test value");
-        await page.waitForURL(`**/collections/all?q=SWP%20test%20value`);
+        await page.waitForURL(`**/collections/all?shopify_products%5Bquery%5D=SWP%20test%20value`);
         const currentURL = page.url();
-        (0, test_1.expect)(currentURL).toContain("?q=SWP%20test%20value");
+        (0, test_1.expect)(currentURL).toContain("?shopify_products%5Bquery%5D=SWP%20test%20value");
     });
 }
 exports.default = createTest;

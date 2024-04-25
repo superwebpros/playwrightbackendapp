@@ -7,8 +7,11 @@ export default function createTest() {
     await page.waitForLoadState();
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
-    await page.reload();
-    await page.waitForLoadState();
+    await page.waitForTimeout(1000);
+    await page.waitForLoadState("domcontentloaded");
+    await page.reload({ waitUntil: "load" });
+    await page.waitForLoadState("domcontentloaded");
+    // await page.waitForTimeout(10000)
     await expect(
       page.getByTestId("container-filters").getByText("Footwear ✗")
     ).toBeVisible();
@@ -20,8 +23,8 @@ export default function createTest() {
     await page.waitForLoadState();
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
-    await page.waitForTimeout(2000);
-    await page.waitForSelector('.ais-InfiniteHits-list');
+    await page.waitForTimeout(1000);
+    await page.waitForSelector(".ais-InfiniteHits-list");
     let links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
@@ -29,7 +32,10 @@ export default function createTest() {
       .getByRole("link")
       .allInnerTexts();
     let linksNames = links.filter((link) => link !== "");
-    await page.getByRole("link", { name: `${linksNames[0]}` }).first().click();
+    await page
+      .getByRole("link", { name: `${linksNames[0]}` })
+      .first()
+      .click();
     await page.waitForLoadState();
     await page.goBack();
     await page.waitForLoadState();
@@ -42,16 +48,22 @@ export default function createTest() {
     await page.waitForLoadState();
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
-    await expect(page.getByTestId('container-filters').getByText('Footwear ✗')).toBeVisible();
-    await page.getByRole('button', { name: 'Brand' }).click();
-    await expect(page.getByRole('button', { name: 'ASICS' })).toBeVisible();
-    await page.getByRole('button', { name: 'ASICS' }).click();
-    await page.waitForTimeout(5000)
-    await page.getByRole('link', { name: 'Shop' }).hover();
-    await expect(page.getByRole('link', { name: 'Apparel' }).nth(1)).toBeVisible();
-    await page.getByRole('link', { name: 'Apparel' }).nth(1).click();
     await page.waitForLoadState();
-    await page.waitForTimeout(5000)
-    await expect(page.getByTestId('clearRefinements')).not.toBeVisible();
+    await expect(
+      page.getByTestId("container-filters").getByText("Footwear ✗")
+    ).toBeVisible();
+    await page.getByRole("button", { name: "Brand" }).click();
+    await page.waitForLoadState();
+    await expect(page.getByRole("button", { name: "ASICS" })).toBeVisible();
+    await page.getByRole("button", { name: "ASICS" }).click();
+    await page.waitForTimeout(5000);
+    await page.getByRole("link", { name: "Shop" }).hover();
+    await expect(
+      page.getByRole("link", { name: "Apparel" }).nth(1)
+    ).toBeVisible();
+    await page.getByRole("link", { name: "Apparel" }).nth(1).click();
+    await page.waitForLoadState();
+    await page.waitForTimeout(5000);
+    await expect(page.getByTestId("clearRefinements")).not.toBeVisible();
   });
 }

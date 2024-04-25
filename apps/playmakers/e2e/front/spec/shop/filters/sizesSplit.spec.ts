@@ -12,10 +12,10 @@ export default function createTest() {
     womenSizes.map((size) => {
       if (Number(size) > 12 || Number(size) < 5) {
         correct = false;
+        console.log(size);
       }
     });
     await expect(correct).toBeTruthy();
-
     // Check men sizes
     await page.goto(url + "/collections/men/footwear");
     await page.waitForLoadState();

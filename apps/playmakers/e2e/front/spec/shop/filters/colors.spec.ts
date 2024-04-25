@@ -7,11 +7,12 @@ export default function createTest() {
     await page.waitForLoadState();
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
+    await page.waitForTimeout(1000);
     await expect(page.getByRole("button", { name: "Brand" })).toBeVisible();
     await page.getByRole("button", { name: "Brand" }).click();
     await page.getByRole('button', { name: 'On', exact: true }).click();
     await expect(page.getByRole("button", { name: "Colors" })).toBeVisible();
     await page.getByRole("button", { name: "Colors" }).click();
-    await expect(page.getByTestId("others-colors")).toBeVisible();
+    await expect(page.getByTestId('container-filters').getByTestId('colorSearchResults')).toBeVisible();
   });
 }

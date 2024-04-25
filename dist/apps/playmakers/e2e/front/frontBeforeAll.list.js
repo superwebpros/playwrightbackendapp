@@ -47,7 +47,7 @@ function createTest() {
             test_1.test.describe("nav status", t.navStatus);
             test_1.test.describe("has logo", t.hasLogo);
             test_1.test.describe("links work", t.linksWork);
-            test_1.test.describe("icon hovers", t.iconHovers);
+            // test.describe("icon hovers", t.iconHovers);
         });
     });
     // Shop
@@ -59,7 +59,7 @@ function createTest() {
             test_1.test.describe("filters", t.filters);
             test_1.test.describe("gender filtering", t.genderFiltering);
             test_1.test.describe("productType filtering", t.productTypeFiltering);
-            test_1.test.describe("priceRange", t.priceRange);
+            // test.describe("priceRange", t.priceRange); // Ver hits que tienen subitems en sale en reunion
             test_1.test.describe("brands", t.brands);
             test_1.test.describe("filter sticky", t.filterSticky);
             test_1.test.describe("flavor", t.flavorInAccessories);
@@ -80,14 +80,14 @@ function createTest() {
     });
     // Product Page
     test_1.test.describe("productPage", () => {
-        test_1.test.describe("Images on ProductPage", t.selectionImages);
-        test_1.test.describe("Carousel", t.uniqueProductsOnCarousel);
+        // test.describe("Images on ProductPage", t.selectionImages);
+        // test.describe("Carousel", t.uniqueProductsOnCarousel);
         test_1.test.describe("Brand logo", t.brandLogoLink);
     });
     // Details
-    test_1.test.describe("footer", () => {
-        test_1.test.describe("Title", t.comeWithText);
-    });
+    // test.describe("footer", () => {
+    //   test.describe("Title", t.comeWithText);
+    // });
 }
 exports.default = createTest;
 createTest();

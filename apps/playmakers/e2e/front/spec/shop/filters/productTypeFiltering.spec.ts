@@ -26,12 +26,12 @@ export default function createTest() {
     await page.waitForLoadState();
     await expect(page).toHaveURL(/\/products\//);
     await expect(page.getByRole("link", { name: "〉Footwear" })).toBeVisible();
-    await page.goto(url + "/collections/all");
+    await page.goBack();
     await page.waitForLoadState();
     //test apparel
     await page.getByTestId('container-filters').getByRole("button", { name: "Product Type" }).click();
     await page.getByRole("button", { name: "Footwear" }).click();
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
     await page.getByRole("button", { name: "Apparel" }).click();
     await page.waitForTimeout(3000);
 

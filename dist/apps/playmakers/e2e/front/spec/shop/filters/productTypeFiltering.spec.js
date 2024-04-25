@@ -27,12 +27,12 @@ function createTest() {
         await page.waitForLoadState();
         await (0, test_1.expect)(page).toHaveURL(/\/products\//);
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Footwear" })).toBeVisible();
-        await page.goto(frontUrl_1.default + "/collections/all");
+        await page.goBack();
         await page.waitForLoadState();
         //test apparel
         await page.getByTestId('container-filters').getByRole("button", { name: "Product Type" }).click();
         await page.getByRole("button", { name: "Footwear" }).click();
-        await page.waitForTimeout(1000);
+        await page.waitForTimeout(3000);
         await page.getByRole("button", { name: "Apparel" }).click();
         await page.waitForTimeout(3000);
         await page.waitForSelector('.ais-InfiniteHits-list');
