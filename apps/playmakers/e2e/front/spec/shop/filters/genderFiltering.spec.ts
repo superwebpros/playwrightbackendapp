@@ -34,7 +34,6 @@ export default function createTest() {
       .getByRole("link")
       .allTextContents();
     linksNames = links.filter((link) => link.includes("Men's"));
-    console.log("linksNames", linksNames);
     await expect(linksNames.length).toBe(0);
   });
 }

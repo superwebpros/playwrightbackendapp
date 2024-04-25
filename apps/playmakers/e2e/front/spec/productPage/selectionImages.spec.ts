@@ -17,7 +17,6 @@ export default function createTest() {
     await expect(page.url()).toContain(`${url}/products/`);
     await expect(page.getByTestId('principalImg')).toBeVisible();
     const img = await page.getByTestId('principalImg').getAttribute('src');
-    console.log(img)
     await expect(page.getByTestId('secondaryImgs')).toBeVisible();
     await expect(page.getByTestId('secondImg').first()).toBeVisible();
     const secondImg= await page.getByTestId('secondImg').first().getAttribute('src');

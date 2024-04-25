@@ -13,7 +13,6 @@ export default function createTest() {
       .locator(".ais-InfiniteHits-list")
       .getByRole("link")
       .allTextContents();
-    console.log(links.find((item) => item.trim().length > 0));
     await page
       .getByText(`${links.find((item) => item.trim().length > 0)}`, {
         exact: true,
@@ -22,11 +21,10 @@ export default function createTest() {
 
     expect(page.url()).toContain(url + "/products");
     currentURL = page.url();
-    console.log("test1", currentURL);
   });
 
   test(" expect(page.url()).toContain(url + /products", async ({ page }) => {
-    console.log("test2", currentURL);
+
     // expect(page.url()).toContain(url + "/products");
   });
 
