@@ -8,10 +8,9 @@ const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("sale filtering", async ({ page }) => {
         await page.goto(frontUrl_1.default + "/collections/all");
-        await page.getByRole("button", { name: "Price Range" }).click();
         await page
             .getByTestId("container-filters")
-            .getByTestId("saleFilter")
+            .getByText('On Sale')
             .click();
         await page.waitForTimeout(2000);
         let links = await page
@@ -26,7 +25,7 @@ function createTest() {
         // take the filter and test if the product are not filtered
         await page
             .getByTestId("container-filters")
-            .getByTestId("saleFilter")
+            .getByText('On Sale')
             .click();
         await page.waitForTimeout(2000);
         links = await page
@@ -45,7 +44,7 @@ function createTest() {
         await page.getByRole("button", { name: "Price Range" }).click();
         await page
             .getByTestId("container-filters")
-            .getByTestId("regularFilter")
+            .getByText('Regular Price')
             .click();
         await page.waitForTimeout(2000);
         let links = await page

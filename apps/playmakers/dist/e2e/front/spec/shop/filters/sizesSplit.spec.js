@@ -16,6 +16,7 @@ function createTest() {
         womenSizes.map((size) => {
             if (Number(size) > 12 || Number(size) < 5) {
                 correct = false;
+                console.log(size);
             }
         });
         await (0, test_1.expect)(correct).toBeTruthy();

@@ -11,12 +11,13 @@ function createTest() {
         await page.waitForLoadState();
         await page.getByRole("button", { name: "Product Type" }).click();
         await page.getByRole("button", { name: "Footwear" }).click();
+        await page.waitForTimeout(1000);
         await (0, test_1.expect)(page.getByRole("button", { name: "Brand" })).toBeVisible();
         await page.getByRole("button", { name: "Brand" }).click();
         await page.getByRole('button', { name: 'On', exact: true }).click();
         await (0, test_1.expect)(page.getByRole("button", { name: "Colors" })).toBeVisible();
         await page.getByRole("button", { name: "Colors" }).click();
-        await (0, test_1.expect)(page.getByTestId("others-colors")).toBeVisible();
+        await (0, test_1.expect)(page.getByTestId('container-filters').getByTestId('colorSearchResults')).toBeVisible();
     });
 }
 exports.default = createTest;
