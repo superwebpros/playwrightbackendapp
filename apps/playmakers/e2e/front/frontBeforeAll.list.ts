@@ -21,7 +21,7 @@ export default function createTest() {
       test.describe("nav status", t.navStatus);
       test.describe("has logo", t.hasLogo);
       test.describe("links work", t.linksWork);
-      // test.describe("icon hovers", t.iconHovers);
+      test.describe("icon hovers", t.iconHovers);
     });
   });
 
