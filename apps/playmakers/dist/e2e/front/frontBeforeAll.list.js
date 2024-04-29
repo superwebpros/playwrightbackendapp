@@ -47,7 +47,7 @@ function createTest() {
             test_1.test.describe("nav status", t.navStatus);
             test_1.test.describe("has logo", t.hasLogo);
             test_1.test.describe("links work", t.linksWork);
-            // test.describe("icon hovers", t.iconHovers);
+            test_1.test.describe("icon hovers", t.iconHovers);
         });
     });
     // Shop
