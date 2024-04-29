@@ -19,7 +19,6 @@ function createTest() {
         await (0, test_1.expect)(page.url()).toContain(`${frontUrl_1.default}/products/`);
         await (0, test_1.expect)(page.getByTestId('principalImg')).toBeVisible();
         const img = await page.getByTestId('principalImg').getAttribute('src');
-        console.log(img);
         await (0, test_1.expect)(page.getByTestId('secondaryImgs')).toBeVisible();
         await (0, test_1.expect)(page.getByTestId('secondImg').first()).toBeVisible();
         const secondImg = await page.getByTestId('secondImg').first().getAttribute('src');

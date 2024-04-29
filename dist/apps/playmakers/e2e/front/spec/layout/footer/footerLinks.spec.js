@@ -12,7 +12,6 @@ function createTest() {
         await (0, test_1.expect)(page.getByTestId("flowbite-footer")).toBeVisible();
         await page.getByRole("link", { name: "Who We Are" }).click();
         await page.waitForLoadState();
-        console.log(frontUrl_1.default + "/about");
         await (0, test_1.expect)(page.url()).toBe(frontUrl_1.default + "/about");
     });
 }

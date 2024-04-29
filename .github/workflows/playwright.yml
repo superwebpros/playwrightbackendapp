@@ -2,13 +2,14 @@ name: Playwright Tests
 on:
   push:
     # branches: [main]
-    branches: [leandro]
+    branches: [main]
   # pull_request:
   #   branches: [main]
-  # schedule:
+  schedule:
     # - cron: '0 0 * * *' # Ejecutar a medianoche (00:00) todos los días
     # - cron: "*/5 * * * *" # Ejecutar cada 5 minutos
-    # - cron: "06 03 * * *" # Ejecutar a una hora especifica, "38 17 * * *" serian las 17:38 y respondio 14:44 arg / 3hs:6min adelantado
+    - cron: "06 03 * * *" 
+    # Ejecutar a una hora especifica, "38 17 * * *" serian las 17:38 y respondio 14:44 arg / 3hs:6min adelantado
 jobs:
   test:
     timeout-minutes: 60
