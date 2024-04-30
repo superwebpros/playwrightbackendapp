@@ -77,6 +77,10 @@ function createTest() {
             test_1.test.describe("navigate", t.navigate);
             test_1.test.describe("urlCorrelation", t.urlCorrelation);
         });
+        // Hits
+        test_1.test.describe("hits", () => {
+            test_1.test.describe("include Width", t.includeWidth);
+        });
     });
     // Product Page
     test_1.test.describe("productPage", () => {
@@ -85,9 +89,9 @@ function createTest() {
         test_1.test.describe("Brand logo", t.brandLogoLink);
     });
     // Details
-    // test.describe("footer", () => {
-    //   test.describe("Title", t.comeWithText);
-    // });
+    test_1.test.describe("footer", () => {
+        test_1.test.describe("Title", t.comeWithText);
+    });
 }
 exports.default = createTest;
 createTest();

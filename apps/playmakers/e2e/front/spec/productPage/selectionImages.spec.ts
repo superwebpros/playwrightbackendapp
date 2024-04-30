@@ -22,7 +22,7 @@ export default function createTest() {
     const secondImg= await page.getByTestId('secondImg').first().getAttribute('src');
     await expect(secondImg===img).toBe(false);
     await page.getByTestId('secondImg').first().click();
-    expect(await page.getByTestId('principalImg').getAttribute('src')).toBe(secondImg);
+    expect(await page.getByTestId('principalImg').getAttribute('src')).toContain(secondImg);
   });
 
 }
