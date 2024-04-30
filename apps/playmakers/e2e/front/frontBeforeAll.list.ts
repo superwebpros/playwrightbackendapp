@@ -55,6 +55,7 @@ export default function createTest() {
     // Hits
     test.describe("hits", () => {
       test.describe("include Width", t.includeWidth);
+      test.describe("kid tags", t.kidTags);
     });
   });
 

@@ -84,7 +84,7 @@ function createTest() {
     });
     // Product Page
     test_1.test.describe("productPage", () => {
-        // test.describe("Images on ProductPage", t.selectionImages);
+        test_1.test.describe("Images on ProductPage", t.selectionImages);
         // test.describe("Carousel", t.uniqueProductsOnCarousel);
         test_1.test.describe("Brand logo", t.brandLogoLink);
     });

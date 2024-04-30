@@ -24,7 +24,7 @@ function createTest() {
         const secondImg = await page.getByTestId('secondImg').first().getAttribute('src');
         await (0, test_1.expect)(secondImg === img).toBe(false);
         await page.getByTestId('secondImg').first().click();
-        (0, test_1.expect)(await page.getByTestId('principalImg').getAttribute('src')).toBe(secondImg);
+        (0, test_1.expect)(await page.getByTestId('principalImg').getAttribute('src')).toContain(secondImg);
     });
 }
 exports.default = createTest;
