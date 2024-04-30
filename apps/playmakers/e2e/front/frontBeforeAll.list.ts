@@ -52,6 +52,10 @@ export default function createTest() {
       test.describe("navigate", t.navigate);
       test.describe("urlCorrelation", t.urlCorrelation);
     });
+    // Hits
+    test.describe("hits", () => {
+      test.describe("include Width", t.includeWidth);
+    });
   });
 
   // Product Page
@@ -62,8 +66,8 @@ export default function createTest() {
   });
 
   // Details
-  // test.describe("footer", () => {
-  //   test.describe("Title", t.comeWithText);
-  // });
+  test.describe("footer", () => {
+    test.describe("Title", t.comeWithText);
+  });
 }
 createTest();

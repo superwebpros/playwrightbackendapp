@@ -30,7 +30,6 @@ function createTest() {
         await page.waitForTimeout(1000);
         let newBoundingBox2 = await acountIcon.boundingBox();
         let newIconWidth2 = newBoundingBox2 ? newBoundingBox2.width : null;
-        console.log(iconWidth2, newIconWidth2, newBoundingBox2, acountIcon);
         // await page.waitForTimeout(5000);
         if (iconWidth2 && newIconWidth2) {
             (0, test_1.expect)(newIconWidth2).toBeGreaterThan(iconWidth2);
