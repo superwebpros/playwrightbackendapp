@@ -9,5 +9,8 @@ export default function createTest() {
     await expect(page.getByTestId("nav")).toBeVisible();
     await expect(page.getByTestId("preFooter")).toBeVisible();
     await expect(page.getByTestId("flowbite-footer")).toBeVisible();
+    await page.waitForTimeout(3000);
+    await page.evaluate(() => window.scrollTo(0, 5000));
+    await page.waitForTimeout(3000);
   });
 }

@@ -80,6 +80,7 @@ function createTest() {
         // Hits
         test_1.test.describe("hits", () => {
             test_1.test.describe("include Width", t.includeWidth);
+            test_1.test.describe("kid tags", t.kidTags);
         });
     });
     // Product Page

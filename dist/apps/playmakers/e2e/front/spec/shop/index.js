@@ -17,13 +17,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.includeWidth = exports.ecommerceFlow = exports.shopLayout = void 0;
+exports.kidTags = exports.includeWidth = exports.ecommerceFlow = exports.shopLayout = void 0;
 var shopLayout_spec_1 = require("./shopLayout.spec");
 Object.defineProperty(exports, "shopLayout", { enumerable: true, get: function () { return __importDefault(shopLayout_spec_1).default; } });
 var ecommerceFlow_spec_1 = require("./ecommerceFlow.spec");
 Object.defineProperty(exports, "ecommerceFlow", { enumerable: true, get: function () { return __importDefault(ecommerceFlow_spec_1).default; } });
 var includeWidth_spec_1 = require("./includeWidth.spec");
 Object.defineProperty(exports, "includeWidth", { enumerable: true, get: function () { return __importDefault(includeWidth_spec_1).default; } });
+var kidTags_spec_1 = require("./kidTags.spec");
+Object.defineProperty(exports, "kidTags", { enumerable: true, get: function () { return __importDefault(kidTags_spec_1).default; } });
 __exportStar(require("./filters"), exports);
 __exportStar(require("./breadCrumbs"), exports);
 __exportStar(require("./search"), exports);
