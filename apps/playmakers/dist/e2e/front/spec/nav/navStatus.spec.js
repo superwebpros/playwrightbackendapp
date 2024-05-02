@@ -11,5 +11,12 @@ function createTest() {
         await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
         await (0, test_1.expect)(page.getByTestId("favoriteButton")).toBeVisible();
     });
+    (0, test_1.test)("nav sticky on scroll", async ({ page }) => {
+        await page.goto(frontUrl_1.default);
+        await page.waitForLoadState();
+        await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
+        await page.evaluate(() => window.scrollTo(0, 5000));
+        await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
+    });
 }
 exports.default = createTest;

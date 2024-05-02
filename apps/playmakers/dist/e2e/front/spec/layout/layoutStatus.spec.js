@@ -13,6 +13,9 @@ function createTest() {
         await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
         await (0, test_1.expect)(page.getByTestId("preFooter")).toBeVisible();
         await (0, test_1.expect)(page.getByTestId("flowbite-footer")).toBeVisible();
+        await page.waitForTimeout(3000);
+        await page.evaluate(() => window.scrollTo(0, 5000));
+        await page.waitForTimeout(3000);
     });
 }
 exports.default = createTest;

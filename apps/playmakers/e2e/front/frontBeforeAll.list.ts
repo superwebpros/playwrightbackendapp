@@ -70,5 +70,12 @@ export default function createTest() {
   test.describe("footer", () => {
     test.describe("Title", t.comeWithText);
   });
+
+  // Account
+  test.describe("account", () => {
+    test.describe("login", t.login);
+    test.describe("logout", t.logout);
+    test.describe("icon", t.accountIcon);
+  });
 }
 createTest();
