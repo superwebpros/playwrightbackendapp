@@ -93,6 +93,12 @@ function createTest() {
     test_1.test.describe("footer", () => {
         test_1.test.describe("Title", t.comeWithText);
     });
+    // Account
+    test_1.test.describe("account", () => {
+        test_1.test.describe("login", t.login);
+        test_1.test.describe("logout", t.logout);
+        test_1.test.describe("icon", t.accountIcon);
+    });
 }
 exports.default = createTest;
 createTest();
