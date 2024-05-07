@@ -4,6 +4,7 @@ import url from "../../../config/frontUrl";
 export default function createTest() {
   test("hover happens", async ({ page }) => {
     await page.goto(`${url}/collections/all`);
+    await page.waitForLoadState('networkidle')
     const hits = await page.getByTestId("hit").allTextContents();
 
     // Find the first element with "+" in its text content
@@ -12,7 +13,7 @@ export default function createTest() {
     // Ensure that the element to be clicked is properly awaited
     await page
       .getByTestId("hit")
-      .filter({ hasText: firstHitWithOptions })
+      .filter({ hasText: firstHitWithOptions }).first()
       .click();
 
     // Fetch the bounding box before hover
