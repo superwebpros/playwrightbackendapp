@@ -35,6 +35,7 @@ export default function createTest() {
       test.describe("gender filtering", t.genderFiltering);
       test.describe("productType filtering", t.productTypeFiltering);
       // test.describe("priceRange", t.priceRange); // Ver hits que tienen subitems en sale en reunion
+      test.describe("socks height", t.socksHeight);
       test.describe("brands", t.brands);
       test.describe("filter sticky", t.filterSticky);
       test.describe("flavor", t.flavorInAccessories);
