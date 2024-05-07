@@ -10,7 +10,9 @@ export default function createTest() {
     await page.getByPlaceholder('Email address').fill('leandrosavat@gmail.com');
     await page.getByPlaceholder('Password').fill('Lea12345');
     await page.getByRole('button', { name: 'Sign in' }).click();
-    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(3000);
+    await page.waitForSelector("button:has-text('Sign out')");
+
     await expect(page.getByRole('button', { name: 'Sign out' })).toBeVisible();
     await page.getByRole('button', { name: 'Sign out' }).click();
     await page.waitForTimeout(1500);
