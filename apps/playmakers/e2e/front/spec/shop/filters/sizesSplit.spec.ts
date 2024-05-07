@@ -17,7 +17,7 @@ export default function createTest() {
     await expect(correct).toBeTruthy();
     // Check men sizes
     await page.goto(url + "/collections/men/footwear");
-    await page.waitForLoadState();
+    await page.waitForLoadState('networkidle');
     await page.getByRole("button", { name: "Size" }).click();
     const menSizes = await page.getByTestId("sizeValue").allInnerTexts();
     correct = true;
@@ -30,7 +30,7 @@ export default function createTest() {
 
     // Check Kids sizes
     await page.goto(url + "/collections/kids/footwear");
-    await page.waitForLoadState();
+    await page.waitForLoadState('networkidle');
     await page.getByRole("button", { name: "Size" }).click();
     const kidSizes = await page.getByTestId("sizeValue").allInnerTexts();
     correct = true;
