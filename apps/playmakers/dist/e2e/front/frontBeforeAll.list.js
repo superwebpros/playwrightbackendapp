@@ -83,6 +83,8 @@ function createTest() {
             test_1.test.describe("include Width", t.includeWidth);
             test_1.test.describe("kid tags", t.kidTags);
         });
+        // Banner
+        test_1.test.describe("banner", t.banner);
     });
     // Product Page
     test_1.test.describe("productPage", () => {

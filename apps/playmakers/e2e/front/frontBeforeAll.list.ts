@@ -71,8 +71,11 @@ export default function createTest() {
   });
 
   // Details
+  test.describe("prefooter", () => {
+    test.describe("title", t.comeWithText);
+  });
   test.describe("footer", () => {
-    test.describe("Title", t.comeWithText);
+    test.describe("ability to edit", t.abilityToEdit);
   });
 
   // Account

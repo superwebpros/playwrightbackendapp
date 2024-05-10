@@ -3,7 +3,7 @@ import url from "../../../config/frontUrl";
 import exp from "constants";
 
 export default function createTest() {
-  test("has wide", async ({ page }) => {
+  test("dinamic banner", async ({ page }) => {
     // take banner for collections all
     await page.goto(url + "/collections/all");
     await page.waitForLoadState("networkidle");
