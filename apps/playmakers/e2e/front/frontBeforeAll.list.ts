@@ -58,6 +58,8 @@ export default function createTest() {
       test.describe("include Width", t.includeWidth);
       test.describe("kid tags", t.kidTags);
     });
+    // Banner
+    test.describe("banner", t.banner);
   });
 
   // Product Page
@@ -79,5 +81,5 @@ export default function createTest() {
     test.describe("logout", t.logout);
     test.describe("icon", t.accountIcon);
   });
-} 
+}
 createTest();

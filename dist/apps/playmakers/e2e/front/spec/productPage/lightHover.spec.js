@@ -8,13 +8,14 @@ const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("hover happens", async ({ page }) => {
         await page.goto(`${frontUrl_1.default}/collections/all`);
+        await page.waitForLoadState('networkidle');
         const hits = await page.getByTestId("hit").allTextContents();
         // Find the first element with "+" in its text content
         const firstHitWithOptions = hits.find((hit) => hit.includes("+"));
         // Ensure that the element to be clicked is properly awaited
         await page
             .getByTestId("hit")
-            .filter({ hasText: firstHitWithOptions })
+            .filter({ hasText: firstHitWithOptions }).first()
             .click();
         // Fetch the bounding box before hover
         const secondImgElement = await page.getByTestId("secondImg").first();
