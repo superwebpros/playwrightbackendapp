@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
-    (0, test_1.test)("has wide", async ({ page }) => {
+    (0, test_1.test)("dinamic banner", async ({ page }) => {
         // take banner for collections all
         await page.goto(frontUrl_1.default + "/collections/all");
         await page.waitForLoadState("networkidle");

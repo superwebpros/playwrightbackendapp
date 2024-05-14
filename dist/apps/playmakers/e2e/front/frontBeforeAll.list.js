@@ -94,8 +94,11 @@ function createTest() {
         test_1.test.describe("Brand logo", t.brandLogoLink);
     });
     // Details
+    test_1.test.describe("prefooter", () => {
+        test_1.test.describe("title", t.comeWithText);
+    });
     test_1.test.describe("footer", () => {
-        test_1.test.describe("Title", t.comeWithText);
+        test_1.test.describe("ability to edit", t.abilityToEdit);
     });
     // Account
     test_1.test.describe("account", () => {
