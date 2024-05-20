@@ -3,11 +3,11 @@ import url from "../../../config/frontUrl";
 
 export default function createTest() {
   test("tags only with kids", async ({ page }) => {
-    await page.goto(url + "/collections/all");
-    await page.waitForLoadState();
+    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+
     await page.getByRole("button", { name: "Gender" }).click();
     await page.getByRole("button", { name: "Big Kids", exact: true }).click();
-    await page.waitForTimeout(1500);
+    await page.waitForLoadState("networkidle");
     const hits = await page.getByTestId("hit").allTextContents();
     // todos los hits deben incluir la palabra kids, algunos hits pueden contener varias tags
     for (const hit of hits) {

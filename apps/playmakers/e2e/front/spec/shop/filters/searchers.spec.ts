@@ -3,11 +3,11 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("works", async ({ page }) => {
-    await page.goto(url + "/collections/men/footwear");
-    await page.waitForLoadState();
+    await page.goto(url + "/collections/men/footwear", { waitUntil: "commit" });
 
     // Category search
     await page.getByRole("button", { name: "Categories" }).click();
+    await page.waitForLoadState("networkidle");
     let searchText = "neutral";
     await page
       .getByTestId("container-filters")
@@ -19,10 +19,13 @@ export default function createTest() {
     let splitDataCount = splitData.filter(
       (text) => !text.toLowerCase().includes(searchText.toLowerCase())
     );
+
     expect(splitDataCount.length).toBe(0);
+  
 
     // Brand search
     await page.getByRole("button", { name: "Brand" }).click();
+    await page.waitForLoadState("networkidle");
     searchText = "altra";
     await page
       .getByTestId("container-filters")

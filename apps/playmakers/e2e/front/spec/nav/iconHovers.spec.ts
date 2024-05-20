@@ -10,8 +10,8 @@ interface BoundingBox {
 
 export default function createTest() {
   test("Hover make icons bigger", async ({ page }) => {
-    await page.goto(url);
-    await page.waitForLoadState();
+    await page.goto(url, { waitUntil: "commit" });
+
     let favoriteIcon = await page.getByTestId("favoriteIcon");
     await expect(favoriteIcon).toBeVisible();
     let boundingBox: BoundingBox | Promise<BoundingBox> | null =
@@ -33,11 +33,9 @@ export default function createTest() {
     let boundingBox2 = await acountIcon.boundingBox();
     let iconWidth2 = boundingBox2 ? boundingBox2.width : null;
     await acountIcon.hover({ force: true, noWaitAfter: false });
-    await page.waitForTimeout(1000);
+    await page.waitForLoadState("networkidle");
     let newBoundingBox2 = await acountIcon.boundingBox();
     let newIconWidth2 = newBoundingBox2 ? newBoundingBox2.width : null;
-
-    // await page.waitForTimeout(5000);
     if (iconWidth2 && newIconWidth2) {
       expect(newIconWidth2).toBeGreaterThan(iconWidth2);
     } else {

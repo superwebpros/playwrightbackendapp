@@ -22,7 +22,7 @@ export default function createTest() {
 
     // Perform hover and then fetch the bounding box after hover
     await secondImgElement.hover({ force: true, noWaitAfter: false });
-    await page.waitForTimeout(1000);
+    await page.waitForLoadState("networkidle");
     const sizeAfterHover = await secondImgElement.boundingBox();
     expect(sizeAfterHover?.width > sizeBeforeHover?.width).toBeTruthy();
   });

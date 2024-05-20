@@ -3,8 +3,8 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("navigate from footer when are on shop", async ({ page }) => {
-    await page.goto(url);
-    await page.waitForLoadState("networkidle");
+    await page.goto(url, { waitUntil: "commit" });
+
     const copyright = await page.getByTestId("flowbite-footer-copyright");
     await expect(copyright).toBeVisible();
     const copyrightText = await copyright.innerText();
@@ -20,6 +20,7 @@ export default function createTest() {
       .getByPlaceholder("e.g. kai@doe.com")
       .fill("hello@superwebpros.com");
     await newPage.getByLabel("Password*").click();
+    await newPage.waitForLoadState("networkidle");
     await newPage.getByLabel("Password*").fill("#Ak#..A<4ymW;e}@~)");
     await newPage.getByRole("button", { name: "Login" }).click();
     await newPage.waitForLoadState("networkidle");
@@ -30,30 +31,27 @@ export default function createTest() {
     await newPage.getByText("Published").click();
     await newPage.waitForLoadState("networkidle");
     await newPage.getByLabel("CopyrightTitle").click();
+    await newPage.waitForLoadState("networkidle");
     await newPage.getByLabel("CopyrightTitle").fill("Hello World");
     await newPage.getByRole("button", { name: "Save" }).click();
     await newPage.waitForLoadState("networkidle");
 
     // come back to the original page
     await page.reload();
-    await page.waitForLoadState("networkidle");
+
     const copyrightAfter = await page.getByTestId("flowbite-footer-copyright");
     const copyrightTextAfter = await copyrightAfter.innerText();
     await expect(copyrightTextAfter).not.toEqual(copyrightText);
 
     // if is successful, then I will change it back
     await newPage.getByLabel("CopyrightTitle").click();
+    await newPage.waitForLoadState("networkidle");
     await newPage.getByLabel("CopyrightTitle").fill("Playmakers");
     await newPage.getByRole("button", { name: "Save" }).click();
     await newPage.waitForLoadState("networkidle");
-
-    // verify that the change was successful
     await page.reload();
-    await page.waitForLoadState("networkidle");
     const copyrightAfter2 = await page.getByTestId("flowbite-footer-copyright");
     const copyrightTextAfter2 = await copyrightAfter2.innerText();
     await expect(copyrightTextAfter2).toEqual(copyrightText);
-
-    await newPage.waitForTimeout(5000);
   });
 }

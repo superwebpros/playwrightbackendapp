@@ -6,6 +6,7 @@ export default function createTest() {
   test.beforeAll("homeRequest", async ({ browser }) => {
     const page = await browser.newPage();
     const response = await page.request.get(url);
+    await page.waitForLoadState("networkidle");
     await expect(response).toBeOK();
     await page.close();
   });

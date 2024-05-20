@@ -3,20 +3,18 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("navigate", async ({ page }) => {
-    await page.goto(url + "/collections/women/apparel");
-    await page.waitForLoadState();
+    await page.goto(url + "/collections/women/apparel",{ waitUntil: "commit" });
     await page.getByRole("link", { name: "〉Women" }).click();
-    await page.waitForLoadState();
+    await page.waitForLoadState("networkidle");
     await expect(page.url()).toBe(url + "/collections/women");
-    await page.waitForSelector('data-testid=shopBreadcrumbs');
+    await page.waitForSelector("data-testid=shopBreadcrumbs");
     await page.getByRole("link", { name: "〉Collections" }).click();
-    await page.waitForLoadState();
+    await page.waitForLoadState("networkidle");
     await expect(page.url()).toBe(url + "/collections/all");
   });
 
   test("go to product and navigate from breadcrumbs ", async ({ page }) => {
-    await page.goto(url + "/collections/all");
-    await page.waitForLoadState();
+    await page.goto(url + "/collections/all", { waitUntil: "commit" });
     await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
@@ -24,17 +22,16 @@ export default function createTest() {
       .locator(".ais-InfiniteHits-item")
       .first()
       .click();
-    await page.waitForLoadState();
+    await page.waitForLoadState("networkidle");
     await page.waitForSelector("form");
     await expect(
       page.locator("form").filter({ hasText: "Add to Cart" }).locator("svg")
     ).toBeVisible();
     await expect(
-      page
-        .getByRole('link', { name: '〉Collections' })
+      page.getByRole("link", { name: "〉Collections" })
     ).toBeVisible();
-    await page.getByRole('link', { name: '〉Collections' }).click();
-    await page.waitForLoadState();
+    await page.getByRole("link", { name: "〉Collections" }).click();
+    await page.waitForLoadState("networkidle");
     await expect(page.url()).toBe(url + "/collections/all");
   });
 }
