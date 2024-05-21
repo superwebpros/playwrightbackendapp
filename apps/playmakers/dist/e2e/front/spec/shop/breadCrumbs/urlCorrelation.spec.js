@@ -7,11 +7,11 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("url correlation", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/women/apparel");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/women/apparel", {
+            waitUntil: "commit",
+        });
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Women" })).toBeVisible();
         await page.reload();
-        await page.waitForLoadState();
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Women" })).toBeVisible();
     });
 }

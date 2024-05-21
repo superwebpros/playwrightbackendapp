@@ -13,7 +13,7 @@ test_1.test.beforeAll("strapiStatus", async () => {
     const page = await context.newPage();
     const response = await page.request.get(strapiUrl_1.default);
     await (0, test_1.expect)(response).toBeOK();
-    await page.goto(strapiUrl_1.default);
+    await page.goto(strapiUrl_1.default, { waitUntil: "commit" });
     await (0, test_1.expect)(page.getByText("The server is running")).toBeVisible();
 });
 test_1.test.describe("strapi", () => {

@@ -24,6 +24,8 @@ export default function createTest() {
     await secondImgElement.hover({ force: true, noWaitAfter: false });
     await page.waitForLoadState("networkidle");
     const sizeAfterHover = await secondImgElement.boundingBox();
+    // console.log(sizeBeforeHover, sizeAfterHover)
     expect(sizeAfterHover?.width > sizeBeforeHover?.width).toBeTruthy();
+    await page.waitForTimeout(10000);
   });
 }

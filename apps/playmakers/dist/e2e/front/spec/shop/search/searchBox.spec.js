@@ -7,8 +7,7 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("searches", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "commit" });
         const searchBox = await page.waitForSelector('[data-testid="shopSearchBox"]');
         const isVisible = await searchBox.isVisible();
         (0, test_1.expect)(isVisible).toBe(true);

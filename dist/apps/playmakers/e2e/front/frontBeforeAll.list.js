@@ -33,6 +33,7 @@ function createTest() {
     test_1.test.beforeAll("homeRequest", async ({ browser }) => {
         const page = await browser.newPage();
         const response = await page.request.get(frontUrl_1.default);
+        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(response).toBeOK();
         await page.close();
     });
@@ -67,6 +68,7 @@ function createTest() {
             test_1.test.describe("colors", t.colors);
             test_1.test.describe("searchers", t.searchers);
             test_1.test.describe("sizes", t.sizesSplit);
+            test_1.test.describe("bra", t.bra);
         });
         test_1.test.describe("refinementsComponent", () => {
             test_1.test.describe("clearRefinements", t.clearRefinements);

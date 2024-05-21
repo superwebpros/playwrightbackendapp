@@ -7,10 +7,10 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("works", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/men/footwear");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/men/footwear", { waitUntil: "commit" });
         // Category search
         await page.getByRole("button", { name: "Categories" }).click();
+        await page.waitForLoadState("networkidle");
         let searchText = "neutral";
         await page
             .getByTestId("container-filters")
@@ -22,6 +22,7 @@ function createTest() {
         (0, test_1.expect)(splitDataCount.length).toBe(0);
         // Brand search
         await page.getByRole("button", { name: "Brand" }).click();
+        await page.waitForLoadState("networkidle");
         searchText = "altra";
         await page
             .getByTestId("container-filters")

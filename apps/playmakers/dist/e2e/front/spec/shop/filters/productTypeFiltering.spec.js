@@ -7,15 +7,14 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("footware and apparel filtering", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "commit" });
         await (0, test_1.expect)(page.getByTestId("container-filters")).toBeVisible();
         await (0, test_1.expect)(page.getByRole("button", { name: "Product Type" })).toBeVisible();
         await page.getByRole("button", { name: "Product Type" }).click();
+        await page.waitForLoadState("networkidle");
         await page.getByRole("button", { name: "Footwear" }).click();
-        await page.waitForTimeout(3000);
-        await page.waitForSelector('.ais-InfiniteHits-list');
-        await page.waitForLoadState('networkidle');
+        await page.waitForLoadState("networkidle");
+        await page.waitForSelector(".ais-InfiniteHits-list");
         let links = await page
             .getByTestId("infiniteHits")
             .locator(".ais-InfiniteHits")
@@ -23,19 +22,29 @@ function createTest() {
             .getByRole("link")
             .allInnerTexts();
         let linksNames = links.filter((link) => link !== "");
-        await page.getByRole("link", { name: `${linksNames[0]}` }).first().click();
-        await page.waitForLoadState();
+        await page
+            .getByRole("link", { name: `${linksNames[0]}` })
+            .first()
+            .click();
+        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page).toHaveURL(/\/products\//);
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Footwear" })).toBeVisible();
         await page.goBack();
-        await page.waitForLoadState();
+        await page.waitForLoadState("networkidle");
         //test apparel
-        await page.getByTestId('container-filters').getByRole("button", { name: "Product Type" }).click();
+        await page
+            .getByTestId("container-filters")
+            .getByRole("button", { name: "Product Type" })
+            .click();
+        await page.waitForLoadState("networkidle");
         await page.getByRole("button", { name: "Footwear" }).click();
-        await page.waitForTimeout(3000);
+        await page.waitForLoadState("networkidle");
         await page.getByRole("button", { name: "Apparel" }).click();
-        await page.waitForTimeout(3000);
-        await page.waitForSelector('.ais-InfiniteHits-list');
+        await page.waitForLoadState("networkidle");
+        await page.waitForURL(frontUrl_1.default +
+            "/collections/all?shopify_products%5BrefinementList%5D%5Bcollections%5D%5B0%5D=apparel");
+        await page.waitForLoadState("networkidle");
+        await page.waitForSelector(".ais-InfiniteHits-list");
         links = await page
             .getByTestId("infiniteHits")
             .locator(".ais-InfiniteHits")
@@ -43,8 +52,11 @@ function createTest() {
             .getByRole("link")
             .allInnerTexts();
         linksNames = links.filter((link) => link !== "");
-        await page.getByRole("link", { name: `${linksNames[0]}` }).first().click();
-        await page.waitForLoadState('networkidle');
+        await page
+            .getByRole("link", { name: `${linksNames[0]}` })
+            .first()
+            .click();
+        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page).toHaveURL(/\/products\//);
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Apparel" })).toBeVisible();
     });

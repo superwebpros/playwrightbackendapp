@@ -8,8 +8,8 @@ const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 let currentURL; // Declare currentURL as a global variable
 function createTest() {
     (0, test_1.test)("load product page", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all");
-        await page.waitForLoadState(); // agregue esto como algo fundamental ya que los test fallan aveces por no esperar a que cargue la pagina
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "commit" });
+        // agregue esto como algo fundamental ya que los test fallan aveces por no esperar a que cargue la pagina
         const links = await page
             .getByTestId("infiniteHits")
             .locator(".ais-InfiniteHits")

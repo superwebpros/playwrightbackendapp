@@ -7,13 +7,13 @@ export default function createTest() {
     page,
   }) => {
     await page.goto(url + "/collections/all", { waitUntil: "commit" });
-
-    await page.locator(".ais-InfiniteHits-item").first().click();
-
+    await page.getByTestId("hit").first().click();
+    await page.waitForLoadState("networkidle");
     const brandName: any = await page
       .getByTestId("brandLink")
       .getAttribute("alt");
     await page.getByTestId("brandLink").click();
+    await page.waitForLoadState("networkidle");
 
     expect(page.url()).toContain(
       url + "/collections/" + branNameFormat(brandName)

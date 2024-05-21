@@ -7,28 +7,21 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
     return (0, test_1.test)("log out and user information is visible", async ({ page }) => {
-        await page.goto(frontUrl_1.default);
-        await page.waitForLoadState('networkidle');
+        await page.goto(frontUrl_1.default, { waitUntil: "commit" });
         await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
         await page.getByTestId("accountButtonInactive").click();
-        await page.waitForLoadState('networkidle');
         await page.getByPlaceholder("Email address").fill("leandrosavat@gmail.com");
         await page.getByPlaceholder("Password").fill("Lea12345");
         await page.getByRole("button", { name: "Sign in" }).click();
-        // await page.waitForTimeout(2000);
-        // esperar a que el boton page.getByRole("button", { name: "Sign out" }) cargue
         await page.waitForSelector("button:has-text('Sign out'):enabled");
-        await page.waitForLoadState('networkidle');
         await (0, test_1.expect)(page.getByRole("button", { name: "Sign out" })).toBeVisible();
         await (0, test_1.expect)(page.getByRole("link", { name: "Orders" })).toBeVisible();
         await (0, test_1.expect)(page.getByRole("link", { name: "Profile" })).toBeVisible();
         await (0, test_1.expect)(page.getByRole("link", { name: "Addresses" })).toBeVisible();
         await page.getByRole("link", { name: "Profile" }).click();
-        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.getByText("Personal information")).toBeVisible();
         await (0, test_1.expect)(page.getByRole("button", { name: "Update" })).toBeVisible();
         await page.getByRole("link", { name: "Addresses" }).click();
-        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.getByRole("heading", { name: "Addresses" })).toBeVisible();
         await (0, test_1.expect)(page.getByRole("button", { name: "Sign out" })).toBeVisible();
     });
