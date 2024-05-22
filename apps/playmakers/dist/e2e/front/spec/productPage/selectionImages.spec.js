@@ -11,10 +11,12 @@ function createTest() {
         await page.getByPlaceholder("I'm shopping for").click();
         await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.getByTestId("popupContainer")).toBeVisible();
+        await page.waitForLoadState("networkidle");
         await page.getByPlaceholder("I'm shopping for").fill("S29055-33");
         await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.getByRole("link", { name: "Spitfire 5" }).first()).toBeVisible();
         await page.getByRole("link", { name: "Spitfire 5" }).first().click();
+        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.url()).toContain(`${frontUrl_1.default}/products/`);
         await (0, test_1.expect)(page.getByTestId("principalImg")).toBeVisible();
         const img = await page.getByTestId("principalImg").getAttribute("src");
@@ -26,6 +28,7 @@ function createTest() {
             .getAttribute("src");
         await (0, test_1.expect)(secondImg === img).toBe(false);
         await page.getByTestId("secondImg").first().click();
+        await page.waitForLoadState("networkidle");
         (0, test_1.expect)(await page.getByTestId("principalImg").getAttribute("src")).toContain(secondImg);
     });
 }

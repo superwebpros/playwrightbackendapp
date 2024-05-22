@@ -3,11 +3,11 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("filtering only with selected brand", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
-
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Brand" }).click();
-    await page.getByRole("button", { name: "ASICS" }).click();
     await page.waitForLoadState("networkidle");
+    await page.getByRole("button", { name: "ASICS" }).click();
+    await page.waitForTimeout(2000);
 
     let links = await page
       .getByTestId("infiniteHits")

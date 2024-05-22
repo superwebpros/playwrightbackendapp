@@ -10,7 +10,7 @@ interface BoundingBox {
 
 export default function createTest() {
   test("Hover make icons bigger", async ({ page }) => {
-    await page.goto(url, { waitUntil: "commit" });
+    await page.goto(url, { waitUntil: "networkidle" });
 
     let favoriteIcon = await page.getByTestId("favoriteIcon");
     await expect(favoriteIcon).toBeVisible();

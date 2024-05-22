@@ -14,18 +14,9 @@ function createTest() {
         await page.waitForLoadState("networkidle");
         await page.getByRole("button", { name: "Footwear" }).click();
         await page.waitForLoadState("networkidle");
-        await page.waitForSelector(".ais-InfiniteHits-list");
-        let links = await page
-            .getByTestId("infiniteHits")
-            .locator(".ais-InfiniteHits")
-            .locator(".ais-InfiniteHits-list")
-            .getByRole("link")
-            .allInnerTexts();
-        let linksNames = links.filter((link) => link !== "");
-        await page
-            .getByRole("link", { name: `${linksNames[0]}` })
-            .first()
-            .click();
+        await page.waitForURL(frontUrl_1.default +
+            "/collections/all?shopify_products%5BrefinementList%5D%5Bcollections%5D%5B0%5D=footwear");
+        await page.getByTestId("hit").first().click();
         await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page).toHaveURL(/\/products\//);
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Footwear" })).toBeVisible();
@@ -45,17 +36,7 @@ function createTest() {
             "/collections/all?shopify_products%5BrefinementList%5D%5Bcollections%5D%5B0%5D=apparel");
         await page.waitForLoadState("networkidle");
         await page.waitForSelector(".ais-InfiniteHits-list");
-        links = await page
-            .getByTestId("infiniteHits")
-            .locator(".ais-InfiniteHits")
-            .locator(".ais-InfiniteHits-list")
-            .getByRole("link")
-            .allInnerTexts();
-        linksNames = links.filter((link) => link !== "");
-        await page
-            .getByRole("link", { name: `${linksNames[0]}` })
-            .first()
-            .click();
+        await page.getByTestId("hit").first().click();
         await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page).toHaveURL(/\/products\//);
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Apparel" })).toBeVisible();

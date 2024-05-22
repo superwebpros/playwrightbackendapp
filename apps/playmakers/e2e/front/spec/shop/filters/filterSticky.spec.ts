@@ -3,7 +3,7 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("selected filter, refresh and is visible", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Footwear" }).click();
@@ -21,7 +21,7 @@ export default function createTest() {
   test("selected filter, go to product, go back and is visible", async ({
     page,
   }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Footwear" }).click();
@@ -39,7 +39,7 @@ export default function createTest() {
       .first()
       .click();
     await page.waitForLoadState("networkidle");
-    await page.goBack({ waitUntil: "commit" });
+    await page.goBack({ waitUntil: "networkidle" });
     await page.waitForLoadState("networkidle");
     await expect(
       page.getByTestId("container-filters").getByText("Footwear ✗")
@@ -47,7 +47,7 @@ export default function createTest() {
   });
 
   test("filters are not sticking across product pages", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.waitForLoadState("networkidle");

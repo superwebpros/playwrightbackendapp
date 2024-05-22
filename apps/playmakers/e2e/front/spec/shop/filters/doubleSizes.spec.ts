@@ -5,7 +5,7 @@ export default function createTest() {
   test("is showing size for men and women at the same tag", async ({
     page,
   }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     // first i ckeck if the sizes are showing for both genders in unisex products
     await page.getByRole("button", { name: "Gender" }).click();

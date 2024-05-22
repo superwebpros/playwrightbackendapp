@@ -3,14 +3,14 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("loaded", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     await expect(page.getByTestId("container-filters")).toBeVisible();
     await expect(page.getByRole("button", { name: "Gender" })).toBeVisible();
   });
 
   test("initial filters configuration", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     await expect(page.getByRole("button", { name: "Gender" })).toBeVisible();
     await expect(
@@ -36,14 +36,16 @@ export default function createTest() {
   test("more filters available when selecting a product type", async ({
     page,
   }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     await expect(page.getByRole("button", { name: "Gender" })).toBeVisible();
     await expect(
       page.getByRole("button", { name: "Product Type" })
     ).toBeVisible();
     await page.getByRole("button", { name: "Product Type" }).click();
+    await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Footwear" }).click();
+    await page.waitForLoadState("networkidle");
     await expect(page.getByRole("button", { name: "Brand" })).toBeVisible();
     await expect(
       page.getByRole("button", { name: "Price Range" })

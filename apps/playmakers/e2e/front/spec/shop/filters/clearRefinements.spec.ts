@@ -3,7 +3,7 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("appears when filter is selected", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Gender" }).click();
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Women" }).click();
@@ -14,7 +14,7 @@ export default function createTest() {
   });
 
   test("disappears when clic on it", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     await page.getByRole("button", { name: "Gender" }).click();
     await page.waitForLoadState("networkidle");
@@ -31,7 +31,7 @@ export default function createTest() {
   });
 
   test("disappears when filters is deselected", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     await page.getByRole("button", { name: "Gender" }).click();
     await page.waitForLoadState("networkidle");

@@ -18,7 +18,8 @@ function createTest() {
         await page.waitForLoadState("networkidle");
         await page.getByRole("button", { name: "Men", exact: true }).click();
         await page.waitForLoadState("networkidle");
-        await page.waitForURL(frontUrl_1.default + "/collections/all?shopify_products%5BrefinementList%5D%5Bcollection_ids%5D%5B0%5D=150471442485");
+        await page.waitForURL(frontUrl_1.default +
+            "/collections/all?shopify_products%5BrefinementList%5D%5Bcollection_ids%5D%5B0%5D=150471442485");
         // Obtiene todos los enlaces de los resultados infinitos
         let links = await page
             .getByTestId("infiniteHits")
@@ -35,7 +36,8 @@ function createTest() {
         await page.getByRole("button", { name: "Women", exact: true }).click();
         await page.waitForLoadState("networkidle");
         await page.waitForSelector(".ais-InfiniteHits-list");
-        await page.waitForURL(frontUrl_1.default + "/collections/all?shopify_products%5BrefinementList%5D%5Bcollection_ids%5D%5B0%5D=150470656053");
+        await page.waitForURL(frontUrl_1.default +
+            "/collections/all?shopify_products%5BrefinementList%5D%5Bcollection_ids%5D%5B0%5D=150470656053");
         // Obtiene todos los enlaces de los resultados infinitos nuevamente
         links = await page
             .getByTestId("infiniteHits")
@@ -45,7 +47,6 @@ function createTest() {
             .allTextContents();
         // Filtra los enlaces que contienen "Men's" y verifica que no haya ninguno
         linksNames = links.filter((link) => link.includes("Men's"));
-        console.log(linksNames);
         await (0, test_1.expect)(linksNames.length).toBe(0);
     });
 }

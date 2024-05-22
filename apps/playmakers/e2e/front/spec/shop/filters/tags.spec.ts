@@ -3,7 +3,7 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("tags work", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Footwear" }).click();
@@ -17,6 +17,7 @@ export default function createTest() {
       .getByText("Footwear ✗");
     await expect(Footwear).toBeVisible();
     await Footwear.click();
+    await page.waitForLoadState("networkidle");
     await expect(Footwear).not.toBeVisible();
   });
 }

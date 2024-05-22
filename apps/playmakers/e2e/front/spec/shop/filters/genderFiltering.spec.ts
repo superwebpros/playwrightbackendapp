@@ -5,7 +5,7 @@ import url from "../../../../config/frontUrl";
 export default function createTest() {
   test("women gender was filtered", async ({ page }) => {
     // Navega a la URL especificada y espera hasta que la navegación se haya confirmado
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     // Verifica que los elementos del filtro de género sean visibles
     await expect(page.getByTestId("container-filters")).toBeVisible();

@@ -21,7 +21,7 @@ test.beforeAll("strapiStatus", async () => {
   const page = await context.newPage();
   const response = await page.request.get(url);
   await expect(response).toBeOK();
-  await page.goto(url, { waitUntil: "commit" });
+  await page.goto(url, { waitUntil: "networkidle" });
   await expect(page.getByText("The server is running")).toBeVisible();
 });
 

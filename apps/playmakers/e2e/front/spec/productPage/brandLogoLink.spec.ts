@@ -6,7 +6,7 @@ export default function createTest() {
   test("click on brand logo in product page redirect to collection brand", async ({
     page,
   }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await page.getByTestId("hit").first().click();
     await page.waitForLoadState("networkidle");
     const brandName: any = await page

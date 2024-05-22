@@ -3,7 +3,9 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("works", async ({ page }) => {
-    await page.goto(url + "/collections/men/footwear", { waitUntil: "commit" });
+    await page.goto(url + "/collections/men/footwear", {
+      waitUntil: "networkidle",
+    });
 
     // Category search
     await page.getByRole("button", { name: "Categories" }).click();
@@ -21,7 +23,6 @@ export default function createTest() {
     );
 
     expect(splitDataCount.length).toBe(0);
-  
 
     // Brand search
     await page.getByRole("button", { name: "Brand" }).click();

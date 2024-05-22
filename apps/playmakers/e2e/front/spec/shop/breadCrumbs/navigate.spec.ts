@@ -3,7 +3,9 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("navigate", async ({ page }) => {
-    await page.goto(url + "/collections/women/apparel",{ waitUntil: "commit" });
+    await page.goto(url + "/collections/women/apparel", {
+      waitUntil: "networkidle",
+    });
     await page.getByRole("link", { name: "〉Women" }).click();
     await page.waitForLoadState("networkidle");
     await expect(page.url()).toBe(url + "/collections/women");
@@ -14,7 +16,7 @@ export default function createTest() {
   });
 
   test("go to product and navigate from breadcrumbs ", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")

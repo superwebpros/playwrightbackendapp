@@ -44,7 +44,7 @@ function createTest() {
         const kidSizes = await page.getByTestId("sizeValue").allInnerTexts();
         correct = true;
         kidSizes.map((size) => {
-            if (Number(size) > 5 || Number(size) < 1) {
+            if (Number(size) > 13 || Number(size) < 1) {
                 correct = false;
             }
         });

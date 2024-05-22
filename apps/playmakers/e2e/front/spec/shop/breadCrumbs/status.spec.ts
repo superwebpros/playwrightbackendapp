@@ -3,7 +3,7 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("loaded", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     await expect(
       page.getByRole("link", { name: "〉Collections" })

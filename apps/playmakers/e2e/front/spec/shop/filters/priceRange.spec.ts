@@ -3,7 +3,7 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("sale filtering", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await page.getByTestId("container-filters").getByText("On Sale").click();
     await page.waitForLoadState("networkidle");
 
@@ -32,14 +32,14 @@ export default function createTest() {
   });
 
   test("regular filtering", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     await page.getByRole("button", { name: "Price Range" }).click();
     await page
       .getByTestId("container-filters")
       .getByText("Regular Price")
       .click();
-      await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("networkidle");
     let links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
@@ -55,7 +55,7 @@ export default function createTest() {
       .getByTestId("container-filters")
       .getByTestId("regularFilter")
       .click();
-      await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("networkidle");
     links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
@@ -68,7 +68,7 @@ export default function createTest() {
   });
 
   test("price range filtering", async ({ page }) => {
-    await page.goto(url + "/collections/all", { waitUntil: "commit" });
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
 
     await page.getByRole("button", { name: "Price Range" }).click();
     await page

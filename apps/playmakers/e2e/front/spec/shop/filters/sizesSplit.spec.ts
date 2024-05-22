@@ -19,7 +19,9 @@ export default function createTest() {
     });
     await expect(correct).toBeTruthy();
     // Check men sizes
-    await page.goto(url + "/collections/men/footwear", { waitUntil: "commit" });
+    await page.goto(url + "/collections/men/footwear", {
+      waitUntil: "networkidle",
+    });
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Size" }).click();
     await page.waitForLoadState("networkidle");

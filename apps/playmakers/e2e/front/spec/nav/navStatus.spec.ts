@@ -3,12 +3,12 @@ import url from "../../../config/frontUrl";
 
 export default function createTest() {
   test("nav, search and account buttons are visible", async ({ page }) => {
-    await page.goto(url, { waitUntil: "commit" });
+    await page.goto(url, { waitUntil: "networkidle" });
     await expect(page.getByTestId("nav")).toBeVisible();
     await expect(page.getByTestId("favoriteButton")).toBeVisible();
   });
   test("nav sticky on scroll", async ({ page }) => {
-    await page.goto(url, { waitUntil: "commit" });
+    await page.goto(url, { waitUntil: "networkidle" });
 
     await expect(page.getByTestId("nav")).toBeVisible();
     await page.evaluate(() => window.scrollTo(0, 5000));

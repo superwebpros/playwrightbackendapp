@@ -5,9 +5,8 @@ export default function createTest() {
   test("principal img change when clic on secondaries imgs", async ({
     page,
   }) => {
-    await page.goto(url, { waitUntil: "commit" });
+    await page.goto(url, { waitUntil: "networkidle" });
     await page.getByPlaceholder("I'm shopping for").click();
-    await page.waitForLoadState("networkidle");
     await expect(page.getByTestId("popupContainer")).toBeVisible();
     await page.waitForLoadState("networkidle");
     await page.getByPlaceholder("I'm shopping for").fill("S29055-33");

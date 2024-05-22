@@ -3,7 +3,7 @@ import url from "../../../config/frontUrl";
 
 export default function createTest() {
   return test("log out and user information is visible", async ({ page }) => {
-    await page.goto(url, { waitUntil: "commit" });
+    await page.goto(url, { waitUntil: "networkidle" });
     await expect(page.getByTestId("nav")).toBeVisible();
     await page.getByTestId("accountButtonInactive").click();
     await page.waitForLoadState("networkidle");

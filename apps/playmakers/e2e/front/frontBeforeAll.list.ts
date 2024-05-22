@@ -6,7 +6,7 @@ export default function createTest() {
   test.beforeAll("homeRequest", async ({ browser }) => {
     const page = await browser.newPage();
     const response = await page.request.get(url);
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState('load');
     await expect(response).toBeOK();
     await page.close();
   });
@@ -61,7 +61,7 @@ export default function createTest() {
       test.describe("kid tags", t.kidTags);
     });
     // Banner
-    test.describe("banner", t.banner);
+    // test.describe("banner", t.banner); // wait to merge new branch
   });
 
   // Product Page
