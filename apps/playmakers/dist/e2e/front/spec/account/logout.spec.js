@@ -7,7 +7,7 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("can log out", async ({ page }) => {
-        await page.goto(frontUrl_1.default, { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default, { waitUntil: "networkidle" });
         await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
         await page.getByTestId("accountButtonInactive").click();
         await page.waitForLoadState("domcontentloaded");
@@ -19,6 +19,7 @@ function createTest() {
         await page.getByRole("button", { name: "Sign out" }).click();
         await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.getByTestId("accountButtonInactive")).toBeVisible();
+        await page.close();
     });
 }
 exports.default = createTest;

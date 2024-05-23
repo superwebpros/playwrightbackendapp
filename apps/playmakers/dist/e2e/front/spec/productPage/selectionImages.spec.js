@@ -7,9 +7,8 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("principal img change when clic on secondaries imgs", async ({ page, }) => {
-        await page.goto(frontUrl_1.default, { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default, { waitUntil: "networkidle" });
         await page.getByPlaceholder("I'm shopping for").click();
-        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.getByTestId("popupContainer")).toBeVisible();
         await page.waitForLoadState("networkidle");
         await page.getByPlaceholder("I'm shopping for").fill("S29055-33");
@@ -30,6 +29,7 @@ function createTest() {
         await page.getByTestId("secondImg").first().click();
         await page.waitForLoadState("networkidle");
         (0, test_1.expect)(await page.getByTestId("principalImg").getAttribute("src")).toContain(secondImg);
+        await page.close();
     });
 }
 exports.default = createTest;

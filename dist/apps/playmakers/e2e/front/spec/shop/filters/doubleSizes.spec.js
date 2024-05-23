@@ -7,7 +7,7 @@ const test_1 = require("playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("is showing size for men and women at the same tag", async ({ page, }) => {
-        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
         // first i ckeck if the sizes are showing for both genders in unisex products
         await page.getByRole("button", { name: "Gender" }).click();
         await page.getByRole("button", { name: "Unisex" }).click();

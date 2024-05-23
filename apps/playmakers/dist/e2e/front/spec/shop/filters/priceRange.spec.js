@@ -7,7 +7,7 @@ const test_1 = require("playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("sale filtering", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
         await page.getByTestId("container-filters").getByText("On Sale").click();
         await page.waitForLoadState("networkidle");
         let links = await page
@@ -33,7 +33,7 @@ function createTest() {
         await (0, test_1.expect)(linksNames.length).not.toBe(saleTagsCount);
     });
     (0, test_1.test)("regular filtering", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
         await page.getByRole("button", { name: "Price Range" }).click();
         await page
             .getByTestId("container-filters")
@@ -66,7 +66,7 @@ function createTest() {
         await (0, test_1.expect)(saleTagsCount).not.toBe(0);
     });
     (0, test_1.test)("price range filtering", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
         await page.getByRole("button", { name: "Price Range" }).click();
         await page
             .getByTestId("container-filters")

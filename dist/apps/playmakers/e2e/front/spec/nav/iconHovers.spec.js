@@ -7,7 +7,7 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("Hover make icons bigger", async ({ page }) => {
-        await page.goto(frontUrl_1.default, { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default, { waitUntil: "networkidle" });
         let favoriteIcon = await page.getByTestId("favoriteIcon");
         await (0, test_1.expect)(favoriteIcon).toBeVisible();
         let boundingBox = await favoriteIcon.boundingBox();
@@ -26,7 +26,7 @@ function createTest() {
         let boundingBox2 = await acountIcon.boundingBox();
         let iconWidth2 = boundingBox2 ? boundingBox2.width : null;
         await acountIcon.hover({ force: true, noWaitAfter: false });
-        await page.waitForLoadState("networkidle");
+        await page.waitForTimeout(1000);
         let newBoundingBox2 = await acountIcon.boundingBox();
         let newIconWidth2 = newBoundingBox2 ? newBoundingBox2.width : null;
         if (iconWidth2 && newIconWidth2) {
@@ -35,6 +35,7 @@ function createTest() {
         else {
             throw new Error("Icon width is null");
         }
+        await page.close();
     });
 }
 exports.default = createTest;

@@ -7,7 +7,9 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("works", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/men/footwear", { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default + "/collections/men/footwear", {
+            waitUntil: "networkidle",
+        });
         // Category search
         await page.getByRole("button", { name: "Categories" }).click();
         await page.waitForLoadState("networkidle");
@@ -32,6 +34,7 @@ function createTest() {
         splitData = data[1].split("\n").map((text) => text.trim());
         splitDataCount = splitData.filter((text) => !text.toLowerCase().includes(searchText.toLowerCase()));
         (0, test_1.expect)(splitDataCount.length).toBe(0);
+        await page.close();
     });
 }
 exports.default = createTest;

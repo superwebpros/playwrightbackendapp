@@ -26,7 +26,7 @@ function createTest() {
         const sizeAfterHover = await secondImgElement.boundingBox();
         // console.log(sizeBeforeHover, sizeAfterHover)
         (0, test_1.expect)(sizeAfterHover?.width > sizeBeforeHover?.width).toBeTruthy();
-        await page.waitForTimeout(10000);
+        await page.close();
     });
 }
 exports.default = createTest;

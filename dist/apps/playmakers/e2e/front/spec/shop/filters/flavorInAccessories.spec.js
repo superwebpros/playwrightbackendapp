@@ -7,12 +7,16 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("flavor is visible when accessories is selected", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
         await page.getByRole("button", { name: "Product Type" }).click();
+        await page.waitForLoadState("networkidle");
         await page.getByRole("button", { name: "Accessories" }).click();
+        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.getByRole("button", { name: "Flavor" })).toBeVisible();
         await page.getByRole("button", { name: "Accessories" }).click();
+        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.getByRole("button", { name: "Flavor" })).not.toBeVisible();
+        await page.close();
     });
 }
 exports.default = createTest;

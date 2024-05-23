@@ -46,6 +46,7 @@ export default function createTest() {
       test.describe("searchers", t.searchers);
       test.describe("sizes", t.sizesSplit);
       test.describe("bra", t.bra);
+      test.describe("load more button", t.loadMoreButton);
     });
     test.describe("refinementsComponent", () => {
       test.describe("clearRefinements", t.clearRefinements);

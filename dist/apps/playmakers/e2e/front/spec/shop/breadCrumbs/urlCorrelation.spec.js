@@ -13,6 +13,7 @@ function createTest() {
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Women" })).toBeVisible();
         await page.reload();
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Women" })).toBeVisible();
+        await page.close();
     });
 }
 exports.default = createTest;

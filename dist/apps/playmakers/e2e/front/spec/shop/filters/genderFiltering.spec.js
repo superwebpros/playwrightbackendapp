@@ -9,7 +9,7 @@ const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("women gender was filtered", async ({ page }) => {
         // Navega a la URL especificada y espera hasta que la navegación se haya confirmado
-        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
         // Verifica que los elementos del filtro de género sean visibles
         await (0, test_1.expect)(page.getByTestId("container-filters")).toBeVisible();
         await (0, test_1.expect)(page.getByRole("button", { name: "Gender" })).toBeVisible();

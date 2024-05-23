@@ -22,7 +22,9 @@ function createTest() {
         });
         await (0, test_1.expect)(correct).toBeTruthy();
         // Check men sizes
-        await page.goto(frontUrl_1.default + "/collections/men/footwear", { waitUntil: "commit" });
+        await page.goto(frontUrl_1.default + "/collections/men/footwear", {
+            waitUntil: "networkidle",
+        });
         await page.waitForLoadState("networkidle");
         await page.getByRole("button", { name: "Size" }).click();
         await page.waitForLoadState("networkidle");
@@ -49,6 +51,7 @@ function createTest() {
             }
         });
         await (0, test_1.expect)(correct).toBeTruthy();
+        await page.close();
     });
 }
 exports.default = createTest;

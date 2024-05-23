@@ -44,7 +44,8 @@ export default function createTest() {
     await page.waitForSelector(".ais-InfiniteHits-list");
     await page.getByTestId("hit").first().click();
     await page.waitForLoadState("networkidle");
-    // await page.waitForURL(/\/products\//);
+    await page.waitForTimeout(1000);
+    await page.waitForURL(/\/products\//);
     await expect(page).toHaveURL(/\/products\//);
     await expect(page.getByRole("link", { name: "〉Apparel" })).toBeVisible();
     await page.close();
