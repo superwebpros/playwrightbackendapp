@@ -33,7 +33,7 @@ export default function createTest() {
     let boundingBox2 = await acountIcon.boundingBox();
     let iconWidth2 = boundingBox2 ? boundingBox2.width : null;
     await acountIcon.hover({ force: true, noWaitAfter: false });
-    await page.waitForLoadState("networkidle");
+    await page.waitForTimeout(1000);
     let newBoundingBox2 = await acountIcon.boundingBox();
     let newIconWidth2 = newBoundingBox2 ? newBoundingBox2.width : null;
     if (iconWidth2 && newIconWidth2) {
@@ -41,5 +41,6 @@ export default function createTest() {
     } else {
       throw new Error("Icon width is null");
     }
+    await page.close();
   });
 }

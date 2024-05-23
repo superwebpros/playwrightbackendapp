@@ -11,5 +11,6 @@ export default function createTest() {
     await page.waitForLoadState("networkidle");
     await page.evaluate(() => window.scrollTo(0, 5000));
     await page.waitForLoadState("networkidle");
+    await page.close();
   });
 }

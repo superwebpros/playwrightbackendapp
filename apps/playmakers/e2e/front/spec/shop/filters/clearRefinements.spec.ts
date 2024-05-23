@@ -11,6 +11,7 @@ export default function createTest() {
     await expect(
       page.getByRole("button", { name: "Clear refinements" })
     ).toBeVisible();
+    await page.close();
   });
 
   test("disappears when clic on it", async ({ page }) => {
@@ -28,11 +29,11 @@ export default function createTest() {
     await expect(
       page.getByRole("button", { name: "Clear refinements" })
     ).not.toBeVisible();
+    await page.close();
   });
 
   test("disappears when filters is deselected", async ({ page }) => {
     await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
-
     await page.getByRole("button", { name: "Gender" }).click();
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Women" }).click();
@@ -45,5 +46,6 @@ export default function createTest() {
     await expect(
       page.getByRole("button", { name: "Clear refinements" })
     ).not.toBeVisible();
+    await page.close();
   });
 }

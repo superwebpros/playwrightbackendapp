@@ -26,5 +26,6 @@ export default function createTest() {
       page.getByRole("heading", { name: "Addresses" })
     ).toBeVisible();
     await expect(page.getByRole("button", { name: "Sign out" })).toBeVisible();
+    await page.close();
   });
 }

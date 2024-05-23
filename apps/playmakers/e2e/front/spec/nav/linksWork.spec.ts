@@ -6,5 +6,6 @@ export default function createTest() {
     await page.goto(url, { waitUntil: "networkidle" });
     await expect(page.getByTestId("nav")).toBeVisible();
     await expect(page.getByTestId("favoriteButton")).toBeVisible();
+    await page.close();
   });
 }

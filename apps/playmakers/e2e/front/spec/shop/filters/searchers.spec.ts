@@ -21,9 +21,7 @@ export default function createTest() {
     let splitDataCount = splitData.filter(
       (text) => !text.toLowerCase().includes(searchText.toLowerCase())
     );
-
     expect(splitDataCount.length).toBe(0);
-
     // Brand search
     await page.getByRole("button", { name: "Brand" }).click();
     await page.waitForLoadState("networkidle");
@@ -38,5 +36,6 @@ export default function createTest() {
       (text) => !text.toLowerCase().includes(searchText.toLowerCase())
     );
     expect(splitDataCount.length).toBe(0);
+    await page.close();
   });
 }

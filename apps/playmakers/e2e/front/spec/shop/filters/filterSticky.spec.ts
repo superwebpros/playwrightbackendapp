@@ -16,6 +16,7 @@ export default function createTest() {
     await expect(
       page.getByTestId("container-filters").getByText("Footwear ✗")
     ).toBeVisible();
+    await page.close();
   });
 
   test("selected filter, go to product, go back and is visible", async ({
@@ -27,6 +28,7 @@ export default function createTest() {
     await page.getByRole("button", { name: "Footwear" }).click();
     await page.waitForLoadState("networkidle");
     await page.waitForSelector(".ais-InfiniteHits-list");
+    await page.waitForSelector("[data-testid='hit']");
     let links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
@@ -44,6 +46,7 @@ export default function createTest() {
     await expect(
       page.getByTestId("container-filters").getByText("Footwear ✗")
     ).toBeVisible();
+    await page.close();
   });
 
   test("filters are not sticking across product pages", async ({ page }) => {
@@ -63,12 +66,12 @@ export default function createTest() {
     await page.waitForLoadState("networkidle");
     await page.getByRole("link", { name: "Shop" }).hover();
     await page.waitForLoadState("networkidle");
-
     await expect(
       page.getByRole("link", { name: "Apparel" }).nth(1)
     ).toBeVisible();
     await page.getByRole("link", { name: "Apparel" }).nth(1).click();
     await page.waitForLoadState("networkidle");
     await expect(page.getByTestId("clearRefinements")).not.toBeVisible();
+    await page.close();
   });
 }

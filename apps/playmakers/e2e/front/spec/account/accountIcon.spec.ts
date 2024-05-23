@@ -18,5 +18,6 @@ export default function createTest() {
     await page.getByRole("button", { name: "Sign out" }).click();
     await page.waitForLoadState("networkidle");
     await expect(page.getByTestId("accountButtonInactive")).toBeVisible();
+    await page.close();
   });
 }

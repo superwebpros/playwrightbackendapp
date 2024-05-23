@@ -12,5 +12,6 @@ export default function createTest() {
       (title) => !wides.some((wide) => title.includes(wide))
     );
     expect(WithoutWide).toEqual([]);
+    await page.close();
   });
 }

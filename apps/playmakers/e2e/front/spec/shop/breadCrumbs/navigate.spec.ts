@@ -13,6 +13,7 @@ export default function createTest() {
     await page.getByRole("link", { name: "〉Collections" }).click();
     await page.waitForLoadState("networkidle");
     await expect(page.url()).toBe(url + "/collections/all");
+    await page.close();
   });
 
   test("go to product and navigate from breadcrumbs ", async ({ page }) => {
@@ -35,5 +36,6 @@ export default function createTest() {
     await page.getByRole("link", { name: "〉Collections" }).click();
     await page.waitForLoadState("networkidle");
     await expect(page.url()).toBe(url + "/collections/all");
+    await page.close();
   });
 }

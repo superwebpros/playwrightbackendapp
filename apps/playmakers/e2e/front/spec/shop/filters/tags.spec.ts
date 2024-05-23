@@ -19,5 +19,6 @@ export default function createTest() {
     await Footwear.click();
     await page.waitForLoadState("networkidle");
     await expect(Footwear).not.toBeVisible();
+    await page.close();
   });
 }

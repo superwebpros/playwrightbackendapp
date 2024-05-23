@@ -23,5 +23,6 @@ export default function createTest() {
     expect(currentURL).toContain(
       "?shopify_products%5Bquery%5D=SWP%20test%20value"
     );
+    await page.close();
   });
 }

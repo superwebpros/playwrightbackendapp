@@ -4,12 +4,9 @@ import url from "../../../../config/frontUrl";
 export default function createTest() {
   test("navigate from footer when are on shop", async ({ page }) => {
     await page.goto(url, { waitUntil: "networkidle" });
-
     const copyright = await page.getByTestId("flowbite-footer-copyright");
     await expect(copyright).toBeVisible();
     const copyrightText = await copyright.innerText();
-    console.log(copyrightText);
-
     // open a new page
     const newPage = await page.context().newPage();
     await newPage.goto(
@@ -36,14 +33,11 @@ export default function createTest() {
     // await newPage.waitForTimeout(10000);
     await newPage.getByRole("button", { name: "Save" }).click();
     await newPage.waitForLoadState("networkidle");
-
     // come back to the original page
-    await page.reload();
+    await page.reload({ waitUntil: "commit"});
     await page.waitForLoadState("networkidle");
-
     const copyrightAfter = await page.getByTestId("flowbite-footer-copyright");
     const copyrightTextAfter = await copyrightAfter.innerText();
-    console.log(copyrightTextAfter);
     await expect(copyrightTextAfter).not.toEqual(copyrightText);
 
     // if is successful, then I will change it back
@@ -52,10 +46,12 @@ export default function createTest() {
     await newPage.getByLabel("CopyrightTitle").fill("Playmakers");
     await newPage.getByRole("button", { name: "Save" }).click();
     await newPage.waitForLoadState("networkidle");
-    await page.reload();
+    await page.reload({ waitUntil: "commit"});
     await page.waitForLoadState("networkidle");
     const copyrightAfter2 = await page.getByTestId("flowbite-footer-copyright");
     const copyrightTextAfter2 = await copyrightAfter2.innerText();
     await expect(copyrightTextAfter2).toEqual(copyrightText);
+    await page.close();
+    await newPage.close();
   });
 }

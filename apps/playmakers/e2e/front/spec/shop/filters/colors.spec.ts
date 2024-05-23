@@ -18,5 +18,6 @@ export default function createTest() {
     await expect(
       page.getByTestId("container-filters").getByTestId("colorSearchResults")
     ).toBeVisible();
+    await page.close();
   });
 }

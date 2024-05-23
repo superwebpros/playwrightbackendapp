@@ -31,5 +31,6 @@ export default function createTest() {
     expect(
       await page.getByTestId("principalImg").getAttribute("src")
     ).toContain(secondImg);
+    await page.close();
   });
 }

@@ -18,6 +18,7 @@ export default function createTest() {
     );
     await page.getByTestId("hit").first().click();
     await page.waitForLoadState("networkidle");
+    await page.waitForURL(/\/products\//);
     await expect(page).toHaveURL(/\/products\//);
     await expect(page.getByRole("link", { name: "〉Footwear" })).toBeVisible();
     await page.goBack();
@@ -32,6 +33,8 @@ export default function createTest() {
     await page.getByRole("button", { name: "Footwear" }).click();
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Apparel" }).click();
+    await page.waitForSelector("[data-testid='hit']");
+
     await page.waitForLoadState("networkidle");
     await page.waitForURL(
       url +
@@ -41,7 +44,9 @@ export default function createTest() {
     await page.waitForSelector(".ais-InfiniteHits-list");
     await page.getByTestId("hit").first().click();
     await page.waitForLoadState("networkidle");
+    // await page.waitForURL(/\/products\//);
     await expect(page).toHaveURL(/\/products\//);
     await expect(page.getByRole("link", { name: "〉Apparel" })).toBeVisible();
+    await page.close();
   });
 }

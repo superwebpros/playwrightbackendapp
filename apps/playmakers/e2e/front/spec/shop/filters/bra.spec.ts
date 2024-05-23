@@ -17,5 +17,6 @@ export default function createTest() {
     await expect(
       page.getByTestId("container-filters").getByText("bra ✗")
     ).toBeVisible();
+    await page.close();
   });
 }

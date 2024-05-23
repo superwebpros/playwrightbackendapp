@@ -6,26 +6,22 @@ export default function createTest() {
     await page.goto(`${url}/collections/all`);
     await page.waitForLoadState('networkidle')
     const hits = await page.getByTestId("hit").allTextContents();
-
     // Find the first element with "+" in its text content
     const firstHitWithOptions = hits.find((hit) => hit.includes("+"));
-
     // Ensure that the element to be clicked is properly awaited
     await page
       .getByTestId("hit")
       .filter({ hasText: firstHitWithOptions }).first()
       .click();
-
     // Fetch the bounding box before hover
     const secondImgElement:any = await page.getByTestId("secondImg").first();
     const sizeBeforeHover:any = await secondImgElement.boundingBox();
-
     // Perform hover and then fetch the bounding box after hover
     await secondImgElement.hover({ force: true, noWaitAfter: false });
     await page.waitForLoadState("networkidle");
     const sizeAfterHover = await secondImgElement.boundingBox();
     // console.log(sizeBeforeHover, sizeAfterHover)
     expect(sizeAfterHover?.width > sizeBeforeHover?.width).toBeTruthy();
-    await page.waitForTimeout(10000);
+    await page.close();
   });
 }

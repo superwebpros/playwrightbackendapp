@@ -11,12 +11,12 @@ export default function createTest() {
     await expect(
       page.getByRole("button", { name: "Socks Height" })
     ).toBeVisible();
-
     // Check that socks height is not visible when socks are not selected
     await page.getByRole("button", { name: "socks", exact: true }).click();
     await page.waitForLoadState("networkidle");
     await expect(
       page.getByRole("button", { name: "Socks Height" })
     ).not.toBeVisible();
+    await page.close();
   });
 }

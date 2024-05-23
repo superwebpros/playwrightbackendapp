@@ -49,5 +49,6 @@ export default function createTest() {
       }
     });
     await expect(correct).toBeTruthy();
+    await page.close();
   });
 }

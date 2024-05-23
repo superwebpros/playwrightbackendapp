@@ -14,5 +14,6 @@ export default function createTest() {
     await expect(
       page.getByRole("button", { name: "Flavor" })
     ).not.toBeVisible();
+    await page.close();
   });
 }

@@ -8,5 +8,6 @@ export default function createTest() {
     await page.getByRole("link", { name: "Who We Are" }).click();
     await page.waitForLoadState("networkidle");
     await expect(page.url()).toBe(url + "/about");
+    await page.close();
   });
 }

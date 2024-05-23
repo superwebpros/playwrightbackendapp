@@ -4,14 +4,13 @@ import url from "../../../../config/frontUrl";
 export default function createTest() {
   test("loaded", async ({ page }) => {
     await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
-
     await expect(page.getByTestId("container-filters")).toBeVisible();
     await expect(page.getByRole("button", { name: "Gender" })).toBeVisible();
+    await page.close();
   });
 
   test("initial filters configuration", async ({ page }) => {
     await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
-
     await expect(page.getByRole("button", { name: "Gender" })).toBeVisible();
     await expect(
       page.getByRole("button", { name: "Product Type" })
@@ -31,13 +30,13 @@ export default function createTest() {
     await expect(
       page.getByRole("button", { name: "Clear refinements" })
     ).not.toBeVisible();
+    await page.close();
   });
 
   test("more filters available when selecting a product type", async ({
     page,
   }) => {
     await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
-
     await expect(page.getByRole("button", { name: "Gender" })).toBeVisible();
     await expect(
       page.getByRole("button", { name: "Product Type" })
@@ -59,5 +58,6 @@ export default function createTest() {
     await expect(
       page.getByRole("button", { name: "Clear refinements" })
     ).toBeVisible();
+    await page.close();
   });
 }

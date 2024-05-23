@@ -8,7 +8,6 @@ export default function createTest() {
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "ASICS" }).click();
     await page.waitForTimeout(2000);
-
     let links = await page
       .getByTestId("infiniteHits")
       .locator(".ais-InfiniteHits")
@@ -23,5 +22,6 @@ export default function createTest() {
       (link) => link !== "" && !link.includes("+")
     );
     await expect(linksCount.length).toBe(linksNames.length);
+    await page.close();
   });
 }

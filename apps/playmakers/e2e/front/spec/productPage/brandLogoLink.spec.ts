@@ -14,12 +14,12 @@ export default function createTest() {
       .getAttribute("alt");
     await page.getByTestId("brandLink").click();
     await page.waitForLoadState("networkidle");
-
     expect(page.url()).toContain(
       url + "/collections/" + branNameFormat(brandName)
     );
     expect(page.url()).not.toContain(
       url + "/collections/" + "all?q=" + brandName
     );
+    await page.close();
   });
 }

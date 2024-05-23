@@ -6,10 +6,9 @@ export default function createTest() {
     await page.goto(url + "/collections/women/apparel", {
       waitUntil: "commit",
     });
-
     await expect(page.getByRole("link", { name: "〉Women" })).toBeVisible();
     await page.reload();
-
     await expect(page.getByRole("link", { name: "〉Women" })).toBeVisible();
+    await page.close();
   });
 }
