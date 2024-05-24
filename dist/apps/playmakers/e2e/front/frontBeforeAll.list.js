@@ -71,6 +71,7 @@ function createTest() {
             test_1.test.describe("searchers", t.searchers);
             test_1.test.describe("sizes", t.sizesSplit);
             test_1.test.describe("bra", t.bra);
+            test_1.test.describe("load more button", t.loadMoreButton);
         });
         test_1.test.describe("refinementsComponent", () => {
             test_1.test.describe("clearRefinements", t.clearRefinements);

@@ -36,6 +36,7 @@ export default function createTest() {
     test.describe("filters", () => {
       test.describe("filters", t.filters);
       // test.describe("gender filtering", t.genderFiltering); // is failing for find incorrect hit gender
+      test.describe("gender filter", t.genderFilterWhenNecessary);
       test.describe("productType filtering", t.productTypeFiltering);
       // test.describe("priceRange", t.priceRange); // Ver hits que tienen subitems en sale en reunion
       test.describe("socks height", t.socksHeight);

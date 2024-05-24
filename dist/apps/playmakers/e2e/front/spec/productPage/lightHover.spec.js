@@ -7,21 +7,13 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("hover happens", async ({ page }) => {
-        await page.goto(`${frontUrl_1.default}/collections/all`);
+        await page.goto(`${frontUrl_1.default}/products/cielo-x-2-md?Color=Ceramic+%2F+Evening+Primrose+%28CEPR%29&Size=6&Width=D`);
         await page.waitForLoadState('networkidle');
-        const hits = await page.getByTestId("hit").allTextContents();
-        // Find the first element with "+" in its text content
-        const firstHitWithOptions = hits.find((hit) => hit.includes("+"));
-        // Ensure that the element to be clicked is properly awaited
-        await page
-            .getByTestId("hit")
-            .filter({ hasText: firstHitWithOptions }).first()
-            .click();
-        // Fetch the bounding box before hover
         const secondImgElement = await page.getByTestId("secondImg").first();
         const sizeBeforeHover = await secondImgElement.boundingBox();
         // Perform hover and then fetch the bounding box after hover
         await secondImgElement.hover({ force: true, noWaitAfter: false });
+        await page.waitForTimeout(1000);
         await page.waitForLoadState("networkidle");
         const sizeAfterHover = await secondImgElement.boundingBox();
         // console.log(sizeBeforeHover, sizeAfterHover)

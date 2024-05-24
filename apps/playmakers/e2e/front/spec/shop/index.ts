@@ -4,6 +4,7 @@ export { default as includeWidth } from "./includeWidth.spec";
 export { default as kidTags } from "./kidTags.spec";
 export { default as banner } from "./banner.spec";
 export { default as loadMoreButton } from "./loadMoreButton.spec";
+export { default as genderFilterWhenNecessary } from "./genderFilterWhenNecessary.spec";
 export * from "./filters";
 export * from "./breadCrumbs";
 export * from "./search";

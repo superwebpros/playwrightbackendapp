@@ -40,7 +40,8 @@ function createTest() {
         await page.waitForSelector(".ais-InfiniteHits-list");
         await page.getByTestId("hit").first().click();
         await page.waitForLoadState("networkidle");
-        // await page.waitForURL(/\/products\//);
+        await page.waitForTimeout(1000);
+        await page.waitForURL(/\/products\//);
         await (0, test_1.expect)(page).toHaveURL(/\/products\//);
         await (0, test_1.expect)(page.getByRole("link", { name: "〉Apparel" })).toBeVisible();
         await page.close();
