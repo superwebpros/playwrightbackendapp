@@ -61,6 +61,7 @@ function createTest() {
         test_1.test.describe("filters", () => {
             test_1.test.describe("filters", t.filters);
             // test.describe("gender filtering", t.genderFiltering); // is failing for find incorrect hit gender
+            test_1.test.describe("gender filter", t.genderFilterWhenNecessary);
             test_1.test.describe("productType filtering", t.productTypeFiltering);
             // test.describe("priceRange", t.priceRange); // Ver hits que tienen subitems en sale en reunion
             test_1.test.describe("socks height", t.socksHeight);

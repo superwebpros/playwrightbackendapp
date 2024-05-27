@@ -3,9 +3,9 @@ import url from "../../../config/frontUrl";
 
 export default function createTest() {
   test("Carousel has uniques products", async ({ page }) => {
-    await page.goto(`${url}/collections/all`);
+    await page.goto(`${url}/collections/all`, { waitUntil: "networkidle" });
     await page.getByTestId("hit").first().click();
-
+    await page.waitForLoadState("networkidle");
     await expect(page.getByTestId("frequentlyCarousel")).toBeVisible();
     const all = await page.getByTestId("cardCarousel").all();
     for (let i = 0; i < all.length; i++) {
