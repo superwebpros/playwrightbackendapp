@@ -59,6 +59,7 @@ function createTest() {
         test_1.test.describe("searchBox", t.shopSearchBox);
         // filters
         test_1.test.describe("filters", () => {
+            test_1.test.describe("new sort", t.newOrder);
             test_1.test.describe("filters", t.filters);
             // test.describe("gender filtering", t.genderFiltering); // is failing for find incorrect hit gender
             test_1.test.describe("gender filter", t.genderFilterWhenNecessary);
@@ -98,6 +99,8 @@ function createTest() {
         test_1.test.describe("slight zoom in when hovering over images", t.lightHover);
         // test.describe("Carousel", t.uniqueProductsOnCarousel);
         test_1.test.describe("Brand logo", t.brandLogoLink);
+        test_1.test.describe("size chart", t.sizeChart);
+        test_1.test.describe("double size in unisex hit", t.doubleSizes);
     });
     // Details
     test_1.test.describe("prefooter", () => {

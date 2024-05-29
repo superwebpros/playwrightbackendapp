@@ -20,10 +20,9 @@ export default function createTest() {
       .getByRole("button", { name: "sizeChartRuler Size Chart" })
       .click();
     await page.waitForSelector("iframe");
-    let iframeElement = await page.$("iframe");
-    let iframeSrc = await iframeElement.getAttribute("src");
+    let iframeElement: any = await page.$("iframe");
+    let iframeSrc: any = await iframeElement.getAttribute("src");
     await expect(iframeSrc).toContain("https://www.cognitoforms.com");
-console.log("iframeSrc", iframeSrc);
     await page.goto(`${url}/collections/all`, { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.waitForLoadState("networkidle");
@@ -43,8 +42,6 @@ console.log("iframeSrc", iframeSrc);
     iframeElement = await page.$("iframe");
     iframeSrc = await iframeElement.getAttribute("src");
     await expect(iframeSrc).toContain("https://www.cognitoforms.com");
-    console.log("iframeSrc", iframeSrc);
-
     await page.close();
   });
 }

@@ -29,13 +29,13 @@ export default function createTest() {
     await newPage.waitForLoadState("networkidle");
     await newPage.getByLabel("CopyrightTitle").dblclick();
     await newPage.waitForLoadState("networkidle");
-    await newPage.getByLabel("CopyrightTitle").type("Hello World");
+    await newPage.getByLabel("CopyrightTitle").fill("Hello World");
     // await newPage.waitForTimeout(10000);
     await newPage.getByRole("button", { name: "Save" }).click();
+    await newPage.waitForTimeout(2000);
     await newPage.waitForLoadState("networkidle");
     // come back to the original page
-    await page.reload({ waitUntil: "commit"});
-    await page.waitForLoadState("networkidle");
+    await page.reload({ waitUntil: "networkidle"});
     const copyrightAfter = await page.getByTestId("flowbite-footer-copyright");
     const copyrightTextAfter = await copyrightAfter.innerText();
     await expect(copyrightTextAfter).not.toEqual(copyrightText);

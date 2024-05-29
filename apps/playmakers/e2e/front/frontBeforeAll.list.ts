@@ -94,5 +94,10 @@ export default function createTest() {
     test.describe("logout", t.logout);
     test.describe("icon", t.accountIcon);
   });
+
+  // Components
+  test.describe("components", () => {
+    test.describe("contentCardGrid", t.contentCardGrid);
+  });
 }
 createTest();
