@@ -31,6 +31,8 @@ export default function createTest() {
   // Shop
   test.describe("shop", () => {
     test.describe("layout", t.shopLayout);
+    test.describe("sub-header", t.subheader);
+
     test.describe("searchBox", t.shopSearchBox);
     // filters
     test.describe("filters", () => {

@@ -115,6 +115,10 @@ function createTest() {
         test_1.test.describe("logout", t.logout);
         test_1.test.describe("icon", t.accountIcon);
     });
+    // Components
+    test_1.test.describe("components", () => {
+        test_1.test.describe("contentCardGrid", t.contentCardGrid);
+    });
 }
 exports.default = createTest;
 createTest();

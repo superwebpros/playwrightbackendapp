@@ -25,3 +25,4 @@ __exportStar(require("./nav"), exports);
 __exportStar(require("./productPage"), exports);
 __exportStar(require("./layout"), exports);
 __exportStar(require("./account"), exports);
+__exportStar(require("./components"), exports);

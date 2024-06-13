@@ -25,7 +25,6 @@ function createTest() {
         let iframeElement = await page.$("iframe");
         let iframeSrc = await iframeElement.getAttribute("src");
         await (0, test_1.expect)(iframeSrc).toContain("https://www.cognitoforms.com");
-        console.log("iframeSrc", iframeSrc);
         await page.goto(`${frontUrl_1.default}/collections/all`, { waitUntil: "networkidle" });
         await page.getByRole("button", { name: "Product Type" }).click();
         await page.waitForLoadState("networkidle");
@@ -43,7 +42,6 @@ function createTest() {
         iframeElement = await page.$("iframe");
         iframeSrc = await iframeElement.getAttribute("src");
         await (0, test_1.expect)(iframeSrc).toContain("https://www.cognitoforms.com");
-        console.log("iframeSrc", iframeSrc);
         await page.close();
     });
 }
