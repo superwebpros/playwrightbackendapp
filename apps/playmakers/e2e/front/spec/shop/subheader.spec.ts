@@ -4,18 +4,18 @@ import url from "../../../config/frontUrl";
 export default function createTest() {
   test("links works", async ({ page }) => {
     await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
-    const link = await page
+    const link : any = await page
       .getByTestId("subheader")
       .getByRole("link")
       .first()
       .getAttribute("href");
 
-    const link2 = await page
+    const link2 : any = await page
       .getByTestId("subheader")
       .getByRole("link")
       .nth(1)
       .getAttribute("href");
-    const link3 = await page
+    const link3 : any = await page
       .getByTestId("subheader")
       .getByRole("link")
       .nth(2)
