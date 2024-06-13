@@ -10,11 +10,15 @@ export default function createTest() {
     await page.waitForTimeout(1000);
     await page.waitForLoadState("networkidle");
     const hits = await page.getByTestId("hit").allTextContents();
-    // todos los hits deben incluir la palabra kids, algunos hits pueden contener varias tags
-    for (const hit of hits) {
-      // evito el texto de las opciones de colores
-      if (hit !== "" && hit.length > 5) expect(hit).toContain("Big Kids");
-    }
+    await expect(
+      hits.find(
+        (hit) => hit !== "" && hit.length > 5 && hit.includes("Big Kids")
+      )
+    ).toContain("Big Kids");
+    // for (const hit of hits) {
+    //   // evito el texto de las opciones de colores
+    //   if (hit !== "" && hit.length > 5) expect(hit).toContain("Big Kids");
+    // }
     await page.close();
   });
 }

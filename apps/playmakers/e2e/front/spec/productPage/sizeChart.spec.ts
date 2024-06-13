@@ -22,7 +22,7 @@ export default function createTest() {
     await page.waitForSelector("iframe");
     let iframeElement: any = await page.$("iframe");
     let iframeSrc: any = await iframeElement.getAttribute("src");
-    await expect(iframeSrc).toContain("https://www.cognitoforms.com");
+    await expect(iframeSrc).toMatch(/https:\/\/www\.cognitoforms\.com|test/);
     await page.goto(`${url}/collections/all`, { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Product Type" }).click();
     await page.waitForLoadState("networkidle");

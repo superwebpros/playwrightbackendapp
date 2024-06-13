@@ -12,3 +12,4 @@ export { default as searchers } from "./searchers.spec";
 export { default as sizesSplit } from "./sizesSplit.spec";
 export { default as socksHeight } from "./socksHeight.spec";
 export { default as bra } from "./bra.spec";
+export { default as categories } from "./categories.spec";

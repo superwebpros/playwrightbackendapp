@@ -16,7 +16,7 @@ export default function createTest() {
       .getByPlaceholder("Search for a category...")
       .type(searchText, { delay: 100 });
 
-    let data = await page.getByTestId("categorySearchResults").allInnerTexts();
+    let data = await page.getByTestId("categoryItem").allInnerTexts();
     let splitData = data[1].split("\n").map((text) => text.trim());
     let splitDataCount = splitData.filter(
       (text) => !text.toLowerCase().includes(searchText.toLowerCase())
