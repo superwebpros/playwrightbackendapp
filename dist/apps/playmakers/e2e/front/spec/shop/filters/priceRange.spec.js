@@ -7,13 +7,9 @@ const test_1 = require("playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("sale filtering", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all");
-        await page.getByRole("button", { name: "Price Range" }).click();
-        await page
-            .getByTestId("container-filters")
-            .getByTestId("saleFilter")
-            .click();
-        await page.waitForTimeout(2000);
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
+        await page.getByTestId("container-filters").getByText("On Sale").click();
+        await page.waitForLoadState("networkidle");
         let links = await page
             .getByTestId("infiniteHits")
             .locator(".ais-InfiniteHits")
@@ -24,11 +20,8 @@ function createTest() {
         let saleTagsCount = await page.getByTestId("saleTag").count();
         await (0, test_1.expect)(linksNames.length).toBe(saleTagsCount);
         // take the filter and test if the product are not filtered
-        await page
-            .getByTestId("container-filters")
-            .getByTestId("saleFilter")
-            .click();
-        await page.waitForTimeout(2000);
+        await page.getByTestId("container-filters").getByText("On Sale").click();
+        await page.waitForLoadState("networkidle");
         links = await page
             .getByTestId("infiniteHits")
             .locator(".ais-InfiniteHits")
@@ -40,14 +33,13 @@ function createTest() {
         await (0, test_1.expect)(linksNames.length).not.toBe(saleTagsCount);
     });
     (0, test_1.test)("regular filtering", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
         await page.getByRole("button", { name: "Price Range" }).click();
         await page
             .getByTestId("container-filters")
-            .getByTestId("regularFilter")
+            .getByText("Regular Price")
             .click();
-        await page.waitForTimeout(2000);
+        await page.waitForLoadState("networkidle");
         let links = await page
             .getByTestId("infiniteHits")
             .locator(".ais-InfiniteHits")
@@ -62,7 +54,7 @@ function createTest() {
             .getByTestId("container-filters")
             .getByTestId("regularFilter")
             .click();
-        await page.waitForTimeout(2000);
+        await page.waitForLoadState("networkidle");
         links = await page
             .getByTestId("infiniteHits")
             .locator(".ais-InfiniteHits")
@@ -74,15 +66,14 @@ function createTest() {
         await (0, test_1.expect)(saleTagsCount).not.toBe(0);
     });
     (0, test_1.test)("price range filtering", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
         await page.getByRole("button", { name: "Price Range" }).click();
         await page
             .getByTestId("container-filters")
             .getByPlaceholder("900")
             .fill("20");
         await page.getByRole("button", { name: "Go" }).click();
-        await page.waitForTimeout(2000);
+        await page.waitForLoadState("networkidle");
         let links = await page
             .getByTestId("infiniteHits")
             .locator(".ais-InfiniteHits")

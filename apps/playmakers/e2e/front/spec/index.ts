@@ -3,3 +3,5 @@ export * from "./shop";
 export * from "./nav";
 export * from "./productPage";
 export * from "./layout";
+export * from "./account";
+export * from "./components";

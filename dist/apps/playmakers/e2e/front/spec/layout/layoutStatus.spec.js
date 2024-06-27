@@ -7,12 +7,15 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("loads", async ({ page }) => {
-        await page.goto(frontUrl_1.default);
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default, { waitUntil: "networkidle" });
         await (0, test_1.expect)(page.getByTestId("infoBanner")).toBeVisible();
         await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
         await (0, test_1.expect)(page.getByTestId("preFooter")).toBeVisible();
         await (0, test_1.expect)(page.getByTestId("flowbite-footer")).toBeVisible();
+        await page.waitForLoadState("networkidle");
+        await page.evaluate(() => window.scrollTo(0, 5000));
+        await page.waitForLoadState("networkidle");
+        await page.close();
     });
 }
 exports.default = createTest;

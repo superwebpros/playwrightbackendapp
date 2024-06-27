@@ -7,31 +7,34 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("works", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/men/footwear");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/men/footwear", {
+            waitUntil: "networkidle",
+        });
         // Category search
         await page.getByRole("button", { name: "Categories" }).click();
+        await page.waitForLoadState("networkidle");
+        let searchText = "neutral";
         await page
             .getByTestId("container-filters")
             .getByPlaceholder("Search for a category...")
-            .fill("Neutral");
-        let data = await page.getByTestId("container-filters").allInnerTexts();
-        let splitData = data[0].split("\n").map((text) => text.trim());
-        // console.log(splitData);
-        (0, test_1.expect)(splitData.length).toBe(6);
+            .type(searchText, { delay: 100 });
+        let data = await page.getByTestId("categorySearchResults").allInnerTexts();
+        let splitData = data[1].split("\n").map((text) => text.trim());
+        let splitDataCount = splitData.filter((text) => !text.toLowerCase().includes(searchText.toLowerCase()));
+        (0, test_1.expect)(splitDataCount.length).toBe(0);
         // Brand search
         await page.getByRole("button", { name: "Brand" }).click();
+        await page.waitForLoadState("networkidle");
+        searchText = "altra";
         await page
             .getByTestId("container-filters")
-            .getByTestId("brands-search-input")
-            .fill("Altra");
-        data = await page
-            .getByTestId("container-filters")
-            .getByTestId("brands-search-input")
-            .allInnerTexts();
-        splitData = data[0].split("\n").map((text) => text.trim());
-        // console.log(splitData);
-        (0, test_1.expect)(splitData.length).toBe(6);
+            .getByPlaceholder("Search your favorite brand...")
+            .type(searchText, { delay: 100 });
+        data = await page.getByTestId("brandSearchResults").allInnerTexts();
+        splitData = data[1].split("\n").map((text) => text.trim());
+        splitDataCount = splitData.filter((text) => !text.toLowerCase().includes(searchText.toLowerCase()));
+        (0, test_1.expect)(splitDataCount.length).toBe(0);
+        await page.close();
     });
 }
 exports.default = createTest;

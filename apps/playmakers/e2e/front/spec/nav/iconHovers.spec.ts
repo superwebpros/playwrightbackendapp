@@ -10,8 +10,8 @@ interface BoundingBox {
 
 export default function createTest() {
   test("Hover make icons bigger", async ({ page }) => {
-    await page.goto(url);
-    await page.waitForLoadState();
+    await page.goto(url, { waitUntil: "networkidle" });
+
     let favoriteIcon = await page.getByTestId("favoriteIcon");
     await expect(favoriteIcon).toBeVisible();
     let boundingBox: BoundingBox | Promise<BoundingBox> | null =
@@ -30,16 +30,17 @@ export default function createTest() {
 
     let acountIcon = await page.getByTestId("accountButtonInactive");
     await expect(acountIcon).toBeVisible();
-    boundingBox = await acountIcon.boundingBox();
-    iconWidth = boundingBox ? boundingBox.width : null;
-    await acountIcon.hover();
-    newBoundingBox = await acountIcon.boundingBox();
-    newIconWidth = newBoundingBox ? newBoundingBox.width : null;
-
-    if (iconWidth && newIconWidth) {
-      expect(newIconWidth).toBeGreaterThan(iconWidth);
+    let boundingBox2 = await acountIcon.boundingBox();
+    let iconWidth2 = boundingBox2 ? boundingBox2.width : null;
+    await acountIcon.hover({ force: true, noWaitAfter: false });
+    await page.waitForTimeout(1000);
+    let newBoundingBox2 = await acountIcon.boundingBox();
+    let newIconWidth2 = newBoundingBox2 ? newBoundingBox2.width : null;
+    if (iconWidth2 && newIconWidth2) {
+      expect(newIconWidth2).toBeGreaterThan(iconWidth2);
     } else {
       throw new Error("Icon width is null");
     }
+    await page.close();
   });
 }

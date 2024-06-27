@@ -7,13 +7,12 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("navigate from footer when are on shop", async ({ page }) => {
-        await page.goto(frontUrl_1.default + "/collections/all");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/all", { waitUntil: "networkidle" });
         await (0, test_1.expect)(page.getByTestId("flowbite-footer")).toBeVisible();
         await page.getByRole("link", { name: "Who We Are" }).click();
-        await page.waitForLoadState();
-        console.log(frontUrl_1.default + "/about");
+        await page.waitForLoadState("networkidle");
         await (0, test_1.expect)(page.url()).toBe(frontUrl_1.default + "/about");
+        await page.close();
     });
 }
 exports.default = createTest;

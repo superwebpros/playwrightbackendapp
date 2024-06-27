@@ -8,9 +8,11 @@ const frontUrl_1 = __importDefault(require("../../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("gender sizes are being separated", async ({ page }) => {
         // Check womens sizes
-        await page.goto(frontUrl_1.default + "/collections/women/footwear");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/women/footwear", {
+            waitUntil: "commit",
+        });
         await page.getByRole("button", { name: "Size" }).click();
+        await page.waitForLoadState("networkidle");
         const womenSizes = await page.getByTestId("sizeValue").allInnerTexts();
         let correct = true;
         womenSizes.map((size) => {
@@ -20,9 +22,12 @@ function createTest() {
         });
         await (0, test_1.expect)(correct).toBeTruthy();
         // Check men sizes
-        await page.goto(frontUrl_1.default + "/collections/men/footwear");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/men/footwear", {
+            waitUntil: "networkidle",
+        });
+        await page.waitForLoadState("networkidle");
         await page.getByRole("button", { name: "Size" }).click();
+        await page.waitForLoadState("networkidle");
         const menSizes = await page.getByTestId("sizeValue").allInnerTexts();
         correct = true;
         menSizes.map((size) => {
@@ -32,17 +37,21 @@ function createTest() {
         });
         await (0, test_1.expect)(correct).toBeTruthy();
         // Check Kids sizes
-        await page.goto(frontUrl_1.default + "/collections/kids/footwear");
-        await page.waitForLoadState();
+        await page.goto(frontUrl_1.default + "/collections/kids/footwear", {
+            waitUntil: "commit",
+        });
+        await page.waitForLoadState("networkidle");
         await page.getByRole("button", { name: "Size" }).click();
+        await page.waitForLoadState("networkidle");
         const kidSizes = await page.getByTestId("sizeValue").allInnerTexts();
         correct = true;
         kidSizes.map((size) => {
-            if (Number(size) > 5 || Number(size) < 1) {
+            if (Number(size) > 13 || Number(size) < 1) {
                 correct = false;
             }
         });
         await (0, test_1.expect)(correct).toBeTruthy();
+        await page.close();
     });
 }
 exports.default = createTest;

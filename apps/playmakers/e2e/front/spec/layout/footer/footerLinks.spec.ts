@@ -3,12 +3,11 @@ import url from "../../../../config/frontUrl";
 
 export default function createTest() {
   test("navigate from footer when are on shop", async ({ page }) => {
-    await page.goto(url + "/collections/all");
-    await page.waitForLoadState();
+    await page.goto(url + "/collections/all", { waitUntil: "networkidle" });
     await expect(page.getByTestId("flowbite-footer")).toBeVisible();
     await page.getByRole("link", { name: "Who We Are" }).click();
-    await page.waitForLoadState();
-    console.log(url+"/about")
+    await page.waitForLoadState("networkidle");
     await expect(page.url()).toBe(url + "/about");
+    await page.close();
   });
 }

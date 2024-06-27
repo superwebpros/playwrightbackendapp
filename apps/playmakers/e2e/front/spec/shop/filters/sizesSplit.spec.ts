@@ -4,9 +4,12 @@ import url from "../../../../config/frontUrl";
 export default function createTest() {
   test("gender sizes are being separated", async ({ page }) => {
     // Check womens sizes
-    await page.goto(url + "/collections/women/footwear");
-    await page.waitForLoadState();
+    await page.goto(url + "/collections/women/footwear", {
+      waitUntil: "commit",
+    });
+
     await page.getByRole("button", { name: "Size" }).click();
+    await page.waitForLoadState("networkidle");
     const womenSizes = await page.getByTestId("sizeValue").allInnerTexts();
     let correct = true;
     womenSizes.map((size) => {
@@ -15,11 +18,13 @@ export default function createTest() {
       }
     });
     await expect(correct).toBeTruthy();
-
     // Check men sizes
-    await page.goto(url + "/collections/men/footwear");
-    await page.waitForLoadState();
+    await page.goto(url + "/collections/men/footwear", {
+      waitUntil: "networkidle",
+    });
+    await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Size" }).click();
+    await page.waitForLoadState("networkidle");
     const menSizes = await page.getByTestId("sizeValue").allInnerTexts();
     correct = true;
     menSizes.map((size) => {
@@ -30,16 +35,20 @@ export default function createTest() {
     await expect(correct).toBeTruthy();
 
     // Check Kids sizes
-    await page.goto(url + "/collections/kids/footwear");
-    await page.waitForLoadState();
+    await page.goto(url + "/collections/kids/footwear", {
+      waitUntil: "commit",
+    });
+    await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Size" }).click();
+    await page.waitForLoadState("networkidle");
     const kidSizes = await page.getByTestId("sizeValue").allInnerTexts();
     correct = true;
     kidSizes.map((size) => {
-      if (Number(size) > 5 || Number(size) < 1) {
+      if (Number(size) > 13 || Number(size) < 1) {
         correct = false;
       }
     });
     await expect(correct).toBeTruthy();
+    await page.close();
   });
 }

@@ -7,9 +7,17 @@ const test_1 = require("@playwright/test");
 const frontUrl_1 = __importDefault(require("../../../config/frontUrl"));
 function createTest() {
     (0, test_1.test)("nav, search and account buttons are visible", async ({ page }) => {
-        await page.goto(frontUrl_1.default);
+        await page.goto(frontUrl_1.default, { waitUntil: "networkidle" });
         await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
         await (0, test_1.expect)(page.getByTestId("favoriteButton")).toBeVisible();
+        await page.close();
+    });
+    (0, test_1.test)("nav sticky on scroll", async ({ page }) => {
+        await page.goto(frontUrl_1.default, { waitUntil: "networkidle" });
+        await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
+        await page.evaluate(() => window.scrollTo(0, 5000));
+        await (0, test_1.expect)(page.getByTestId("nav")).toBeVisible();
+        await page.close();
     });
 }
 exports.default = createTest;
