@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.bra = exports.socksHeight = exports.sizesSplit = exports.searchers = exports.colors = exports.priceRange = exports.brands = exports.flavorInAccessories = exports.filterSticky = exports.productTypeFiltering = exports.genderFiltering = exports.tags = exports.clearRefinements = exports.filters = void 0;
+exports.categories = exports.bra = exports.socksHeight = exports.sizesSplit = exports.searchers = exports.colors = exports.priceRange = exports.brands = exports.flavorInAccessories = exports.filterSticky = exports.productTypeFiltering = exports.genderFiltering = exports.tags = exports.clearRefinements = exports.filters = void 0;
 var filters_spec_1 = require("./filters.spec");
 Object.defineProperty(exports, "filters", { enumerable: true, get: function () { return __importDefault(filters_spec_1).default; } });
 var clearRefinements_spec_1 = require("./clearRefinements.spec");
@@ -32,3 +32,5 @@ var socksHeight_spec_1 = require("./socksHeight.spec");
 Object.defineProperty(exports, "socksHeight", { enumerable: true, get: function () { return __importDefault(socksHeight_spec_1).default; } });
 var bra_spec_1 = require("./bra.spec");
 Object.defineProperty(exports, "bra", { enumerable: true, get: function () { return __importDefault(bra_spec_1).default; } });
+var categories_spec_1 = require("./categories.spec");
+Object.defineProperty(exports, "categories", { enumerable: true, get: function () { return __importDefault(categories_spec_1).default; } });

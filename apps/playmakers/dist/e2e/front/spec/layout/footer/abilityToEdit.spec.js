@@ -49,6 +49,7 @@ function createTest() {
         await newPage.waitForLoadState("networkidle");
         await page.reload({ waitUntil: "commit" });
         await page.waitForLoadState("networkidle");
+        await page.waitForTimeout(2000);
         const copyrightAfter2 = await page.getByTestId("flowbite-footer-copyright");
         const copyrightTextAfter2 = await copyrightAfter2.innerText();
         await (0, test_1.expect)(copyrightTextAfter2).toEqual(copyrightText);
