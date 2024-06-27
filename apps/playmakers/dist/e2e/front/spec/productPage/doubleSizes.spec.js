@@ -12,6 +12,8 @@ function createTest() {
         await page.getByRole("button", { name: "Unisex" }).click();
         await page.getByRole("button", { name: "Product Type" }).click();
         await page.getByRole("button", { name: "footwear" }).click();
+        await page.getByRole('button', { name: 'Size' }).click();
+        await page.getByRole('button', { name: 'M 5 / W' }).click();
         await page.waitForTimeout(1500);
         const data = await page.getByTestId("hit").first().allInnerTexts();
         await page.getByTestId("hit").first().click();
