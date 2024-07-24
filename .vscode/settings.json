@@ -1,29 +1,2 @@
 {
-  "playwright.workspaceSettings": {
-    "configs": [
-      {
-        "relativeConfigFile": "apps/superwebpros/playwright.config.js",
-        "selected": false,
-        "enabled": false,
-        "projects": []
-      },
-      {
-        "relativeConfigFile": "apps/playmakers/playwright.config.js",
-        "selected": false,
-        "enabled": true,
-        "projects": []
-      },
-      {
-        "relativeConfigFile": "playwright.config.js",
-        "selected": true,
-        "enabled": true,
-        "projects": [
-          {
-            "name": "chromium",
-            "enabled": true
-          }
-        ]
-      }
-    ]
-  }
 }
