@@ -6,15 +6,15 @@ const runTests = async () => {
   const page = await browser.newPage();
 
   // Ejecutar las pruebas
-  await page.goto("https://www.staging-shop.luckylittlelearners.com/");
+  await page.goto("https://staging-shop.luckylittlelearners.com/");
   await page.goto(
-    "https://www.staging-shop.luckylittlelearners.com/shop-library"
+    "https://staging-shop.luckylittlelearners.com/shop-library"
   );
   await page.goto(
-    "https://www.staging-shop.luckylittlelearners.com/membership-shop"
+    "https://staging-shop.luckylittlelearners.com/membership-shop"
   );
   await page.goto(
-    "https://www.staging-shop.luckylittlelearners.com/membership-library"
+    "https://staging-shop.luckylittlelearners.com/membership-library"
   );
 
   // Cerrar el navegador
